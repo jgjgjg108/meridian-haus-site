@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OBI Perfumeria — Case Study — Meridian Haus</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #E5DFD0;
+    --paper-dim: #DAD3C0;
+    --ink: #362820;
+    --ink-soft: #5C4C40;
+    --brass: #B08535;
+    --line: rgba(54,40,32,0.16);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+  }
+
+  h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
+
+  a { color: inherit; }
+
+  .case-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 26px 6vw;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .case-nav a {
+    text-decoration: none;
+    border-bottom: 1px solid var(--brass);
+    padding-bottom: 3px;
+  }
+
+  .case-header {
+    padding: 60px 6vw 100px;
+    max-width: 900px;
+  }
+
+  .case-eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 20px;
+  }
+
+  .case-header h1 {
+    font-size: clamp(2.6rem, 6vw, 4.5rem);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .case-hero-media {
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    background: var(--paper-dim);
+  }
+
+  .case-hero-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .case-narrative {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 120px 6vw;
+  }
+
+  @media (max-width: 780px) {
+    .case-narrative { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .case-narrative h3 {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--brass);
+    margin-bottom: 16px;
+  }
+
+  .case-narrative p {
+    font-size: 0.96rem;
+    line-height: 1.75;
+    color: var(--ink-soft);
+  }
+
+  .case-gallery-image {
+    width: 100%;
+    margin-bottom: 4px;
+  }
+
+  .case-gallery-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .case-deliverables {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 100px 6vw;
+    text-align: center;
+  }
+
+  .case-deliverables .case-eyebrow { text-align: center; }
+
+  .deliverable-list {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-top: 24px;
+  }
+
+  .suggested {
+    padding: 100px 6vw 120px;
+    border-top: 1px solid var(--line);
+  }
+
+  .suggested h2 {
+    font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+    font-style: italic;
+    margin-bottom: 50px;
+  }
+
+  .suggested-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+
+  @media (max-width: 780px) {
+    .suggested-grid { grid-template-columns: 1fr; }
+  }
+
+  .suggested-item {
+    text-decoration: none;
+    display: block;
+  }
+
+  .suggested-item .thumb {
+    background: var(--paper-dim);
+    border: 1px solid var(--line);
+    aspect-ratio: 4/5;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+
+  .suggested-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .suggested-item .case-eyebrow { margin-bottom: 6px; }
+
+  .suggested-item h3 {
+    font-size: 1.3rem;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<nav class="case-nav">
+  <a href="../index.html#work">← Meridian Haus</a>
+  <span>OBI Perfumeria</span>
+</nav>
+
+<header class="case-header">
+  <div class="case-eyebrow">Branding · Fragrance</div>
+  <h1>OBI Perfumeria</h1>
+</header>
+
+<div class="case-hero-media">
+  <img src="assets/obi/obi-02-group.png" alt="OBI Perfumeria full collection, group shot">
+</div>
+
+<section class="case-narrative">
+  <div>
+    <h3>The Client</h3>
+    <p>OBI is a fine fragrance house composed exclusively from minerals, plants, and resins — sourced and produced using cutting-edge extraction technology that preserves molecular integrity from harvest to bottle.</p>
+  </div>
+  <div>
+    <h3>The Objective</h3>
+    <p>Build a brand world that felt as elemental as the ingredients themselves — grounding and ethereal at once, ancient materials made new, with packaging and photography that could hold up against the most restrained luxury fragrance houses.</p>
+  </div>
+  <div>
+    <h3>The Solution</h3>
+    <p>A dark, mineral visual language built around the double-oval OBI mark, a black/ash/stone/silver/platinum palette, and product photography that treats each object as a specimen — precise, tactile, and quietly dramatic.</p>
+  </div>
+</section>
+
+<div class="case-gallery-image">
+  <img src="assets/obi/obi-05-junemoon.png" alt="OBI June Moon bottle, mineral opalescence">
+</div>
+
+<div class="case-gallery-image">
+  <img src="assets/obi/obi-01-molten-scent.png" alt="OBI Molten Scent compact on obsidian">
+</div>
+
+<div class="case-gallery-image">
+  <img src="assets/obi/obi-03-handfood.png" alt="OBI Hand Food tube on slate">
+</div>
+
+<div class="case-gallery-image">
+  <img src="assets/obi/obi-04-box.png" alt="OBI packaging box on stone">
+</div>
+
+<section class="case-deliverables">
+  <div class="case-eyebrow">Deliverables</div>
+  <div class="deliverable-list">
+    <span>Brand Identity</span>
+    <span>Packaging Design</span>
+    <span>Product Photography</span>
+    <span>E-Commerce Experience</span>
+  </div>
+</section>
+
+<section class="suggested">
+  <h2>Suggested Projects</h2>
+  <div class="suggested-grid">
+    <a href="evolve.html" class="suggested-item">
+      <div class="thumb"><video src="../assets/work/evolve.mp4" autoplay loop muted playsinline></video></div>
+      <div class="case-eyebrow">Stationery</div>
+      <h3>Evolve</h3>
+    </a>
+    <a href="../index.html#work" class="suggested-item">
+      <div class="thumb"><video src="../assets/work/osterria.mp4" autoplay loop muted playsinline></video></div>
+      <div class="case-eyebrow">Hospitality</div>
+      <h3>Osterria Notte</h3>
+    </a>
+    <a href="https://velvety-dieffenbachia-606a94.netlify.app" target="_blank" class="suggested-item">
+      <div class="thumb"><video src="../assets/work/cantilever.mp4" autoplay loop muted playsinline></video></div>
+      <div class="case-eyebrow">Concept — Architecture</div>
+      <h3>Cantilever</h3>
+    </a>
+  </div>
+</section>
+
+</body>
+</html>

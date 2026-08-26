@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evolve — Case Study — Meridian Haus</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #E5DFD0;
+    --paper-dim: #DAD3C0;
+    --ink: #362820;
+    --ink-soft: #5C4C40;
+    --brass: #B08535;
+    --line: rgba(54,40,32,0.16);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Jost', sans-serif; font-weight: 300; }
+  h1, h2 { font-family: 'Cormorant Garamond', serif; }
+  a { color: inherit; }
+
+  /* ---------- Sticky jump nav ---------- */
+  .case-topnav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(229,223,208,0.94);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 6vw;
+  }
+  .case-topnav .back {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 1px solid var(--brass);
+    padding-bottom: 2px;
+    flex-shrink: 0;
+  }
+  .case-topnav .chapters {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    justify-content: flex-end;
+  }
+  .case-topnav .chapters a { text-decoration: none; color: var(--ink-soft); }
+  .case-topnav .chapters a:hover { color: var(--brass); }
+  @media (max-width: 860px) {
+    .case-topnav { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .case-topnav .chapters { justify-content: flex-start; gap: 14px; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 70px 6vw 50px;
+    max-width: 1000px;
+  }
+  .hero .meta {
+    display: flex;
+    gap: 18px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: clamp(2.4rem, 5.6vw, 4.2rem);
+    font-style: normal;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.05;
+    margin-bottom: 10px;
+  }
+  .hero .tagline {
+    font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+    color: var(--ink-soft);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+  }
+  .hero-image { width: 100%; }
+  .hero-image img { width: 100%; height: auto; display: block; }
+
+  /* ---------- Chapters ---------- */
+  .chapter {
+    padding: 110px 6vw;
+    max-width: 1000px;
+    margin: 0 auto;
+    scroll-margin-top: 70px;
+  }
+  .chapter .eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 18px;
+  }
+  .chapter h2 {
+    font-size: clamp(2rem, 4.2vw, 3.2rem);
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    max-width: 16ch;
+  }
+  .chapter p {
+    font-size: 1.02rem;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    max-width: 62ch;
+    margin-bottom: 24px;
+  }
+  .chapter-image {
+    margin-top: 50px;
+    width: 100%;
+    background: var(--paper-dim);
+  }
+  .chapter-image img { width: 100%; height: auto; display: block; }
+  .chapter-image.contained img { max-width: 620px; margin: 0 auto; }
+  .image-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 50px;
+  }
+  @media (max-width: 780px) { .image-row { grid-template-columns: 1fr; } }
+  .image-row img { width: 100%; height: auto; display: block; background: var(--paper-dim); }
+
+  /* ---------- Thank you ---------- */
+  .thank-you {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 120px 6vw;
+    text-align: center;
+  }
+  .thank-you .eyebrow { color: var(--brass); }
+  .thank-you h2 { color: #fff; }
+  .thank-you p { color: rgba(229,223,208,0.8); max-width: 56ch; margin: 0 auto 24px; }
+  .thank-you a {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 1px solid var(--brass);
+    padding-bottom: 3px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="case-topnav">
+  <a href="../index.html#project-one" class="back">← Meridian Haus</a>
+  <div class="chapters">
+    <a href="#challenge">Challenge</a>
+    <a href="#positioning">Positioning</a>
+    <a href="#wordmark">The Wordmark</a>
+    <a href="#packaging">Packaging</a>
+    <a href="#collection">The Collection</a>
+    <a href="#outcome">Outcome</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="meta"><span>Stationery</span><span>Brand Identity &amp; Packaging</span></div>
+  <h1>Evolve</h1>
+  <p class="tagline">Take Charge of Your Evolution.</p>
+</header>
+
+<div class="hero-image">
+  <img src="assets/evolve/evolve-02-packaging.png" alt="Evolve packaging, wax seal detail">
+</div>
+
+<section class="chapter" id="challenge">
+  <div class="eyebrow">Challenge</div>
+  <h2>A Daily Practice, Not a Product Line</h2>
+  <p>Evolve arrived as a stationery brand with real craft behind it, but no framework for what it actually was. The products — a journal, a planner, a calendar — existed, but the brand hadn't yet decided whether it was selling paper goods or something people would build a daily ritual around.</p>
+  <p>The task was to position Evolve as a luxury daily-practice brand, not a stationery company — and build every material, from leather to wax seal, to carry that intention.</p>
+</section>
+
+<section class="chapter" id="positioning">
+  <div class="eyebrow">Positioning</div>
+  <h2>Take Charge of Your Evolution</h2>
+  <p>A stationery brand leading the way in evolving through daily practices — intentional planners, insightful journals, and community-rooted experiences. Every color exists in the physical world of the product before it appears on screen: crimson leather, parchment paper, burnished bone.</p>
+</section>
+
+<section class="chapter" id="wordmark">
+  <div class="eyebrow">The Wordmark</div>
+  <h2>An Interlocking Diamond</h2>
+  <p>The mark uses an interlocking diamond form — a reference to growth, cardinal directions, and the continuous nature of personal evolution. Always paired with the wordmark at smaller scales, it becomes the quiet signature across every material the brand touches.</p>
+  <p>EB Garamond carries the editorial voice at full presence; Jost ExtraLight holds every label, callout, and navigation moment. Two typefaces, one continuous practice.</p>
+</section>
+
+<section class="chapter" id="packaging">
+  <div class="eyebrow">Packaging</div>
+  <h2>The Unboxing Is Part of the Ritual</h2>
+  <p>The packaging system was designed to be unwrapped deliberately — a sequence of reveals that prepares the person to use what's inside. A matte black outer box, debossed with the wordmark. Parchment tissue wrap, sealed in crimson wax. A hand-stamped linen tag, tied with ribbon. Nothing is wasted. Every material signals intention.</p>
+  <p style="font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--ink);">"Every detail is a decision. Every decision is a message."</p>
+</section>
+
+<section class="chapter" id="collection">
+  <div class="eyebrow">The Collection</div>
+  <h2>Three Products, One Practice</h2>
+  <p>Leather, emboss, and botanical detail — objects worthy of daily ritual. The Daily Journal in full-grain crimson leather. The Daily Planner in croc-emboss, closed with a brass tab. The Daily Calendar, botanical emboss pressed into brushed metal.</p>
+  <div class="image-row">
+    <img src="assets/evolve/evolve-01-journal.png" alt="Evolve Daily Journal">
+    <img src="assets/evolve/evolve-03-planner.png" alt="Evolve Daily Planner">
+  </div>
+  <div class="chapter-image contained" style="max-width: 620px; margin: 50px auto 0;">
+    <img src="assets/evolve/evolve-04-calendar.png" alt="Evolve Daily Calendar">
+  </div>
+</section>
+
+<section class="chapter" id="outcome">
+  <div class="eyebrow">Outcome</div>
+  <h2>A Practice, Made Tangible</h2>
+  <p>Four disciplines, one continuous practice — brand, mark, packaging, and storefront built as a single material world. Evolve now reads as a daily-practice brand people build a ritual around, not a stationery line competing on price.</p>
+</section>
+
+<section class="thank-you">
+  <div class="eyebrow">Thank You</div>
+  <h2>To Everyone Behind Evolve</h2>
+  <p>This project was shaped by a shared belief that a written page still carries something no screen can replicate. Thank you for trusting that belief through every material decision.</p>
+  <a href="../index.html#work">Continue to the Next Project →</a>
+</section>
+
+</body>
+</html>
