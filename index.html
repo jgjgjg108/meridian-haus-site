@@ -731,6 +731,281 @@
     line-height: 1.7;
   }
 
+  /* ---------- Testimonials ---------- */
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+    max-width: 1100px;
+  }
+
+  @media (max-width: 780px) {
+    .testimonial-grid { grid-template-columns: 1fr; }
+  }
+
+  .testimonial-card {
+    padding: 34px 30px;
+    background: var(--paper-dim);
+    border: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .testimonial-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--ink);
+    margin-bottom: 22px;
+    flex: 1;
+  }
+
+  .testimonial-attribution {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--maroon);
+  }
+
+  /* ---------- Services note & contact response line ---------- */
+  .services-note {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--ink-soft);
+    max-width: 56ch;
+    line-height: 1.6;
+    margin-bottom: 50px;
+  }
+
+  .contact-response-note {
+    margin-top: 22px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    max-width: 40ch;
+    line-height: 1.6;
+  }
+
+  /* ---------- Contact form ---------- */
+  .contact-form {
+    margin-top: 40px;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .contact-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  @media (max-width: 560px) {
+    .contact-form .form-row { grid-template-columns: 1fr; }
+  }
+
+  .contact-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--line);
+    padding: 8px 2px;
+    outline: none;
+    resize: vertical;
+  }
+
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus {
+    border-color: var(--maroon);
+  }
+
+  .contact-form button {
+    align-self: flex-start;
+    cursor: pointer;
+  }
+
+  .contact-alt {
+    margin-top: 26px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+
+  .contact-alt a {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .form-status {
+    font-size: 0.82rem;
+    color: var(--maroon);
+    display: none;
+  }
+
+  .form-status.visible { display: block; }
+
+  /* ---------- About photo ---------- */
+  #about .about-inner {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+    max-width: 760px;
+  }
+
+  #about .about-photo {
+    width: 190px;
+    flex-shrink: 0;
+  }
+
+  #about .about-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--line);
+  }
+
+  #about .about-photo .photo-caption {
+    margin-top: 10px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  #about .about-text { max-width: 560px; }
+
+  @media (max-width: 720px) {
+    #about .about-inner { flex-direction: column; gap: 28px; }
+    #about .about-photo { width: 150px; }
+  }
+
+  /* ---------- Floating CTA ---------- */
+  .floating-cta {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 60;
+    display: inline-block;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.76rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--paper);
+    background: var(--maroon);
+    padding: 16px 30px;
+    border: 1px solid var(--maroon);
+    box-shadow: 0 12px 28px rgba(54,40,32,0.28);
+    opacity: 0;
+    transform: translateY(12px);
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease, background 0.3s ease;
+  }
+
+  .floating-cta.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .floating-cta:hover {
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+
+  @media (max-width: 720px) {
+    .floating-cta {
+      bottom: 18px;
+      right: 16px;
+      left: 16px;
+      text-align: center;
+      padding: 15px 20px;
+    }
+  }
+
+  /* ---------- Mobile nav ---------- */
+  .mobile-nav-toggle {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 80;
+    width: 46px;
+    height: 46px;
+    background: var(--ink);
+    border: none;
+    border-radius: 2px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .mobile-nav-toggle span {
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: var(--paper);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .mobile-nav-toggle.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .mobile-nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .mobile-nav-toggle.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  .mobile-nav-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 75;
+    background: var(--ink);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    transform: translateY(-100%);
+    transition: transform 0.4s ease;
+  }
+
+  .mobile-nav-menu.open { transform: translateY(0); }
+
+  .mobile-nav-menu a {
+    font-family: 'Jost', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--paper);
+    text-decoration: none;
+  }
+
+  .mobile-nav-logo img { width: 84px; margin-bottom: 10px; }
+
+  @media (max-width: 720px) {
+    .tabs { display: none; }
+    .mobile-nav-toggle { display: flex; }
+    .mobile-nav-menu { display: flex; }
+    .page { padding: 100px 6vw 60px 6vw !important; }
+  }
+
 </style>
 </head>
 <body>
@@ -744,6 +1019,19 @@
   <div class="tab" data-target="about"><span>About</span></div>
   <div class="tab" data-target="contact"><span>Contact</span></div>
 </nav>
+
+<button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open menu">
+  <span></span><span></span><span></span>
+</button>
+<div class="mobile-nav-menu" id="mobileNavMenu">
+  <div class="mobile-nav-logo"><img src="assets/logo.webp" alt="Meridian Haus" style="width:84px;"></div>
+  <a data-target="cover">Cover</a>
+  <a data-target="project-one">Work</a>
+  <a data-target="philosophy">Philosophy</a>
+  <a data-target="services">Services</a>
+  <a data-target="about">About</a>
+  <a data-target="contact">Contact</a>
+</div>
 
 <div class="binder" id="binder">
 
@@ -769,7 +1057,7 @@
   <section class="page" id="project-one" style="height:auto; min-height:100vh; padding-top:140px; padding-bottom:140px;">
     <div class="work-block layout-cinematic" style="margin-bottom:0;">
       <div class="work-media">
-        <div class="media-grade"><video src="assets/work/evolve.mp4" autoplay loop muted playsinline></video></div>
+        <div class="media-grade"><video src="assets/work/evolve.mp4" poster="assets/work/evolve-poster.jpg" autoplay loop muted playsinline></video></div>
       </div>
       <div class="work-meta-row">
         <div>
@@ -823,7 +1111,7 @@
       <div class="work-eyebrow">02 — Fragrance</div>
       <h3 class="work-title">OBI Perfumeria</h3>
       <div class="work-media">
-        <div class="media-grade"><video src="assets/work/obi.mp4" autoplay loop muted playsinline></video></div>
+        <div class="media-grade"><video src="assets/work/obi.mp4" poster="assets/work/obi-poster.jpg" autoplay loop muted playsinline></video></div>
       </div>
       <p class="work-line">A dark, mineral brand world built around restraint.</p>
       <div class="work-deliverables">
@@ -844,7 +1132,7 @@
           <a href="case-studies/osterria.html" class="btn-case-study">View Case Study →</a>
         </div>
         <div class="work-media">
-          <div class="media-grade"><video src="assets/work/osterria.mp4" autoplay loop muted playsinline></video></div>
+          <div class="media-grade"><video src="assets/work/osterria.mp4" poster="assets/work/osterria-poster.jpg" autoplay loop muted playsinline></video></div>
         </div>
       </div>
     </div>
@@ -854,13 +1142,13 @@
       <h3 class="work-title">Cantilever</h3>
       <p class="work-line">A self-directed studio concept — brand and site as one system.</p>
       <div class="work-media">
-        <div class="media-grade"><video src="assets/work/cantilever.mp4" autoplay loop muted playsinline></video></div>
+        <div class="media-grade"><video src="assets/work/cantilever.mp4" poster="assets/work/cantilever-poster.jpg" autoplay loop muted playsinline></video></div>
       </div>
       <div class="work-deliverables">
         <span>Brand Concept</span><span>Website Design</span><span>Interactive Experience</span>
       </div>
       <br><br>
-      <a href="https://velvety-dieffenbachia-606a94.netlify.app" target="_blank" class="btn-case-study">View the Site →</a>
+      <a href="https://cantilever-studio.netlify.app" target="_blank" class="btn-case-study">View the Site →</a>
     </div>
 
     <div class="folio">No. 004 — Work</div>
@@ -943,6 +1231,29 @@
     <div class="folio">No. 006 — Selected Experience</div>
   </section>
 
+  <!-- TESTIMONIALS -->
+  <section class="page" id="testimonials" style="height:auto; min-height:100vh; padding-top:140px; padding-bottom:140px;">
+    <div class="section-head">
+      <div class="eyebrow">In Their Words</div>
+      <h2>What it's like to work together</h2>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"[Drop in a short client quote here — what changed for their brand, or what it was like working together.]"</p>
+        <div class="testimonial-attribution">— Client Name, Project</div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"[A second quote — specific outcomes land better than general praise: a launch, a reaction, a result.]"</p>
+        <div class="testimonial-attribution">— Client Name, Project</div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"[A third, if you have one — three is usually enough to feel like a pattern rather than a fluke.]"</p>
+        <div class="testimonial-attribution">— Client Name, Project</div>
+      </div>
+    </div>
+    <div class="folio">No. 007 — Testimonials</div>
+  </section>
+
   <!-- PAUSE 4 — before the founder -->
   <section class="page pause-section" id="pause-4" style="height:auto;">
     <p>Who thinks this way?</p>
@@ -955,11 +1266,17 @@
       <h2>The studio</h2>
     </div>
     <div class="about-inner">
-      <p>Meridian Haus was founded on a simple belief: a brand's presence should never undersell what it actually offers. Too many boutique businesses and small brands settle for looking small because that's what's available at their budget — templated, generic, forgettable.</p>
-      <p>Every project starts the same way — by asking what makes this brand's world unlike anyone else's, and building outward from there. The result is work that reads as considered rather than convenient, whether it's a lookbook, an identity system, or a full digital presence.</p>
-      <p>Based in Cardiff-by-the-Sea, working with clients wherever they are.</p>
+      <div class="about-photo">
+        <img src="assets/contact/founder.jpg" alt="Julianna Gimelli, Founder of Meridian Haus">
+        <div class="photo-caption">Julianna Gimelli, Founder</div>
+      </div>
+      <div class="about-text">
+        <p>Meridian Haus was founded on a simple belief: a brand's presence should never undersell what it actually offers. Too many boutique businesses and small brands settle for looking small because that's what's available at their budget — templated, generic, forgettable.</p>
+        <p>Every project starts the same way — by asking what makes this brand's world unlike anyone else's, and building outward from there. The result is work that reads as considered rather than convenient, whether it's a lookbook, an identity system, or a full digital presence.</p>
+        <p>Based in Cardiff-by-the-Sea, working with clients wherever they are.</p>
+      </div>
     </div>
-    <div class="folio">No. 007 — About</div>
+    <div class="folio">No. 008 — About</div>
   </section>
 
   <!-- SERVICES -->
@@ -968,6 +1285,7 @@
       <div class="eyebrow">Who Belongs Here</div>
       <h2>Three ways in</h2>
     </div>
+    <p class="services-note">Every project is quoted to its own scope — there's no one-size price because there's no one-size brand. Tell me what you're building and you'll get a proposal built around it, not a template.</p>
     <div class="services-list">
       <div class="service-row">
         <div class="num">01</div>
@@ -994,7 +1312,7 @@
         </div>
       </div>
     </div>
-    <div class="folio">No. 008 — Services</div>
+    <div class="folio">No. 009 — Services</div>
   </section>
 
   <!-- PAUSE 5 — before the invitation -->
@@ -1010,16 +1328,49 @@
           <div class="eyebrow">Start a Project</div>
           <h2>Let's build your presence</h2>
         </div>
-        <div class="contact-links">
-          <a href="mailto:hello@meridianhaus.com">hello@meridianhaus.com</a>
+        <form class="contact-form" id="inquiryForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <input type="hidden" name="_subject" value="New inquiry — Meridian Haus site">
+          <div class="form-row">
+            <label>Name<input type="text" name="name" required></label>
+            <label>Email<input type="email" name="email" required></label>
+          </div>
+          <div class="form-row">
+            <label>Business / Brand<input type="text" name="business"></label>
+            <label>Project Type
+              <select name="project_type">
+                <option>Signature Lookbook</option>
+                <option>Brand Identity System</option>
+                <option>Full Brand + Digital Launch</option>
+                <option>Not sure yet</option>
+              </select>
+            </label>
+          </div>
+          <label>Budget Range
+            <select name="budget">
+              <option>Under $2,500</option>
+              <option>$2,500 – $5,000</option>
+              <option>$5,000 – $10,000</option>
+              <option>$10,000+</option>
+              <option>Not sure yet</option>
+            </select>
+          </label>
+          <label>Tell me about your project
+            <textarea name="message" rows="4" required></textarea>
+          </label>
+          <button type="submit" class="btn">Send Inquiry →</button>
+          <p class="form-status" id="formStatus"></p>
+        </form>
+        <div class="contact-alt">
+          Prefer email? <a href="mailto:hello@meridianhaus.com">hello@meridianhaus.com</a>
         </div>
+        <p class="contact-response-note">Typically a reply within 2 business days, followed by a short call to talk through scope.</p>
       </div>
       <div class="contact-photo">
         <img src="assets/contact/founder.jpg" alt="Julianna Gimelli, Founder of Meridian Haus">
         <div class="photo-caption">Julianna Gimelli, Founder</div>
       </div>
     </div>
-    <div class="folio">No. 009 — Contact</div>
+    <div class="folio">No. 010 — Contact</div>
   </section>
 
 </div>
@@ -1078,6 +1429,57 @@
   }, { root: binder, threshold: 0.2 });
 
   document.querySelectorAll('.work-block').forEach(el => revealObserver.observe(el));
+
+  // ---- Mobile nav toggle ----
+  const mobileToggle = document.getElementById('mobileNavToggle');
+  const mobileMenu = document.getElementById('mobileNavMenu');
+
+  mobileToggle.addEventListener('click', () => {
+    mobileToggle.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  mobileMenu.querySelectorAll('a[data-target]').forEach(link => {
+    link.addEventListener('click', () => {
+      const target = document.getElementById(link.dataset.target);
+      target.scrollIntoView({ behavior: 'smooth' });
+      mobileToggle.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // ---- Inquiry form: AJAX submit to Formspree, stay on page ----
+  const inquiryForm = document.getElementById('inquiryForm');
+  const formStatus = document.getElementById('formStatus');
+
+  if (inquiryForm) {
+    inquiryForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = inquiryForm.querySelector('button[type="submit"]');
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+      try {
+        const res = await fetch(inquiryForm.action, {
+          method: 'POST',
+          body: new FormData(inquiryForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          inquiryForm.reset();
+          formStatus.textContent = "Thank you — your inquiry is in. I'll be in touch within 2 business days.";
+          formStatus.classList.add('visible');
+        } else {
+          formStatus.textContent = "Something went wrong sending that — please email hello@meridianhaus.com directly.";
+          formStatus.classList.add('visible');
+        }
+      } catch (err) {
+        formStatus.textContent = "Something went wrong sending that — please email hello@meridianhaus.com directly.";
+        formStatus.classList.add('visible');
+      }
+      submitBtn.textContent = 'Send Inquiry →';
+      submitBtn.disabled = false;
+    });
+  }
 </script>
 
 </body>

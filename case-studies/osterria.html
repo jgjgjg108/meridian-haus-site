@@ -224,6 +224,25 @@
     font-size: 1.3rem;
     font-style: italic;
   }
+
+  /* ---------- Start-a-project CTA ---------- */
+  .cta-chapter { text-align: center; }
+  .cta-chapter h2, .cta-chapter p { margin-left: auto; margin-right: auto; }
+  .btn-start {
+    display: inline-block;
+    margin-top: 6px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.76rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--paper);
+    background: var(--ink);
+    padding: 15px 32px;
+    border: 1px solid var(--ink);
+    transition: all 0.3s ease;
+  }
+  .btn-start:hover { background: transparent; color: var(--ink); }
 </style>
 </head>
 <body>
@@ -273,7 +292,7 @@
   <h2>The Menu as an Artifact</h2>
   <p>The menu was designed to feel handcrafted — the kind of thing you'd find tucked into a trattoria in Naples, not printed that morning. A typewriter serif carries the dishes; the bold display wordmark bookends the piece top and bottom. Linen-textured stock, bound with a binder clip, torn-paper labeling — a tasting menu with wine pairings that reads like an object worth keeping.</p>
   <div class="chapter-image contained">
-    <video src="assets/osterria/osterria-03-menu.mp4" autoplay loop muted playsinline style="width:100%; height:auto; display:block; filter: drop-shadow(0 20px 26px rgba(54,40,32,0.16));"></video>
+    <video src="assets/osterria/osterria-03-menu.mp4" poster="assets/osterria/osterria-menu-poster.jpg" autoplay loop muted playsinline style="width:100%; height:auto; display:block; filter: drop-shadow(0 20px 26px rgba(54,40,32,0.16));"></video>
   </div>
 </section>
 
@@ -292,7 +311,7 @@
   <p>Polaroid-style editorial photography carries the warmth, texture, and intimacy of the dining room itself — dimly lit corners, handmade pasta, art on the walls, a Peroni sign over a doorway that's seen a thousand dinners. The direction is raw and honest rather than styled: pasta pulled straight from a wheel of pecorino, sourdough torn open in morning light.</p>
   <div class="image-row">
     <img src="assets/osterria/osterria-05-atmosphere.png" alt="Osterria Notte dining room, polaroid-style editorial photography">
-    <video src="assets/osterria/osterria-06-food.mp4" autoplay loop muted playsinline style="width:100%; height:100%; display:block; object-fit:cover; filter: drop-shadow(0 20px 26px rgba(54,40,32,0.16));"></video>
+    <video src="assets/osterria/osterria-06-food.mp4" poster="assets/osterria/osterria-food-poster.jpg" autoplay loop muted playsinline style="width:100%; height:100%; display:block; object-fit:cover; filter: drop-shadow(0 20px 26px rgba(54,40,32,0.16));"></video>
   </div>
 </section>
 
@@ -317,6 +336,13 @@
   </div>
 </section>
 
+<section class="chapter cta-chapter" id="start-project">
+  <div class="eyebrow">Start a Project</div>
+  <h2>Let's Build Yours</h2>
+  <p>If this is the kind of thinking your brand needs, let's talk about what that looks like for you.</p>
+  <a href="../index.html#contact" class="btn-start">Start a Project →</a>
+</section>
+
 <section class="thank-you">
   <div class="eyebrow">Thank You</div>
   <h2>To Everyone Behind Osterria Notte</h2>
@@ -328,17 +354,17 @@
   <h2>Suggested Projects</h2>
   <div class="suggested-grid">
     <a href="evolve.html" class="suggested-item">
-      <div class="thumb"><video src="../assets/work/evolve.mp4" autoplay loop muted playsinline></video></div>
+      <div class="thumb"><video src="../assets/work/evolve.mp4" poster="../assets/work/evolve-poster.jpg" autoplay loop muted playsinline></video></div>
       <div class="eyebrow">Stationery</div>
       <h3>Evolve</h3>
     </a>
     <a href="obi.html" class="suggested-item">
-      <div class="thumb"><video src="../assets/work/obi.mp4" autoplay loop muted playsinline></video></div>
+      <div class="thumb"><video src="../assets/work/obi.mp4" poster="../assets/work/obi-poster.jpg" autoplay loop muted playsinline></video></div>
       <div class="eyebrow">Fragrance</div>
       <h3>OBI Perfumeria</h3>
     </a>
-    <a href="https://velvety-dieffenbachia-606a94.netlify.app" target="_blank" class="suggested-item">
-      <div class="thumb"><video src="../assets/work/cantilever.mp4" autoplay loop muted playsinline></video></div>
+    <a href="https://cantilever-studio.netlify.app" target="_blank" class="suggested-item">
+      <div class="thumb"><video src="../assets/work/cantilever.mp4" poster="../assets/work/cantilever-poster.jpg" autoplay loop muted playsinline></video></div>
       <div class="eyebrow">Concept — Architecture</div>
       <h3>Cantilever</h3>
     </a>

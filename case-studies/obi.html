@@ -271,6 +271,25 @@
     font-size: 1.3rem;
     font-style: italic;
   }
+
+  /* ---------- Start-a-project CTA ---------- */
+  .cta-chapter { text-align: center; }
+  .cta-chapter h2, .cta-chapter p { margin-left: auto; margin-right: auto; }
+  .btn-start {
+    display: inline-block;
+    margin-top: 6px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.76rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--paper);
+    background: var(--ink);
+    padding: 15px 32px;
+    border: 1px solid var(--ink);
+    transition: all 0.3s ease;
+  }
+  .btn-start:hover { background: transparent; color: var(--ink); }
 </style>
 </head>
 <body>
@@ -360,6 +379,13 @@
   </div>
 </section>
 
+<section class="chapter cta-chapter" id="start-project">
+  <div class="eyebrow">Start a Project</div>
+  <h2>Let's Build Yours</h2>
+  <p>If this is the kind of thinking your brand needs, let's talk about what that looks like for you.</p>
+  <a href="../index.html#contact" class="btn-start">Start a Project →</a>
+</section>
+
 <section class="thank-you">
   <div class="eyebrow">Thank You</div>
   <h2>To Everyone Behind OBI</h2>
@@ -371,17 +397,17 @@
   <h2>Suggested Projects</h2>
   <div class="suggested-grid">
     <a href="evolve.html" class="suggested-item">
-      <div class="thumb"><video src="../assets/work/evolve.mp4" autoplay loop muted playsinline></video></div>
+      <div class="thumb"><video src="../assets/work/evolve.mp4" poster="../assets/work/evolve-poster.jpg" autoplay loop muted playsinline></video></div>
       <div class="eyebrow">Stationery</div>
       <h3>Evolve</h3>
     </a>
     <a href="osterria.html" class="suggested-item">
-      <div class="thumb"><video src="../assets/work/osterria.mp4" autoplay loop muted playsinline></video></div>
+      <div class="thumb"><video src="../assets/work/osterria.mp4" poster="../assets/work/osterria-poster.jpg" autoplay loop muted playsinline></video></div>
       <div class="eyebrow">Hospitality</div>
       <h3>Osterria Notte</h3>
     </a>
-    <a href="https://velvety-dieffenbachia-606a94.netlify.app" target="_blank" class="suggested-item">
-      <div class="thumb"><video src="../assets/work/cantilever.mp4" autoplay loop muted playsinline></video></div>
+    <a href="https://cantilever-studio.netlify.app" target="_blank" class="suggested-item">
+      <div class="thumb"><video src="../assets/work/cantilever.mp4" poster="../assets/work/cantilever-poster.jpg" autoplay loop muted playsinline></video></div>
       <div class="eyebrow">Concept — Architecture</div>
       <h3>Cantilever</h3>
     </a>
