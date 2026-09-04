@@ -147,6 +147,25 @@
     display: block;
     filter: drop-shadow(0 20px 26px rgba(54,40,32,0.16));
   }
+
+  /* ---------- Hand-drawn illustration set ---------- */
+  .illo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    align-items: center;
+    margin-top: 56px;
+  }
+  .illo-grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 240px;
+    object-fit: contain;
+  }
+  @media (max-width: 780px) {
+    .illo-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  }
   .deliverable-list {
     display: flex;
     flex-wrap: wrap;
@@ -285,6 +304,12 @@
   <h2>Bold. Memorable. Vibey.</h2>
   <p>The wordmark leans into a tall, slightly eccentric display face — OSTERRIA stacked hard over NOTTE — paired with a warm, sun-bleached palette of cream, olive, and deep maroon that reads more coastal Italy than checkered tablecloth. Hand-drawn linework (tomatoes on the vine, farfalle, a torn olive branch) runs quietly through the system as texture, never as decoration for its own sake.</p>
   <p>Every touchpoint carries the same conviction: this is a restaurant with a point of view, not a menu template with a nice font.</p>
+  <div class="illo-grid">
+    <img src="assets/osterria/illos/waiter.svg" alt="Hand-drawn illustration of a waiter balancing a tray of martinis">
+    <img src="assets/osterria/illos/table.svg" alt="Hand-drawn illustration of a set table with candles, flowers, and menus">
+    <img src="assets/osterria/illos/chef.svg" alt="Hand-drawn illustration of a chef lifting a cloche from a platter">
+    <img src="assets/osterria/illos/chin.svg" alt="Hand-drawn illustration of two figures toasting with an oversized glass, captioned Chin Chin">
+  </div>
 </section>
 
 <section class="chapter" id="menu">
