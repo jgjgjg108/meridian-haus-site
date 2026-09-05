@@ -167,6 +167,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 28px;
     margin-top: 55px;
+    max-width: 760px;
   }
   @media (max-width: 780px) { .specimen-grid { grid-template-columns: 1fr; } }
   .specimen-card {
@@ -290,6 +291,27 @@
     transition: all 0.3s ease;
   }
   .btn-start:hover { background: transparent; color: var(--ink); }
+
+  /* ---------- Split chapters: text beside media ---------- */
+  .chapter .chapter-text > :last-child { margin-bottom: 0; }
+  .chapter.split .chapter-media .chapter-image { margin-top: 40px; }
+  @media (min-width: 900px) {
+    .chapter.split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 72px;
+      align-items: center;
+      max-width: 1120px;
+    }
+    .chapter.split.flip .chapter-text { order: 2; }
+    .chapter.split.flip .chapter-media { order: 1; }
+    .chapter.split .chapter-media { max-width: 470px; width: 100%; justify-self: center; }
+    .chapter.split .chapter-media .chapter-image { margin-top: 0; }
+    .chapter.split .chapter-media .chapter-image img,
+    .chapter.split .chapter-media .chapter-image video { max-width: 100% !important; width: 100%; }
+    .chapter.split .chapter-text p { max-width: 52ch; }
+  }
+  .hero-image img { width: auto; max-width: min(100%, 760px); max-height: 72vh; height: auto; display: block; margin: 0 auto; }
 </style>
 </head>
 <body>
@@ -322,17 +344,31 @@
   <p>OBI is a fine fragrance house composed exclusively from minerals, plants, and resins — sourced and produced using cutting-edge extraction technology that preserves molecular integrity from harvest to bottle. The formulations were exacting; the brand around them wasn't yet.</p>
 </section>
 
-<section class="chapter" id="objective">
+<section class="chapter split" id="objective">
+  <div class="chapter-text">
   <div class="eyebrow">Objective</div>
   <h2>Elemental, Not Ornamental</h2>
   <p>Build a brand world that felt as elemental as the ingredients themselves — grounding and ethereal at once, ancient materials made new, with packaging and photography that could hold up against the most restrained luxury fragrance houses. Nothing about the identity could compete with the material; it had to defer to it.</p>
+  </div>
+  <div class="chapter-media">
+  <div class="chapter-image contained">
+    <img src="assets/obi/obi-lookbook-minerals.jpg" alt="OBI scent and mineral pairing chart — citrine, obsidian, amethyst, quartz, smoky quartz against citrus, palo santo, lavender, neroli, osmanthus">
+  </div>
+  </div>
 </section>
 
-<section class="chapter" id="mark">
+<section class="chapter split flip" id="mark">
+  <div class="chapter-text">
   <div class="eyebrow">The Mark</div>
   <h2>A Double Oval, Cast in Metal</h2>
   <p>The identity centers on a double-oval mark — two interlocking forms, dense and quiet, engraved into every compact, cap, and tube rather than printed onto it. It reads less like a logo and more like a hallmark, the kind stamped into metal to certify what's inside.</p>
   <p>A dark, mineral visual language built around the mark, a black/ash/stone/silver/platinum palette, and product photography that treats each object as a specimen — precise, tactile, and quietly dramatic.</p>
+  </div>
+  <div class="chapter-media">
+  <div class="chapter-image contained">
+    <video src="assets/obi/obi-mark-products.mp4" poster="assets/obi/obi-mark-products-poster.jpg" autoplay loop muted playsinline style="width:100%; height:auto; display:block; filter: drop-shadow(0 20px 26px rgba(54,40,32,0.16));"></video>
+  </div>
+  </div>
 </section>
 
 <section class="chapter" id="collection">
@@ -355,12 +391,16 @@
   </div>
 </section>
 
-<section class="chapter" id="packaging">
+<section class="chapter split" id="packaging">
+  <div class="chapter-text">
   <div class="eyebrow">Packaging</div>
   <h2>Weighted, Deliberate, Still</h2>
   <p>The outer packaging borrows the same restraint as the bottles — a plain stone-colored box, mark debossed at center, photographed the way a jeweler would shoot a stone: balanced, lit from one side, and left alone.</p>
+  </div>
+  <div class="chapter-media">
   <div class="chapter-image contained">
-    <img src="assets/obi/obi-04-box.png" alt="OBI packaging box balanced on stacked stone">
+    <img src="assets/obi/obi-lookbook-box.jpg" alt="OBI packaging box balanced on stacked stone">
+  </div>
   </div>
 </section>
 

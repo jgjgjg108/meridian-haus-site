@@ -186,6 +186,27 @@
     transition: all 0.3s ease;
   }
   .btn-start:hover { background: transparent; color: var(--ink); }
+
+  /* ---------- Split chapters: text beside media ---------- */
+  .chapter .chapter-text > :last-child { margin-bottom: 0; }
+  .chapter.split .chapter-media .chapter-image { margin-top: 40px; }
+  @media (min-width: 900px) {
+    .chapter.split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 72px;
+      align-items: center;
+      max-width: 1120px;
+    }
+    .chapter.split.flip .chapter-text { order: 2; }
+    .chapter.split.flip .chapter-media { order: 1; }
+    .chapter.split .chapter-media { max-width: 470px; width: 100%; justify-self: center; }
+    .chapter.split .chapter-media .chapter-image { margin-top: 0; }
+    .chapter.split .chapter-media .chapter-image img,
+    .chapter.split .chapter-media .chapter-image video { max-width: 100% !important; width: 100%; }
+    .chapter.split .chapter-text p { max-width: 52ch; }
+  }
+  .hero-image img { width: auto; max-width: min(100%, 760px); max-height: 72vh; height: auto; display: block; margin: 0 auto; }
 </style>
 </head>
 <body>
@@ -219,22 +240,30 @@
   <p>The task was to position Evolve as a luxury daily-practice brand, not a stationery company — and build every material, from leather to wax seal, to carry that intention.</p>
 </section>
 
-<section class="chapter" id="positioning">
+<section class="chapter split" id="positioning">
+  <div class="chapter-text">
   <div class="eyebrow">Positioning</div>
   <h2>Take Charge of Your Evolution</h2>
   <p>A stationery brand leading the way in evolving through daily practices — intentional planners, insightful journals, and community-rooted experiences. Every color exists in the physical world of the product before it appears on screen: crimson leather, parchment paper, burnished bone.</p>
+  </div>
+  <div class="chapter-media">
   <div class="chapter-image contained">
     <video src="assets/evolve/evolve-positioning.mp4" poster="assets/evolve/evolve-positioning-poster.jpg" autoplay loop muted playsinline style="width:100%; height:auto; display:block; filter: drop-shadow(0 20px 26px rgba(54,40,32,0.16));"></video>
   </div>
+  </div>
 </section>
 
-<section class="chapter" id="wordmark">
+<section class="chapter split flip" id="wordmark">
+  <div class="chapter-text">
   <div class="eyebrow">The Wordmark</div>
   <h2>An Interlocking Diamond</h2>
   <p>The mark uses an interlocking diamond form — a reference to growth, cardinal directions, and the continuous nature of personal evolution. Always paired with the wordmark at smaller scales, it becomes the quiet signature across every material the brand touches.</p>
   <p>EB Garamond carries the editorial voice at full presence; Jost ExtraLight holds every label, callout, and navigation moment. Two typefaces, one continuous practice.</p>
+  </div>
+  <div class="chapter-media">
   <div class="chapter-image contained">
     <video src="assets/evolve/evolve-wordmark.mp4" poster="assets/evolve/evolve-wordmark-poster.jpg" autoplay loop muted playsinline style="width:100%; height:auto; display:block; filter: drop-shadow(0 20px 26px rgba(54,40,32,0.16));"></video>
+  </div>
   </div>
 </section>
 
@@ -245,12 +274,16 @@
   <p style="font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--ink);">"Every detail is a decision. Every decision is a message."</p>
 </section>
 
-<section class="chapter" id="collection">
+<section class="chapter split" id="collection">
+  <div class="chapter-text">
   <div class="eyebrow">The Collection</div>
   <h2>Three Products, One Practice</h2>
   <p>Leather, emboss, and botanical detail — objects worthy of daily ritual. The Daily Journal in full-grain crimson leather. The Daily Planner in croc-emboss, closed with a brass tab. The Daily Calendar, botanical emboss pressed into brushed metal.</p>
-  <div class="chapter-image contained" style="max-width: 780px; margin: 50px auto 0;">
+  </div>
+  <div class="chapter-media">
+  <div class="chapter-image contained">
     <video src="assets/evolve/evolve-collection.mp4" poster="assets/evolve/evolve-collection-poster.jpg" autoplay loop muted playsinline style="width:100%; height:auto; display:block; filter: drop-shadow(0 20px 26px rgba(54,40,32,0.16));"></video>
+  </div>
   </div>
 </section>
 

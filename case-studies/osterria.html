@@ -263,6 +263,27 @@
     transition: all 0.3s ease;
   }
   .btn-start:hover { background: transparent; color: var(--ink); }
+
+  /* ---------- Split chapters: text beside media ---------- */
+  .chapter .chapter-text > :last-child { margin-bottom: 0; }
+  .chapter.split .chapter-media .chapter-image { margin-top: 40px; }
+  @media (min-width: 900px) {
+    .chapter.split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 72px;
+      align-items: center;
+      max-width: 1120px;
+    }
+    .chapter.split.flip .chapter-text { order: 2; }
+    .chapter.split.flip .chapter-media { order: 1; }
+    .chapter.split .chapter-media { max-width: 470px; width: 100%; justify-self: center; }
+    .chapter.split .chapter-media .chapter-image { margin-top: 0; }
+    .chapter.split .chapter-media .chapter-image img,
+    .chapter.split .chapter-media .chapter-image video { max-width: 100% !important; width: 100%; }
+    .chapter.split .chapter-text p { max-width: 52ch; }
+  }
+  .hero-image img { width: auto; max-width: min(100%, 760px); max-height: 72vh; height: auto; display: block; margin: 0 auto; }
 </style>
 </head>
 <body>
@@ -290,13 +311,17 @@
   <img src="assets/osterria/osterria-01-photos.png" alt="Osterria Notte dining room and kitchen, editorial photography">
 </div>
 
-<section class="chapter" id="brief">
+<section class="chapter split flip" id="brief">
+  <div class="chapter-text">
   <div class="eyebrow">The Brief</div>
   <h2>Warmth, Ritual, and Craft</h2>
   <p>Osterria Notte came to Meridian Haus as an Italian restaurant that looked like a hundred others — checkered napkins, a generic script logo, nothing that said who was actually cooking. The food was serious: handcrafted Neapolitan pasta, wood-fired classics, a wine list built by someone who cared. The brand hadn't caught up yet.</p>
   <p>The task was to rebuild the identity around what the restaurant actually was — modern, eccentric Italian cooking, not a red-sauce trattoria — and carry that voice through every touchpoint a guest could hold, wear, or eat off of.</p>
+  </div>
+  <div class="chapter-media">
   <div class="chapter-image contained">
     <img src="assets/osterria/osterria-02-sketch.png" alt="Hand-drawn table setting illustration, Osterria Notte brand sketches">
+  </div>
   </div>
 </section>
 
@@ -313,39 +338,55 @@
   </div>
 </section>
 
-<section class="chapter" id="menu">
+<section class="chapter split" id="menu">
+  <div class="chapter-text">
   <div class="eyebrow">Menu Design</div>
   <h2>The Menu as an Artifact</h2>
   <p>The menu was designed to feel handcrafted — the kind of thing you'd find tucked into a trattoria in Naples, not printed that morning. A typewriter serif carries the dishes; the bold display wordmark bookends the piece top and bottom. Linen-textured stock, bound with a binder clip, torn-paper labeling — a tasting menu with wine pairings that reads like an object worth keeping.</p>
+  </div>
+  <div class="chapter-media">
   <div class="chapter-image contained">
     <video src="assets/osterria/osterria-03-menu.mp4" poster="assets/osterria/osterria-menu-poster.jpg" autoplay loop muted playsinline style="width:100%; height:auto; display:block; filter: drop-shadow(0 20px 26px rgba(54,40,32,0.16));"></video>
   </div>
+  </div>
 </section>
 
-<section class="chapter" id="packaging">
+<section class="chapter split flip" id="packaging">
+  <div class="chapter-text">
   <div class="eyebrow">Packaging</div>
   <h2>Everything Is Branded</h2>
   <p>From takeout bags to the olive oil on every table, no touchpoint was left generic. Kraft takeout bags with a woven red pull-cord, gelato cups stamped for dine-in and delivery alike, a house-branded extra virgin olive oil bottle guests can buy on the way out. The mark travels well because it was built to — legible small, confident large.</p>
+  </div>
+  <div class="chapter-media">
   <div class="chapter-image">
     <img src="assets/osterria/osterria-04-packaging.png" alt="Osterria Notte packaging system — takeout bags, cups, and branded olive oil">
   </div>
-</section>
-
-<section class="chapter" id="atmosphere">
-  <div class="eyebrow">Atmosphere &amp; Photography</div>
-  <h2>The Feeling of Notte</h2>
-  <p>Editorial photography carries the warmth, texture, and intimacy of the dining room itself — dimly lit corners, handmade pasta, art on the walls. The direction is raw and honest rather than styled: pasta pulled straight from a wheel of pecorino, sourdough torn open in morning light.</p>
-  <div class="chapter-image contained">
-    <video src="assets/osterria/osterria-06-food.mp4" poster="assets/osterria/osterria-food-poster.jpg" autoplay loop muted playsinline style="width:100%; height:auto; display:block; filter: drop-shadow(0 20px 26px rgba(54,40,32,0.16));"></video>
   </div>
 </section>
 
-<section class="chapter" id="website">
+<section class="chapter split" id="atmosphere">
+  <div class="chapter-text">
+  <div class="eyebrow">Atmosphere &amp; Photography</div>
+  <h2>The Feeling of Notte</h2>
+  <p>Editorial photography carries the warmth, texture, and intimacy of the dining room itself — dimly lit corners, handmade pasta, art on the walls. The direction is raw and honest rather than styled: pasta pulled straight from a wheel of pecorino, sourdough torn open in morning light.</p>
+  </div>
+  <div class="chapter-media">
+  <div class="chapter-image contained">
+    <video src="assets/osterria/osterria-06-food.mp4" poster="assets/osterria/osterria-food-poster.jpg" autoplay loop muted playsinline style="width:100%; height:auto; display:block; filter: drop-shadow(0 20px 26px rgba(54,40,32,0.16));"></video>
+  </div>
+  </div>
+</section>
+
+<section class="chapter split flip" id="website">
+  <div class="chapter-text">
   <div class="eyebrow">Website Design</div>
   <h2>Book a Table. Buy the Wine.</h2>
   <p>A full digital presence built to feel as rich as the restaurant itself — warm, immersive, and unmistakably brand-aligned. Reservations and the wine shop sit side by side as equal priorities, wrapped around full-bleed dining-room photography and the wordmark doing exactly what it does on the menu and the door.</p>
+  </div>
+  <div class="chapter-media">
   <div class="chapter-image">
     <img src="assets/osterria/osterria-07-website.png" alt="Osterria Notte website design, homepage with booking and wine shop">
+  </div>
   </div>
 </section>
 
