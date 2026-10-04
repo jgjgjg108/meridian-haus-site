@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cantilever — Architecture Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --concrete: #E8E6E1;
+    --paper: #F1EFEA;
+    --ink: #1A1A18;
+    --graphite: #55534D;
+    --blueprint: #2C4A5E;
+    --oxide: #A8461F;
+    --line: rgba(26,26,24,0.14);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--concrete);
+    color: var(--ink);
+    font-family: 'Source Serif 4', serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Big Shoulders Display', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+  }
+
+  .mono {
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.04em;
+  }
+
+  a { color: inherit; }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 5vw;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    mix-blend-mode: difference;
+    color: #fff;
+  }
+
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a { text-decoration: none; opacity: 0.85; }
+  .nav-links a:hover { opacity: 1; }
+
+  .north-mark {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* ---------- Hero / CAD hero ---------- */
+  #hero {
+    position: relative;
+    height: 100vh;
+    min-height: 640px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 5vw;
+    cursor: crosshair;
+    overflow: hidden;
+    background:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  #dim-h, #dim-v {
+    position: absolute;
+    background: var(--oxide);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 3;
+  }
+  #dim-h { height: 1px; bottom: 40px; left: 0; }
+  #dim-v { width: 1px; }
+
+  #crosshair {
+    position: absolute;
+    width: 26px; height: 26px;
+    border: 1px solid var(--oxide);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0;
+    z-index: 4;
+  }
+  #crosshair::before, #crosshair::after {
+    content: '';
+    position: absolute;
+    background: var(--oxide);
+  }
+  #crosshair::before { width: 1px; height: 40px; left: 50%; top: -18px; transform: translateX(-50%); }
+  #crosshair::after { height: 1px; width: 40px; top: 50%; left: -18px; transform: translateY(-50%); }
+
+  #coord-readout {
+    position: absolute;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: var(--oxide);
+    background: var(--concrete);
+    padding: 3px 8px;
+    border: 1px solid var(--oxide);
+    pointer-events: none;
+    opacity: 0;
+    z-index: 5;
+    white-space: nowrap;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.2em;
+    color: var(--blueprint);
+    margin-bottom: 22px;
+    display: block;
+  }
+
+  #hero h1 {
+    font-size: clamp(3rem, 9vw, 7.5rem);
+    line-height: 0.92;
+    font-weight: 700;
+  }
+
+  #hero h1 em {
+    font-style: normal;
+    color: var(--blueprint);
+  }
+
+  .hero-sub {
+    margin-top: 28px;
+    max-width: 46ch;
+    font-size: 1.15rem;
+    color: var(--graphite);
+    line-height: 1.7;
+  }
+
+  .scroll-cue {
+    position: absolute;
+    bottom: 40px;
+    left: 5vw;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--graphite);
+    z-index: 2;
+  }
+
+  .scale-note {
+    position: absolute;
+    bottom: 40px;
+    right: 5vw;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--graphite);
+    z-index: 2;
+  }
+
+  /* ---------- Section shared ---------- */
+  section {
+    padding: 140px 5vw;
+    position: relative;
+  }
+
+  .section-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--oxide);
+    display: block;
+    margin-bottom: 18px;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4.4vw, 3.4rem);
+    font-weight: 600;
+    max-width: 16ch;
+    margin-bottom: 60px;
+  }
+
+  /* ---------- Services grid (JLL-inspired 3-card layout) ---------- */
+  #services { background: var(--concrete); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  @media (max-width: 860px) {
+    .services-grid { grid-template-columns: 1fr; }
+  }
+
+  .service-card {
+    background: var(--paper);
+    padding: 40px 34px 44px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card .card-icon {
+    width: 100%;
+    aspect-ratio: 16/10;
+    background: var(--concrete);
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 26px;
+  }
+
+  .service-card .card-icon svg {
+    width: 60%;
+    height: 60%;
+    stroke: var(--ink);
+    fill: none;
+    stroke-width: 1.3;
+    transition: stroke 0.4s ease;
+  }
+
+  .service-card:hover .card-icon svg { stroke: var(--oxide); }
+
+  .service-card .card-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--oxide);
+    margin-bottom: 10px;
+  }
+
+  .service-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+
+  .service-card p {
+    color: var(--graphite);
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+  #work { background: var(--paper); }
+
+  .sheet {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    padding: 60px 0;
+    border-top: 1px solid var(--line);
+    align-items: center;
+  }
+  .sheet:last-child { border-bottom: 1px solid var(--line); }
+
+  @media (max-width: 860px) {
+    .sheet { grid-template-columns: 1fr; gap: 30px; }
+  }
+
+  .sheet-drawing {
+    background: var(--concrete);
+    border: 1px solid var(--line);
+    position: relative;
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .sheet-drawing svg {
+    width: 78%;
+    height: 78%;
+    stroke: var(--ink);
+    fill: none;
+    stroke-width: 1.4;
+    transition: stroke 0.5s ease;
+  }
+
+  .sheet:hover .sheet-drawing svg {
+    stroke: var(--blueprint);
+  }
+
+  .sheet-num {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+    color: var(--graphite);
+  }
+
+  .sheet-scale {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--graphite);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .sheet:hover .sheet-scale { opacity: 1; }
+
+  .sheet-info h3 {
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+
+  .sheet-info p {
+    color: var(--graphite);
+    line-height: 1.75;
+    font-size: 1rem;
+    margin-bottom: 22px;
+    max-width: 48ch;
+  }
+
+  .spec-table {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.76rem;
+    color: var(--graphite);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 6px 18px;
+    max-width: 380px;
+  }
+
+  .spec-table dt { color: var(--ink); }
+  .spec-table dd { opacity: 0.85; }
+
+  /* ---------- Precedents ---------- */
+  #precedents { background: var(--paper); }
+
+  .precedents-note {
+    max-width: 60ch;
+    color: var(--graphite);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 50px;
+  }
+
+  .precedents-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  @media (max-width: 720px) {
+    .precedents-grid { grid-template-columns: 1fr; }
+  }
+
+  .precedent-item img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+  }
+
+  .precedent-item .precedent-cap {
+    margin-top: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    color: var(--graphite);
+    line-height: 1.6;
+  }
+
+  .precedent-item .precedent-cap a {
+    color: var(--graphite);
+    text-decoration: underline;
+  }
+
+  /* ---------- Material palette ---------- */
+  #materials { background: var(--ink); color: var(--concrete); }
+
+  #materials .section-title { color: #fff; }
+
+  .materials-note {
+    max-width: 56ch;
+    color: rgba(232,230,225,0.65);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.82rem;
+    letter-spacing: 0.01em;
+    line-height: 1.8;
+    margin-bottom: 50px;
+  }
+
+  .materials-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  @media (max-width: 720px) {
+    .materials-strip { grid-template-columns: 1fr; }
+  }
+
+  .material-item figure { margin: 0; }
+
+  .material-item img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(15%);
+  }
+
+  .material-item figcaption {
+    margin-top: 16px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    color: var(--concrete);
+  }
+
+  .material-item .material-sub {
+    display: block;
+    margin-top: 3px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    color: rgba(232,230,225,0.55);
+  }
+
+  .sheet-precedent {
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+  }
+
+  .sheet-precedent img {
+    width: 100%;
+    max-width: 280px;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .sheet-precedent .precedent-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+    color: var(--graphite);
+    line-height: 1.6;
+  }
+
+  .sheet-precedent .precedent-label strong {
+    color: var(--ink);
+    display: inline;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.62rem;
+    margin-right: 6px;
+  }
+
+  .sheet-precedent .precedent-label a {
+    color: var(--graphite);
+  }
+
+  /* ---------- Approach ---------- */
+  #approach {
+    background: var(--ink);
+    color: var(--concrete);
+  }
+
+  #approach .section-title {
+    color: #fff;
+    font-family: 'IBM Plex Mono', monospace;
+    font-style: normal;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0.01em;
+  }
+
+  .approach-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  @media (max-width: 780px) {
+    .approach-grid { grid-template-columns: 1fr; gap: 30px; }
+  }
+
+  .pull-quote {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    line-height: 1.5;
+    max-width: 22ch;
+    color: var(--concrete);
+    margin: 0;
+    position: relative;
+    padding-left: 28px;
+    border-left: 2px solid var(--oxide);
+  }
+
+  .approach-body {
+    max-width: 52ch;
+    color: rgba(232,230,225,0.75);
+    font-family: 'IBM Plex Mono', monospace;
+    line-height: 1.9;
+    font-size: 0.92rem;
+  }
+
+  .approach-body p { margin-bottom: 20px; }
+
+  /* ---------- Contact ---------- */
+  #contact {
+    background: var(--concrete);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 70vh;
+  }
+
+  #contact h2 {
+    font-size: clamp(2.6rem, 6vw, 5rem);
+    font-weight: 700;
+    max-width: 14ch;
+    margin-bottom: 44px;
+  }
+
+  .contact-row {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+  }
+
+  .contact-row a {
+    text-decoration: none;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 3px;
+  }
+
+  footer {
+    padding: 30px 5vw;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: var(--graphite);
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--line);
+  }
+
+  @media (max-width: 720px) {
+    .nav { font-size: 0.64rem; padding: 16px 6vw; }
+    .nav-links { gap: 16px; }
+    section { padding: 90px 6vw; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div>CANTILEVER</div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#approach">Approach</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="north-mark">A—000 · IDX</div>
+</nav>
+
+<section id="hero">
+  <div id="dim-h"></div>
+  <div id="dim-v"></div>
+  <div id="crosshair"></div>
+  <div id="coord-readout"></div>
+
+  <div class="hero-content">
+    <span class="hero-eyebrow">Residential &amp; Adaptive Reuse — Est. Pacific Coast</span>
+    <h1>Architecture measured in <em>shadow</em> and structure.</h1>
+    <p class="hero-sub">Cantilever designs houses, pavilions, and conversions that hold their shape under real weather, real budgets, and real light — not renderings.</p>
+  </div>
+
+  <div class="scroll-cue">Scroll ↓ Drawing Set</div>
+  <div class="scale-note mono">SCALE 1 : 100 — SHEET A—000</div>
+</section>
+
+<section id="services">
+  <span class="section-tag">Meeting Your Needs</span>
+  <h2 class="section-title">Where the studio works.</h2>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="card-icon">
+        <svg viewBox="0 0 100 70" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="10,60 10,30 50,10 90,30 90,60" />
+          <line x1="10" y1="60" x2="90" y2="60" />
+          <line x1="40" y1="60" x2="40" y2="42" />
+          <line x1="60" y1="60" x2="60" y2="42" />
+        </svg>
+      </div>
+      <span class="card-eyebrow">New Construction</span>
+      <h3>Ground-up residential</h3>
+      <p>Single-family and small multi-unit homes designed from the site up — grading, orientation, and structure resolved together, not in sequence.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon">
+        <svg viewBox="0 0 100 70" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="15" width="80" height="45" />
+          <line x1="10" y1="32" x2="90" y2="32" />
+          <line x1="30" y1="42" x2="30" y2="55" />
+          <line x1="50" y1="42" x2="50" y2="55" />
+          <line x1="70" y1="42" x2="70" y2="55" />
+        </svg>
+      </div>
+      <span class="card-eyebrow">Adaptive Reuse</span>
+      <h3>Buildings, not lots</h3>
+      <p>Warehouses, foundries, and outdated commercial stock converted into homes and studios — keeping what still works, replacing only what doesn't.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="card-icon">
+        <svg viewBox="0 0 100 70" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="35" r="26" />
+          <line x1="50" y1="9" x2="50" y2="19" />
+          <line x1="50" y1="51" x2="50" y2="61" />
+          <line x1="24" y1="35" x2="34" y2="35" />
+          <line x1="66" y1="35" x2="76" y2="35" />
+        </svg>
+      </div>
+      <span class="card-eyebrow">Feasibility &amp; Siting</span>
+      <h3>Before the first drawing</h3>
+      <p>Zoning review, slope and sun studies, and early cost feasibility — so a project's constraints are known before its form is decided.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="work">
+  <span class="section-tag">Selected Work — Drawing Set</span>
+  <h2 class="section-title">Three projects, three sites, one discipline.</h2>
+
+  <div class="sheet">
+    <div class="sheet-drawing">
+      <span class="sheet-num mono">A—101</span>
+      <span class="sheet-scale mono">1:150</span>
+      <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+        <polyline points="20,120 20,60 100,20 180,60 180,120" />
+        <line x1="20" y1="120" x2="180" y2="120" />
+        <line x1="60" y1="120" x2="60" y2="80" />
+        <line x1="60" y1="80" x2="90" y2="80" />
+        <line x1="90" y1="80" x2="90" y2="120" />
+        <line x1="120" y1="120" x2="120" y2="70" />
+        <line x1="120" y1="70" x2="150" y2="70" />
+        <line x1="150" y1="70" x2="150" y2="120" />
+        <line x1="0" y1="130" x2="200" y2="130" stroke-dasharray="2 3" stroke-width="0.6" />
+      </svg>
+    </div>
+    <div class="sheet-info">
+      <h3>Ridgeline Residence</h3>
+      <p>A single-family house set into a sloped site, split across two stepped volumes so no room loses its view of the ridge behind it. Board-formed concrete at the base, cedar above.</p>
+      <dl class="spec-table">
+        <dt>Site</dt><dd>0.8-acre hillside lot, coastal foothills</dd>
+        <dt>Program</dt><dd>4 bed / 3 bath, detached studio</dd>
+        <dt>Materials</dt><dd>Board-formed concrete, cedar, steel</dd>
+        <dt>Status</dt><dd>Concept — schematic design</dd>
+      </dl>
+      <div class="sheet-precedent">
+        <img src="https://images.unsplash.com/photo-1625390711106-3728815ebcd9?fm=jpg&q=75&w=400&auto=format&fit=crop" alt="Gray concrete building precedent">
+        <p class="precedent-label"><strong>Precedent</strong>Photo: Ricardo Gomez Angel, <a href="https://unsplash.com/photos/gray-concrete-building-during-daytime-9AjwOAIdsII" target="_blank">Unsplash</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <div class="sheet-drawing">
+      <span class="sheet-num mono">A—201</span>
+      <span class="sheet-scale mono">1:100</span>
+      <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+        <line x1="10" y1="110" x2="190" y2="110" />
+        <line x1="10" y1="110" x2="10" y2="40" />
+        <line x1="190" y1="110" x2="190" y2="40" />
+        <line x1="10" y1="40" x2="190" y2="40" stroke-width="2.4" />
+        <line x1="35" y1="40" x2="35" y2="110" stroke-width="0.8" />
+        <line x1="65" y1="40" x2="65" y2="110" stroke-width="0.8" />
+        <line x1="95" y1="40" x2="95" y2="110" stroke-width="0.8" />
+        <line x1="125" y1="40" x2="125" y2="110" stroke-width="0.8" />
+        <line x1="155" y1="40" x2="155" y2="110" stroke-width="0.8" />
+        <line x1="0" y1="122" x2="200" y2="122" stroke-dasharray="2 3" stroke-width="0.6" />
+      </svg>
+    </div>
+    <div class="sheet-info">
+      <h3>Pavilion at Kelp Cove</h3>
+      <p>An open-air gathering pavilion for a coastal preserve, built as a single flat-roofed plane on a slender steel colonnade — meant to disappear into the tree line from the water.</p>
+      <dl class="spec-table">
+        <dt>Site</dt><dd>Public coastal preserve, easement-restricted</dd>
+        <dt>Program</dt><dd>Open pavilion, 1,400 sq ft covered area</dd>
+        <dt>Materials</dt><dd>Painted steel, glulam, glass</dd>
+        <dt>Status</dt><dd>Concept — competition entry</dd>
+      </dl>
+      <div class="sheet-precedent">
+        <img src="https://images.unsplash.com/photo-1758846946188-12316e71c680?fm=jpg&q=75&w=400&auto=format&fit=crop" alt="Glass and steel facade precedent">
+        <p class="precedent-label"><strong>Precedent</strong>Photo: Sebastian Schuster, <a href="https://unsplash.com/photos/modern-glass-and-steel-building-facade-detail-ZUVTzrTOD4o" target="_blank">Unsplash</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <div class="sheet-drawing">
+      <span class="sheet-num mono">A—301</span>
+      <span class="sheet-scale mono">1:120</span>
+      <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+        <rect x="15" y="35" width="170" height="80" />
+        <line x1="15" y1="60" x2="185" y2="60" stroke-width="0.8" />
+        <rect x="30" y="70" width="24" height="24" />
+        <rect x="65" y="70" width="24" height="24" />
+        <rect x="100" y="70" width="24" height="24" />
+        <rect x="135" y="70" width="24" height="24" />
+        <line x1="15" y1="127" x2="185" y2="127" stroke-dasharray="2 3" stroke-width="0.6" />
+      </svg>
+    </div>
+    <div class="sheet-info">
+      <h3>Foundry Loft Conversion</h3>
+      <p>Adaptive reuse of a decommissioned ironworks building into six live-work lofts, keeping the original sawtooth clerestory and steel bones exposed throughout.</p>
+      <dl class="spec-table">
+        <dt>Site</dt><dd>Former foundry, industrial corridor</dd>
+        <dt>Program</dt><dd>6 live-work units, shared ground floor</dd>
+        <dt>Materials</dt><dd>Existing steel + masonry, new glazing</dd>
+        <dt>Status</dt><dd>Concept — feasibility study</dd>
+      </dl>
+      <div class="sheet-precedent">
+        <img src="https://images.unsplash.com/photo-1759579474592-a51419922d13?fm=jpg&q=75&w=400&auto=format&fit=crop" alt="Old industrial building precedent">
+        <p class="precedent-label"><strong>Precedent</strong>Photo: Anna Kharkivska, <a href="https://unsplash.com/photos/old-industrial-building-with-large-glass-windows-_B0vs6bfIB8" target="_blank">Unsplash</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="sheet">
+    <div class="sheet-drawing">
+      <span class="sheet-num mono">A—401</span>
+      <span class="sheet-scale mono">1:100</span>
+      <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="60" width="90" height="60" />
+        <polyline points="110,60 130,40 150,60 170,40 180,60" />
+        <line x1="110" y1="60" x2="180" y2="60" />
+        <line x1="180" y1="60" x2="180" y2="120" />
+        <line x1="110" y1="120" x2="180" y2="120" />
+        <line x1="45" y1="120" x2="45" y2="85" />
+        <line x1="45" y1="85" x2="85" y2="85" />
+        <line x1="85" y1="85" x2="85" y2="120" />
+        <line x1="10" y1="130" x2="190" y2="130" stroke-dasharray="2 3" stroke-width="0.6" />
+      </svg>
+    </div>
+    <div class="sheet-info">
+      <h3>Reading Room Addition</h3>
+      <p>A glazed sawtooth-roofed reading room grafted onto the side of a 1920s masonry library, bringing north light into a wing that previously had none.</p>
+      <dl class="spec-table">
+        <dt>Site</dt><dd>Existing masonry library, historic district</dd>
+        <dt>Program</dt><dd>1,100 sq ft reading room + stack access</dd>
+        <dt>Materials</dt><dd>Steel sawtooth glazing, existing brick</dd>
+        <dt>Status</dt><dd>Concept — schematic design</dd>
+      </dl>
+      <div class="sheet-precedent">
+        <img src="https://images.unsplash.com/photo-1760166699654-5d0e10f51994?fm=jpg&q=75&w=400&auto=format&fit=crop" alt="Modern library interior precedent">
+        <p class="precedent-label"><strong>Precedent</strong>Photo: Fer Troulik, <a href="https://unsplash.com/photos/modern-library-interior-with-floor-to-ceiling-bookshelves-TQ8ICns1tgE" target="_blank">Unsplash</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <div class="sheet-drawing">
+      <span class="sheet-num mono">A—501</span>
+      <span class="sheet-scale mono">1:150</span>
+      <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+        <rect x="15" y="20" width="70" height="45" />
+        <rect x="115" y="20" width="70" height="45" />
+        <rect x="15" y="85" width="70" height="45" />
+        <rect x="115" y="85" width="70" height="45" />
+        <line x1="85" y1="42" x2="115" y2="42" stroke-dasharray="2 3" stroke-width="0.6" />
+        <line x1="85" y1="107" x2="115" y2="107" stroke-dasharray="2 3" stroke-width="0.6" />
+        <line x1="50" y1="65" x2="50" y2="85" stroke-dasharray="2 3" stroke-width="0.6" />
+        <line x1="150" y1="65" x2="150" y2="85" stroke-dasharray="2 3" stroke-width="0.6" />
+      </svg>
+    </div>
+    <div class="sheet-info">
+      <h3>Courtyard Duplex</h3>
+      <p>Two mirrored two-bedroom units wrapping a shared planted courtyard — every main room faces inward, away from the street, toward the garden.</p>
+      <dl class="spec-table">
+        <dt>Site</dt><dd>Infill lot, mixed-density residential block</dd>
+        <dt>Program</dt><dd>2 units, 2 bed / 2 bath each</dd>
+        <dt>Materials</dt><dd>CMU block, painted stucco, timber screens</dd>
+        <dt>Status</dt><dd>Concept — design development</dd>
+      </dl>
+      <div class="sheet-precedent">
+        <img src="https://images.unsplash.com/photo-1762419757194-406cc4a13d73?fm=jpg&q=75&w=400&auto=format&fit=crop" alt="Modern concrete courtyard architecture precedent">
+        <p class="precedent-label"><strong>Precedent</strong>Photo: Neon Wang, <a href="https://unsplash.com/photos/modern-concrete-architecture-with-grassy-courtyard-and-stairs-igxSlxxKSb8" target="_blank">Unsplash</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <div class="sheet-drawing">
+      <span class="sheet-num mono">A—601</span>
+      <span class="sheet-scale mono">1:75</span>
+      <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+        <line x1="20" y1="130" x2="20" y2="70" />
+        <line x1="180" y1="130" x2="180" y2="70" />
+        <line x1="20" y1="70" x2="100" y2="30" />
+        <line x1="100" y1="30" x2="180" y2="70" />
+        <line x1="20" y1="130" x2="180" y2="130" />
+        <line x1="35" y1="130" x2="35" y2="95" stroke-width="0.8" />
+        <line x1="165" y1="130" x2="165" y2="95" stroke-width="0.8" />
+        <line x1="20" y1="140" x2="180" y2="140" stroke-dasharray="2 3" stroke-width="0.6" />
+      </svg>
+    </div>
+    <div class="sheet-info">
+      <h3>Studio Above the Garage</h3>
+      <p>A detached ADU set above an open carport — a single gabled room with a sleeping loft, built for a client's adult son and future rental flexibility.</p>
+      <dl class="spec-table">
+        <dt>Site</dt><dd>Rear-yard ADU, single-family lot</dd>
+        <dt>Program</dt><dd>420 sq ft studio + loft, open carport below</dd>
+        <dt>Materials</dt><dd>Wood frame, standing-seam metal roof</dd>
+        <dt>Status</dt><dd>Concept — permitted, unbuilt</dd>
+      </dl>
+      <div class="sheet-precedent">
+        <img src="https://images.unsplash.com/photo-1595769557174-77c5002cff45?fm=jpg&q=75&w=400&auto=format&fit=crop" alt="Minimal modern black structure precedent">
+        <p class="precedent-label"><strong>Precedent</strong>Photo: Klim Musalimov, <a href="https://unsplash.com/photos/black-concrete-building-under-white-clouds-during-daytime-sBCli_j4s8E" target="_blank">Unsplash</a></p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section id="materials">
+  <span class="section-tag">Material Palette</span>
+  <h2 class="section-title">What the studio builds with.</h2>
+  <p class="materials-note">Reference material studies, not photographs of a specific building — the textures Cantilever draws on across the practice: board-formed concrete, weathered cedar, and oxidized steel.</p>
+  <div class="materials-strip">
+    <div class="material-item">
+      <figure>
+        <img src="https://images.unsplash.com/photo-1521459467264-802e2ef3141f?fm=jpg&q=80&w=1200&auto=format&fit=crop" alt="Board-formed concrete texture">
+        <figcaption>Concrete<span class="material-sub">Board-formed, left to weather</span></figcaption>
+      </figure>
+    </div>
+    <div class="material-item">
+      <figure>
+        <img src="https://images.unsplash.com/photo-1673168777876-f7f24c104a18?fm=jpg&q=80&w=1200&auto=format&fit=crop" alt="Weathered, cracked wood texture">
+        <figcaption>Cedar<span class="material-sub">Unfinished, allowed to grey</span></figcaption>
+      </figure>
+    </div>
+    <div class="material-item">
+      <figure>
+        <img src="https://images.unsplash.com/photo-1673141531671-8d8ccaaefadf?fm=jpg&q=80&w=1200&auto=format&fit=crop" alt="Brushed, weathered steel texture">
+        <figcaption>Steel<span class="material-sub">Oxidized where exposure allows</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="approach">
+  <span class="section-tag">Approach</span>
+  <h2 class="section-title">How the studio works.</h2>
+  <div class="approach-grid">
+    <blockquote class="pull-quote">"A building should be legible from its section before it's legible from its facade."</blockquote>
+    <div class="approach-body">
+      <p>Cantilever starts every project on the site, not at the desk — reading slope, light, and wind before drawing a single wall. The goal isn't a signature look; it's a building that could only sit where it sits.</p>
+      <p>Materials are chosen for how they age, not how they render. Concrete is left to weather. Steel is left to oxidize where it's safe to. Nothing is finished to hide what it's made of.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Let's draw the next site.</h2>
+  <div class="contact-row">
+    <a href="mailto:hello@cantileverstudio.com">hello@cantileverstudio.com</a>
+  </div>
+</section>
+
+<footer>
+  <span>CANTILEVER — CONCEPT PRACTICE</span>
+  <span>Brand &amp; digital design: Meridian Haus</span>
+</footer>
+
+<script>
+  const hero = document.getElementById('hero');
+  const crosshair = document.getElementById('crosshair');
+  const dimH = document.getElementById('dim-h');
+  const dimV = document.getElementById('dim-v');
+  const readout = document.getElementById('coord-readout');
+
+  hero.addEventListener('mousemove', (e) => {
+    const rect = hero.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    crosshair.style.left = x + 'px';
+    crosshair.style.top = y + 'px';
+    crosshair.style.opacity = '1';
+
+    dimH.style.width = x + 'px';
+    dimH.style.opacity = '0.7';
+
+    dimV.style.left = x + 'px';
+    dimV.style.top = y + 'px';
+    dimV.style.height = (rect.height - 40 - y) + 'px';
+    dimV.style.opacity = '0.7';
+
+    readout.style.left = (x + 16) + 'px';
+    readout.style.top = (y - 28) + 'px';
+    readout.style.opacity = '1';
+    readout.textContent = `X ${Math.round(x)} · Y ${Math.round(y)}`;
+  });
+
+  hero.addEventListener('mouseleave', () => {
+    crosshair.style.opacity = '0';
+    dimH.style.opacity = '0';
+    dimV.style.opacity = '0';
+    readout.style.opacity = '0';
+  });
+</script>
+
+</body>
+</html>
