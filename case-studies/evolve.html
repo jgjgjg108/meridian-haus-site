@@ -205,7 +205,11 @@
     .chapter.split .chapter-media .chapter-image img,
     .chapter.split .chapter-media .chapter-image video { max-width: 100% !important; width: 100%; }
     .chapter.split .chapter-text p { max-width: 52ch; }
+    .chapter.split.pair { align-items: start; }
   }
+  .chapter.pair .chapter-text { scroll-margin-top: 70px; }
+  .chapter.pair .chapter-text + .chapter-text { margin-top: 70px; }
+  @media (min-width: 900px) { .chapter.pair .chapter-text + .chapter-text { margin-top: 0; } }
   .hero-image img { width: auto; max-width: min(100%, 760px); max-height: 72vh; height: auto; display: block; margin: 0 auto; }
 </style>
 </head>
@@ -233,23 +237,17 @@
   <img src="assets/evolve/evolve-02-packaging.png" alt="Evolve packaging, wax seal detail">
 </div>
 
-<section class="chapter" id="challenge">
-  <div class="eyebrow">Challenge</div>
-  <h2>A Daily Practice, Not a Product Line</h2>
-  <p>Evolve arrived as a stationery brand with real craft behind it, but no framework for what it actually was. The products — a journal, a planner, a calendar — existed, but the brand hadn't yet decided whether it was selling paper goods or something people would build a daily ritual around.</p>
-  <p>The task was to position Evolve as a luxury daily-practice brand, not a stationery company — and build every material, from leather to wax seal, to carry that intention.</p>
-</section>
-
-<section class="chapter split" id="positioning">
-  <div class="chapter-text">
+<section class="chapter split pair">
+  <div class="chapter-text" id="challenge">
+    <div class="eyebrow">Challenge</div>
+    <h2>A Daily Practice, Not a Product Line</h2>
+    <p>Evolve arrived as a stationery brand with real craft behind it, but no framework for what it actually was. The products — a journal, a planner, a calendar — existed, but the brand hadn't yet decided whether it was selling paper goods or something people would build a daily ritual around.</p>
+    <p>The task was to position Evolve as a luxury daily-practice brand, not a stationery company — and build every material, from leather to wax seal, to carry that intention.</p>
+  </div>
+  <div class="chapter-text" id="positioning">
   <div class="eyebrow">Positioning</div>
   <h2>Take Charge of Your Evolution</h2>
   <p>A stationery brand leading the way in evolving through daily practices — intentional planners, insightful journals, and community-rooted experiences. Every color exists in the physical world of the product before it appears on screen: crimson leather, parchment paper, burnished bone.</p>
-  </div>
-  <div class="chapter-media">
-  <div class="chapter-image contained">
-    <video src="assets/evolve/evolve-positioning.mp4" poster="assets/evolve/evolve-positioning-poster.jpg" autoplay loop muted playsinline style="width:100%; height:auto; display:block; filter: drop-shadow(0 20px 26px rgba(54,40,32,0.16));"></video>
-  </div>
   </div>
 </section>
 
