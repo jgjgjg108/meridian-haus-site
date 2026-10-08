@@ -1033,6 +1033,24 @@
     max-width: 60ch;
   }
 
+
+  /* ============ Selected work: gallery grid of equal project cards ============ */
+  .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; max-width: 1080px; margin: 0 auto; }
+  .project-card { display: flex; flex-direction: column; text-decoration: none; color: inherit; border: 1px solid var(--line); background: var(--paper); transition: border-color 0.35s ease; }
+  .project-card:hover, .project-card:focus-visible { border-color: var(--maroon); outline: none; }
+  .project-media { aspect-ratio: 1 / 1; overflow: hidden; }
+  .project-media video { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(0.92) contrast(0.97) brightness(1.01) sepia(0.035); transition: transform 0.8s ease; }
+  .project-card:hover .project-media video, .project-card:focus-visible .project-media video { transform: scale(1.04); }
+  .project-info { flex: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 22px; padding: 26px 26px 24px; background: var(--paper-dim); border-top: 1px solid var(--line); }
+  .project-info .work-eyebrow { margin-bottom: 10px; }
+  .project-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; font-size: clamp(1.7rem, 2.6vw, 2.2rem); line-height: 1.05; margin-bottom: 10px; }
+  .project-line { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.6; margin-bottom: 16px; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .project-tags span { font-family: 'Jost', sans-serif; font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); padding: 7px 11px; border: 1px solid rgba(54,40,32,0.28); transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease; }
+  .project-card:hover .project-tags span, .project-card:focus-visible .project-tags span { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .project-cta { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); align-self: flex-start; transition: transform 0.35s ease, color 0.35s ease; }
+  .project-card:hover .project-cta, .project-card:focus-visible .project-cta { transform: translateX(6px); color: var(--maroon); }
+  @media (max-width: 780px) { .project-grid { grid-template-columns: 1fr; gap: 22px; } }
 </style>
 </head>
 <body>
@@ -1040,7 +1058,7 @@
 <nav class="tabs" id="tabs">
   <div class="tab-logo"><img src="assets/logo.webp" alt="Meridian Haus mark"></div>
   <div class="tab active" data-target="cover"><span>Cover</span></div>
-  <div class="tab" data-target="project-one"><span>Work</span></div>
+  <div class="tab" data-target="work"><span>Work</span></div>
   <div class="tab" data-target="philosophy"><span>Philosophy</span></div>
   <div class="tab" data-target="services"><span>Services</span></div>
   <div class="tab" data-target="about"><span>About</span></div>
@@ -1053,7 +1071,7 @@
 <div class="mobile-nav-menu" id="mobileNavMenu">
   <div class="mobile-nav-logo"><img src="assets/logo.webp" alt="Meridian Haus" style="width:84px;"></div>
   <a data-target="cover">Cover</a>
-  <a data-target="project-one">Work</a>
+  <a data-target="work">Work</a>
   <a data-target="philosophy">Philosophy</a>
   <a data-target="services">Services</a>
   <a data-target="about">About</a>
@@ -1080,25 +1098,61 @@
     <p>Perception shapes value long before a product or service is experienced.</p>
   </section>
 
-  <!-- PROJECT ONE — EVOLVE, alone, cinematic -->
-  <section class="page" id="project-one" style="height:auto; min-height:100vh; padding-top:140px; padding-bottom:140px;">
-    <div class="work-block layout-cinematic" style="margin-bottom:0;">
-      <div class="work-media">
-        <div class="media-grade"><video src="assets/work/evolve.mp4" poster="assets/work/evolve-poster.jpg" autoplay loop muted playsinline></video></div>
-      </div>
-      <div class="work-meta-row">
-        <div>
-          <div class="work-eyebrow">01 — Stationery</div>
-          <h3 class="work-title">Evolve</h3>
-          <p class="work-line">Permanence and considered detail, told in crimson and parchment.</p>
-        </div>
-        <div>
-          <div class="work-deliverables" style="margin-bottom:16px;">
-            <span>Brand Identity</span><span>Stationery System</span><span>Lookbook</span>
+  <!-- SELECTED WORK — gallery grid of equal project cards -->
+  <section class="page" id="work" style="height:auto; min-height:100vh;">
+    <div class="section-head">
+      <div class="eyebrow">Selected Work</div>
+      <h2>Every detail, considered.</h2>
+    </div>
+    <div class="project-grid">
+      <a class="project-card" href="case-studies/evolve.html">
+        <div class="project-media"><video src="assets/work/evolve.mp4" poster="assets/work/evolve-poster.jpg" autoplay loop muted playsinline></video></div>
+        <div class="project-info">
+          <div>
+            <div class="work-eyebrow">01 — Stationery</div>
+            <h3 class="project-title">Evolve</h3>
+            <p class="project-line">Permanence and considered detail, told in crimson and parchment.</p>
+            <div class="project-tags"><span>Brand Identity</span><span>Stationery</span><span>Lookbook</span></div>
           </div>
-          <a href="case-studies/evolve.html" class="btn-case-study">View Case Study →</a>
+          <span class="project-cta">View Case Study →</span>
         </div>
-      </div>
+      </a>
+      <a class="project-card" href="case-studies/obi.html">
+        <div class="project-media"><video src="assets/work/obi.mp4" poster="assets/work/obi-poster.jpg" autoplay loop muted playsinline></video></div>
+        <div class="project-info">
+          <div>
+            <div class="work-eyebrow">02 — Fragrance</div>
+            <h3 class="project-title">OBI Perfumeria</h3>
+            <p class="project-line">A dark, mineral brand world built around restraint.</p>
+            <div class="project-tags"><span>Brand Identity</span><span>Packaging</span><span>E-Commerce</span></div>
+          </div>
+          <span class="project-cta">View Case Study →</span>
+        </div>
+      </a>
+      <a class="project-card" href="case-studies/osterria.html">
+        <div class="project-media"><video src="assets/work/osterria.mp4" poster="assets/work/osterria-poster.jpg" autoplay loop muted playsinline></video></div>
+        <div class="project-info">
+          <div>
+            <div class="work-eyebrow">03 — Hospitality</div>
+            <h3 class="project-title">Osterria Notte</h3>
+            <p class="project-line">Warmth, ritual, and craft — an Italian restaurant reimagined.</p>
+            <div class="project-tags"><span>Brand Identity</span><span>Packaging</span><span>Menu</span><span>Website</span></div>
+          </div>
+          <span class="project-cta">View Case Study →</span>
+        </div>
+      </a>
+      <a class="project-card" href="cantilever/" target="_blank" rel="noopener">
+        <div class="project-media"><video src="assets/work/cantilever.mp4" poster="assets/work/cantilever-poster.jpg" autoplay loop muted playsinline></video></div>
+        <div class="project-info">
+          <div>
+            <div class="work-eyebrow">04 — Concept, Architecture &amp; Digital</div>
+            <h3 class="project-title">Cantilever</h3>
+            <p class="project-line">A self-directed studio concept — brand and site as one system.</p>
+            <div class="project-tags"><span>Brand Concept</span><span>Website</span><span>Interactive</span></div>
+          </div>
+          <span class="project-cta">View the Site →</span>
+        </div>
+      </a>
     </div>
     <div class="folio">No. 002 — Work</div>
   </section>
@@ -1125,60 +1179,6 @@
       </div>
     </div>
     <div class="folio">No. 003 — Philosophy</div>
-  </section>
-
-  <!-- REMAINING WORK — now framed as proof of the philosophy above -->
-  <section class="page" id="work" style="height:auto; min-height:100vh; padding-top:120px; padding-bottom:100px;">
-    <div class="section-head">
-      <div class="eyebrow">Selected Work, Continued</div>
-      <h2>Every detail, considered.</h2>
-    </div>
-
-    <div class="work-block layout-centered">
-      <div class="work-eyebrow">02 — Fragrance</div>
-      <h3 class="work-title">OBI Perfumeria</h3>
-      <div class="work-media">
-        <div class="media-grade"><video src="assets/work/obi.mp4" poster="assets/work/obi-poster.jpg" autoplay loop muted playsinline></video></div>
-      </div>
-      <p class="work-line">A dark, mineral brand world built around restraint.</p>
-      <div class="work-deliverables">
-        <span>Brand Identity</span><span>Packaging Design</span><span>E-Commerce</span>
-      </div>
-      <a href="case-studies/obi.html" class="btn-case-study">View Case Study →</a>
-    </div>
-
-    <div class="work-block layout-editorial">
-      <div class="work-eyebrow">03 — Hospitality</div>
-      <h3 class="work-title">Osterria Notte</h3>
-      <div class="editorial-grid">
-        <div class="editorial-side">
-          <p class="work-line">Warmth, ritual, and craft — an Italian restaurant reimagined.</p>
-          <div class="work-deliverables" style="margin-bottom:24px;">
-            <span>Brand Identity</span><span>Packaging</span><span>Menu Design</span><span>Website</span>
-          </div>
-          <a href="case-studies/osterria.html" class="btn-case-study">View Case Study →</a>
-        </div>
-        <div class="work-media">
-          <div class="media-grade"><video src="assets/work/osterria.mp4" poster="assets/work/osterria-poster.jpg" autoplay loop muted playsinline></video></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="work-block layout-closing">
-      <div class="work-eyebrow">04 — Concept, Architecture &amp; Digital</div>
-      <h3 class="work-title">Cantilever</h3>
-      <p class="work-line">A self-directed studio concept — brand and site as one system.</p>
-      <div class="work-media">
-        <div class="media-grade"><video src="assets/work/cantilever.mp4" poster="assets/work/cantilever-poster.jpg" autoplay loop muted playsinline></video></div>
-      </div>
-      <div class="work-deliverables">
-        <span>Brand Concept</span><span>Website Design</span><span>Interactive Experience</span>
-      </div>
-      <br><br>
-      <a href="cantilever/" target="_blank" class="btn-case-study">View the Site →</a>
-    </div>
-
-    <div class="folio">No. 004 — Work</div>
   </section>
 
   <!-- PROCESS -->
@@ -1224,7 +1224,7 @@
         </div>
       </div>
     </div>
-    <div class="folio">No. 005 — Process</div>
+    <div class="folio">No. 004 — Process</div>
   </section>
 
   <!-- TRUST / SELECTED EXPERIENCE -->
@@ -1255,7 +1255,7 @@
         <p>Every project starts with the brand's world, not a template — the same standard applied whether it's a lookbook or a full launch.</p>
       </div>
     </div>
-    <div class="folio">No. 006 — Selected Experience</div>
+    <div class="folio">No. 005 — Selected Experience</div>
   </section>
 
   <!-- TESTIMONIALS — commented out until real client quotes are available
@@ -1278,7 +1278,7 @@
         <div class="testimonial-attribution">— Client Name, Project</div>
       </div>
     </div>
-    <div class="folio">No. 007 — Testimonials</div>
+    <div class="folio">No. 006 — Testimonials</div>
   </section>
   -->
 
@@ -1304,7 +1304,7 @@
         <p>Based in Cardiff-by-the-Sea, working with clients wherever they are.</p>
       </div>
     </div>
-    <div class="folio">No. 008 — About</div>
+    <div class="folio">No. 007 — About</div>
   </section>
 
   <!-- SERVICES -->
@@ -1340,7 +1340,7 @@
         </div>
       </div>
     </div>
-    <div class="folio">No. 009 — Services</div>
+    <div class="folio">No. 008 — Services</div>
   </section>
 
   <!-- FAQ -->
@@ -1367,7 +1367,7 @@
         <p>That's exactly what the Signature Lookbook and smaller-scope engagements are for. Every project is quoted to what you actually need, not a fixed package.</p>
       </div>
     </div>
-    <div class="folio">No. 010 — FAQ</div>
+    <div class="folio">No. 009 — FAQ</div>
   </section>
 
   <!-- PAUSE 5 — before the invitation -->
@@ -1416,7 +1416,7 @@
         <div class="photo-caption">Julianna Gimelli, Founder</div>
       </div>
     </div>
-    <div class="folio">No. 011 — Contact</div>
+    <div class="folio">No. 010 — Contact</div>
   </section>
 
 </div>
