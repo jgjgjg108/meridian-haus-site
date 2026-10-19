@@ -226,6 +226,8 @@
   .chapter.pair .chapter-text + .chapter-text { margin-top: 70px; }
   @media (min-width: 900px) { .chapter.pair .chapter-text + .chapter-text { margin-top: 0; } }
   .hero-image img { width: auto; max-width: min(100%, 760px); max-height: 72vh; height: auto; display: block; margin: 0 auto; }
+  .chapter.outcome .deliverable-list { margin-bottom: 0; }
+  @media (min-width: 900px) { .chapter.split.outcome { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); max-width: 1280px; gap: 64px; } .chapter.split.outcome .chapter-media { max-width: 100%; } }
 </style>
 </head>
 <body>
@@ -303,11 +305,18 @@
   </div>
 </section>
 
-<section class="chapter" id="outcome">
-  <div class="eyebrow">Outcome</div>
-  <h2>A Practice, Made Tangible</h2>
-  <p>Four disciplines, one continuous practice — brand, mark, packaging, and storefront built as a single material world. Evolve now reads as a daily-practice brand people build a ritual around, not a stationery line competing on price.</p>
-  <a href="../assets/lookbooks/evolve-lookbook.pdf" target="_blank" rel="noopener" class="btn-lookbook">View the Lookbook →</a>
+<section class="chapter split outcome" id="outcome">
+  <div class="chapter-text">
+    <div class="eyebrow">Outcome</div>
+    <h2>A Practice, Made Tangible</h2>
+    <p>Four disciplines, one continuous practice — brand, mark, packaging, and storefront built as a single material world. Evolve now reads as a daily-practice brand people build a ritual around, not a stationery line competing on price.</p>
+    <a href="../assets/lookbooks/evolve-lookbook.pdf" target="_blank" rel="noopener" class="btn-lookbook">View the Lookbook →</a>
+  </div>
+  <div class="chapter-media">
+  <div class="chapter-image">
+    <img src="assets/evolve/evolve-outcome.jpg" alt="Evolve brand world — journal, envelope, and stationery collateral">
+  </div>
+  </div>
 </section>
 
 <section class="chapter cta-chapter" id="start-project">

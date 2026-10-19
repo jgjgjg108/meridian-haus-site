@@ -327,6 +327,8 @@
     .chapter.split .chapter-text p { max-width: 52ch; }
   }
   .hero-image img { width: auto; max-width: min(100%, 760px); max-height: 72vh; height: auto; display: block; margin: 0 auto; }
+  .chapter.outcome .deliverable-list { margin-bottom: 0; }
+  @media (min-width: 900px) { .chapter.split.outcome { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); max-width: 1280px; gap: 64px; } .chapter.split.outcome .chapter-media { max-width: 100%; } }
 </style>
 </head>
 <body>
@@ -419,17 +421,24 @@
   </div>
 </section>
 
-<section class="chapter" id="outcome">
-  <div class="eyebrow">Outcome</div>
-  <h2>A Brand World the Product Deserved</h2>
-  <p>Identity, packaging, photography, and e-commerce built as a single material language. OBI now reads as a fine fragrance house with an identity as considered as its formulations — dark, mineral, and unmistakably its own.</p>
-  <div class="deliverable-list">
-    <span>Brand Identity</span>
-    <span>Packaging Design</span>
-    <span>Product Photography</span>
-    <span>E-Commerce Experience</span>
+<section class="chapter split outcome" id="outcome">
+  <div class="chapter-text">
+    <div class="eyebrow">Outcome</div>
+    <h2>A Brand World the Product Deserved</h2>
+    <p>Identity, packaging, photography, and e-commerce built as a single material language. OBI now reads as a fine fragrance house with an identity as considered as its formulations — dark, mineral, and unmistakably its own.</p>
+    <div class="deliverable-list">
+      <span>Brand Identity</span>
+      <span>Packaging Design</span>
+      <span>Product Photography</span>
+      <span>E-Commerce Experience</span>
+    </div>
+    <a href="../assets/lookbooks/obi-lookbook.pdf" target="_blank" rel="noopener" class="btn-lookbook">View the Lookbook →</a>
   </div>
-  <a href="../assets/lookbooks/obi-lookbook.pdf" target="_blank" rel="noopener" class="btn-lookbook">View the Lookbook →</a>
+  <div class="chapter-media">
+  <div class="chapter-image">
+    <img src="assets/obi/obi-outcome.jpg" alt="OBI brand world — mark, packaging, bottles, and mineral pairings">
+  </div>
+  </div>
 </section>
 
 <section class="chapter cta-chapter" id="start-project">
