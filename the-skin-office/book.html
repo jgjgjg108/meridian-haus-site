@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book — The Skin Office</title>
+<meta name="description" content="Book a facial at The Skin Office, Brooklyn.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23111111'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='17' font-weight='500' letter-spacing='3' fill='%23ffffff'%3ETSO%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="utility">Complimentary shipping over $100<span class="u-extra"> &nbsp;&middot;&nbsp; Now booking November</span></div>
+<header class="site-header">
+  <div class="header-main">
+    <div class="left"><button class="menu-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button><a href="book.html">Book a facial</a><a href="facials.html#menu">Menu</a></div>
+    <a href="index.html" class="logo"><svg viewBox="0 0 330 34" role="img" aria-label="The Skin Office" fill="currentColor"><text x="168.5" y="25" text-anchor="middle" font-family="Manrope, Helvetica Neue, Arial, sans-serif" font-size="21" font-weight="500" letter-spacing="7">THE SKIN OFFICE</text></svg></a>
+    <div class="right"><a href="contact.html" class="hide-sm">Contact</a><button type="button" class="cart-btn" data-open-cart aria-label="Open bag">Bag <span class="count" data-cart-count>0</span></button></div>
+  </div>
+  <div class="nav-row"><nav class="nav" aria-label="Main"><a href="shop.html">Shop</a><a href="facials.html">Facials</a><a href="book.html" aria-current="page">Book</a><a href="about.html">About</a><a href="journal.html">Journal</a><a href="contact.html">Contact</a></nav></div>
+</header>
+<main>
+
+<section class="page-head" style="padding-bottom:clamp(28px,4vw,48px)">
+  <div class="wrap">
+    <span class="eyebrow">Book</span>
+    <h1>Book a facial</h1>
+    <p class="lede">Three short steps. We&rsquo;ll confirm by email, and nothing is charged online.</p>
+  </div>
+</section>
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="book-layout">
+      <form id="book-form" novalidate>
+        <div class="step">
+          <div class="step-title"><span class="n">01</span><h2>Choose a facial</h2></div>
+          <div class="service-options"><label class="opt"><input type="radio" name="service" value="office-facial" data-name="The Office Facial" data-dur="60 min" data-price="$185" required><span class="box"><strong>The Office Facial</strong><span>60 min &middot; $185</span></span></label><label class="opt"><input type="radio" name="service" value="sculpt" data-name="The Sculpt" data-dur="75 min" data-price="$225" required><span class="box"><strong>The Sculpt</strong><span>75 min &middot; $225</span></span></label><label class="opt"><input type="radio" name="service" value="clarify" data-name="The Clarify" data-dur="60 min" data-price="$195" required><span class="box"><strong>The Clarify</strong><span>60 min &middot; $195</span></span></label><label class="opt"><input type="radio" name="service" value="barrier-repair" data-name="Barrier Repair" data-dur="60 min" data-price="$175" required><span class="box"><strong>Barrier Repair</strong><span>60 min &middot; $175</span></span></label><label class="opt"><input type="radio" name="service" value="express" data-name="The Express" data-dur="30 min" data-price="$110" required><span class="box"><strong>The Express</strong><span>30 min &middot; $110</span></span></label><label class="opt"><input type="radio" name="service" value="consultation" data-name="Skin Consultation" data-dur="30 min" data-price="$60" required><span class="box"><strong>Skin Consultation</strong><span>30 min &middot; $60</span></span></label></div>
+        </div>
+        <div class="step">
+          <div class="step-title"><span class="n">02</span><h2>Pick a date &amp; time</h2></div>
+          <div class="cal-head"><span class="month" id="cal-month"></span><div class="cal-nav"><button type="button" id="cal-prev" aria-label="Previous week">&larr;</button><button type="button" id="cal-next" aria-label="Next week">&rarr;</button></div></div>
+          <div class="days" id="days"></div>
+          <p class="times-empty" id="times-note">Choose a day to see open times. We&rsquo;re closed Sundays and Mondays.</p>
+          <div class="times" id="times"></div>
+        </div>
+        <div class="step">
+          <div class="step-title"><span class="n">03</span><h2>Your details</h2></div>
+          <div class="form-grid">
+            <div class="field"><label class="eyebrow" for="b-name">Name</label><input id="b-name" name="name" required autocomplete="name"></div>
+            <div class="field"><label class="eyebrow" for="b-email">Email</label><input id="b-email" name="email" type="email" required autocomplete="email"></div>
+            <div class="field"><label class="eyebrow" for="b-phone">Phone</label><input id="b-phone" name="phone" type="tel" autocomplete="tel"></div>
+            <div class="field"><label class="eyebrow" for="b-addon">Add-on</label><select id="b-addon" name="addon"><option>None</option><option>LED light therapy (+$40)</option><option>Dermaplaning (+$55)</option><option>Extra extractions (+$35)</option><option>Hydrating eye treatment (+$30)</option><option>Scalp and neck massage (+$25)</option></select></div>
+            <div class="field full"><label class="eyebrow" for="b-note">Anything we should know?</label><textarea id="b-note" name="note" maxlength="500" rows="4" placeholder="Skin concerns, sensitivities, what you use now, an event coming up"></textarea><div class="counter" id="note-count">0 / 500</div></div>
+            <label class="check full"><input type="checkbox" name="first"> This is my first visit</label>
+          </div>
+          <p class="form-error" id="book-error" role="alert"></p>
+          <div style="margin-top:12px"><button type="submit" class="btn">Request appointment</button></div>
+        </div>
+      </form>
+      <aside class="summary">
+        <img src="images/booking.jpg" alt="Treatment room with a facial bed and stone sink" width="1400" height="2100" class="grade" loading="lazy" style="aspect-ratio:16/10">
+        <h2>Your appointment</h2>
+        <dl>
+          <div><dt>Facial</dt><dd data-sum="service">&mdash;</dd></div>
+          <div><dt>Length</dt><dd data-sum="length">&mdash;</dd></div>
+          <div><dt>Date</dt><dd data-sum="date">&mdash;</dd></div>
+          <div><dt>Time</dt><dd data-sum="time">&mdash;</dd></div>
+          <div><dt>Price</dt><dd data-sum="price">&mdash;</dd></div>
+        </dl>
+        <p class="fine">Pay in the studio after your treatment. 24 hours&rsquo; notice for changes, please.</p>
+      </aside>
+    </div>
+
+    <div class="confirm" tabindex="-1" role="status">
+      <div class="tick" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5"><path d="M4 12.5l5 5L20 6.5"/></svg></div>
+      <span class="eyebrow">Request received</span>
+      <h2>Thank you, <span data-confirm="name"></span>.</h2>
+      <p>We&rsquo;ve got your request and will confirm by email within a few hours. Nothing has been charged.</p>
+      <dl>
+        <div><dt>Facial</dt><dd data-confirm="service"></dd></div>
+        <div><dt>When</dt><dd data-confirm="when"></dd></div>
+        <div><dt>Email</dt><dd data-confirm="email"></dd></div>
+        <div><dt>Your note</dt><dd data-confirm="note"></dd></div>
+        <div><dt>Reference</dt><dd data-confirm="ref"></dd></div>
+      </dl>
+      <div class="actions"><a href="index.html" class="btn">Back to home</a><button type="button" class="btn ghost" id="book-again">Book another</button></div>
+      <p class="muted" style="font-size:.78rem;margin-top:26px">Concept site: no request was sent.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="logo"><svg viewBox="0 0 330 34" role="img" aria-label="The Skin Office" fill="currentColor"><text x="168.5" y="25" text-anchor="middle" font-family="Manrope, Helvetica Neue, Arial, sans-serif" font-size="21" font-weight="500" letter-spacing="7">THE SKIN OFFICE</text></svg></a>
+        <p>A small facial studio and skincare shelf in Williamsburg, Brooklyn. Honest skin, handled properly.</p>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul><li><a href="facials.html">Facials</a></li><li><a href="book.html">Book</a></li><li><a href="about.html">About</a></li><li><a href="journal.html">Journal</a></li></ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul><li>54 Bedford Avenue, Suite 2</li><li>Brooklyn, NY 11249</li><li>Tue&ndash;Fri 10&ndash;8 &middot; Sat 9&ndash;5</li><li><a href="contact.html">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4>Notes from the office</h4>
+        <form class="newsletter" novalidate><input type="email" required placeholder="Email address" aria-label="Email address"><button type="submit">Join</button></form>
+        <ul style="margin-top:22px"><li><a href="#">Instagram</a></li><li><a href="#">TikTok</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 The Skin Office</span><span>A Meridian Haus concept site</span></div>
+  </div>
+</footer>
+<div class="scrim" data-close-cart></div>
+<aside class="drawer" aria-label="Your bag" tabindex="-1">
+  <div class="drawer-head"><h2>Your bag</h2><button type="button" class="drawer-close" data-close-cart aria-label="Close bag">&times;</button></div>
+  <div class="drawer-items"></div>
+  <div class="drawer-foot">
+    <div class="subtotal"><span>Subtotal</span><span data-subtotal>$0</span></div>
+    <button type="button" class="btn block" disabled>Checkout</button>
+    <p class="note">Concept site: checkout is switched off.</p>
+  </div>
+</aside>
+<script>window.TSO_PRODUCTS = {"milk-cleanser": {"name": "Milk Cleanser", "size": "150 ml", "price": 38, "bg": "images/texture-bubbles.jpg", "svg": "<svg viewBox=\"0 0 120 300\" aria-hidden=\"true\"><rect x=\"48\" y=\"4\" width=\"24\" height=\"14\" rx=\"2\" fill=\"#111111\"/><rect x=\"70\" y=\"6\" width=\"34\" height=\"7\" rx=\"2\" fill=\"#111111\"/><rect x=\"55\" y=\"18\" width=\"10\" height=\"22\" fill=\"#111111\"/><rect x=\"44\" y=\"38\" width=\"32\" height=\"24\" rx=\"3\" fill=\"#111111\"/><rect x=\"18\" y=\"62\" width=\"84\" height=\"236\" rx=\"12\" fill=\"#FBFAF8\" stroke=\"rgba(17,17,17,.10)\"/><text x=\"60\" y=\"150\" text-anchor=\"middle\" font-family=\"Manrope, Helvetica Neue, Arial, sans-serif\" font-size=\"5.2\" font-weight=\"600\" letter-spacing=\"1.6\" fill=\"#111111\">THE SKIN OFFICE</text><line x1=\"50.0\" y1=\"157.0\" x2=\"70.0\" y2=\"157.0\" stroke=\"#111111\" stroke-width=\".6\"/><text x=\"60\" y=\"170.0\" text-anchor=\"middle\" font-family=\"Manrope, Helvetica Neue, Arial, sans-serif\" font-size=\"8.4\" font-weight=\"400\" fill=\"#111111\">Milk Cleanser</text><text x=\"60\" y=\"181.0\" text-anchor=\"middle\" font-family=\"Manrope, Helvetica Neue, Arial, sans-serif\" font-size=\"4.6\" font-weight=\"500\" letter-spacing=\"1\" fill=\"#6B6966\">150 ML</text></svg>"}, "daily-serum": {"name": "Daily Serum", "size": "30 ml", "price": 72, "bg": "images/texture-foam.jpg", "svg": "<svg viewBox=\"0 0 100 240\" aria-hidden=\"true\"><rect x=\"37\" y=\"2\" width=\"26\" height=\"42\" rx=\"13\" fill=\"#111111\"/><rect x=\"29\" y=\"40\" width=\"42\" height=\"28\" rx=\"3\" fill=\"#111111\"/><rect x=\"12\" y=\"68\" width=\"76\" height=\"170\" rx=\"9\" fill=\"#FBFAF8\" stroke=\"rgba(17,17,17,.10)\"/><text x=\"50\" y=\"130\" text-anchor=\"middle\" font-family=\"Manrope, Helvetica Neue, Arial, sans-serif\" font-size=\"4.7\" font-weight=\"600\" letter-spacing=\"1.4\" fill=\"#111111\">THE SKIN OFFICE</text><line x1=\"41.0\" y1=\"136.3\" x2=\"59.0\" y2=\"136.3\" stroke=\"#111111\" stroke-width=\".6\"/><text x=\"50\" y=\"148.0\" text-anchor=\"middle\" font-family=\"Manrope, Helvetica Neue, Arial, sans-serif\" font-size=\"7.6\" font-weight=\"400\" fill=\"#111111\">Daily Serum</text><text x=\"50\" y=\"157.9\" text-anchor=\"middle\" font-family=\"Manrope, Helvetica Neue, Arial, sans-serif\" font-size=\"4.1\" font-weight=\"500\" letter-spacing=\"1\" fill=\"#6B6966\">30 ML</text></svg>"}, "barrier-cream": {"name": "Barrier Cream", "size": "50 ml", "price": 64, "bg": "images/texture-layered.jpg", "svg": "<svg viewBox=\"0 0 180 136\" aria-hidden=\"true\"><rect x=\"12\" y=\"2\" width=\"156\" height=\"40\" rx=\"5\" fill=\"#111111\"/><rect x=\"6\" y=\"42\" width=\"168\" height=\"92\" rx=\"10\" fill=\"#FBFAF8\" stroke=\"rgba(17,17,17,.10)\"/><text x=\"90\" y=\"68\" text-anchor=\"middle\" font-family=\"Manrope, Helvetica Neue, Arial, sans-serif\" font-size=\"5.2\" font-weight=\"600\" letter-spacing=\"1.6\" fill=\"#111111\">THE SKIN OFFICE</text><line x1=\"80.0\" y1=\"75.0\" x2=\"100.0\" y2=\"75.0\" stroke=\"#111111\" stroke-width=\".6\"/><text x=\"90\" y=\"88.0\" text-anchor=\"middle\" font-family=\"Manrope, Helvetica Neue, Arial, sans-serif\" font-size=\"8.4\" font-weight=\"400\" fill=\"#111111\">Barrier Cream</text><text x=\"90\" y=\"99.0\" text-anchor=\"middle\" font-family=\"Manrope, Helvetica Neue, Arial, sans-serif\" font-size=\"4.6\" font-weight=\"500\" letter-spacing=\"1\" fill=\"#6B6966\">50 ML</text></svg>"}, "mineral-spf": {"name": "Mineral SPF 40", "size": "50 ml", "price": 44, "bg": "images/cream-swatch.jpg", "svg": "<svg viewBox=\"0 0 96 300\" aria-hidden=\"true\"><rect x=\"8\" y=\"2\" width=\"80\" height=\"12\" fill=\"#FBFAF8\" stroke=\"rgba(17,17,17,.10)\"/><path d=\"M8 14 H88 L80 248 H16 Z\" fill=\"#FBFAF8\" stroke=\"rgba(17,17,17,.10)\"/><rect x=\"20\" y=\"248\" width=\"56\" height=\"50\" rx=\"3\" fill=\"#111111\"/><text x=\"48\" y=\"110\" text-anchor=\"middle\" font-family=\"Manrope, Helvetica Neue, Arial, sans-serif\" font-size=\"4.8\" font-weight=\"600\" letter-spacing=\"1.5\" fill=\"#111111\">THE SKIN OFFICE</text><line x1=\"38.8\" y1=\"116.4\" x2=\"57.2\" y2=\"116.4\" stroke=\"#111111\" stroke-width=\".6\"/><text x=\"48\" y=\"128.4\" text-anchor=\"middle\" font-family=\"Manrope, Helvetica Neue, Arial, sans-serif\" font-size=\"7.7\" font-weight=\"400\" fill=\"#111111\">Mineral SPF 40</text><text x=\"48\" y=\"138.5\" text-anchor=\"middle\" font-family=\"Manrope, Helvetica Neue, Arial, sans-serif\" font-size=\"4.2\" font-weight=\"500\" letter-spacing=\"1\" fill=\"#6B6966\">50 ML</text></svg>"}, "clay-mask": {"name": "Green Clay Mask", "size": "75 ml", "price": 52, "bg": "images/texture-green.jpg", "svg": "<svg viewBox=\"0 0 96 300\" aria-hidden=\"true\"><rect x=\"8\" y=\"2\" width=\"80\" height=\"12\" fill=\"#FBFAF8\" stroke=\"rgba(17,17,17,.10)\"/><path d=\"M8 14 H88 L80 248 H16 Z\" fill=\"#FBFAF8\" stroke=\"rgba(17,17,17,.10)\"/><rect x=\"20\" y=\"248\" width=\"56\" height=\"50\" rx=\"3\" fill=\"#111111\"/><text x=\"48\" y=\"110\" text-anchor=\"middle\" font-family=\"Manrope, Helvetica Neue, Arial, sans-serif\" font-size=\"4.8\" font-weight=\"600\" letter-spacing=\"1.5\" fill=\"#111111\">THE SKIN OFFICE</text><line x1=\"38.8\" y1=\"116.4\" x2=\"57.2\" y2=\"116.4\" stroke=\"#111111\" stroke-width=\".6\"/><text x=\"48\" y=\"128.4\" text-anchor=\"middle\" font-family=\"Manrope, Helvetica Neue, Arial, sans-serif\" font-size=\"7.7\" font-weight=\"400\" fill=\"#111111\">Green Clay Mask</text><text x=\"48\" y=\"138.5\" text-anchor=\"middle\" font-family=\"Manrope, Helvetica Neue, Arial, sans-serif\" font-size=\"4.2\" font-weight=\"500\" letter-spacing=\"1\" fill=\"#6B6966\">75 ML</text></svg>"}, "eye-balm": {"name": "Overnight Eye Balm", "size": "15 ml", "price": 46, "bg": "images/texture-striped.jpg", "svg": "<svg viewBox=\"0 0 130 120\" aria-hidden=\"true\"><rect x=\"8\" y=\"2\" width=\"114\" height=\"34\" rx=\"5\" fill=\"#111111\"/><rect x=\"4\" y=\"36\" width=\"122\" height=\"82\" rx=\"9\" fill=\"#FBFAF8\" stroke=\"rgba(17,17,17,.10)\"/><text x=\"65\" y=\"58\" text-anchor=\"middle\" font-family=\"Manrope, Helvetica Neue, Arial, sans-serif\" font-size=\"4.3\" font-weight=\"600\" letter-spacing=\"1.3\" fill=\"#111111\">THE SKIN OFFICE</text><line x1=\"56.8\" y1=\"63.7\" x2=\"73.2\" y2=\"63.7\" stroke=\"#111111\" stroke-width=\".6\"/><text x=\"65\" y=\"74.4\" text-anchor=\"middle\" font-family=\"Manrope, Helvetica Neue, Arial, sans-serif\" font-size=\"6.9\" font-weight=\"400\" fill=\"#111111\">Overnight Eye Balm</text><text x=\"65\" y=\"83.4\" text-anchor=\"middle\" font-family=\"Manrope, Helvetica Neue, Arial, sans-serif\" font-size=\"3.8\" font-weight=\"500\" letter-spacing=\"1\" fill=\"#6B6966\">15 ML</text></svg>"}};</script>
+<script src="js/main.js"></script>
+</body>
+</html>
