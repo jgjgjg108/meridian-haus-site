@@ -432,3 +432,5 @@ form.sent + .form-success { display: block; }
   .p-split-media { order: -1; height: 78vh; min-height: 420px; }
   .p-split-text { padding: 40px var(--gutter) 20px; }
 }
+.feature-duo { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 860px) { .feature-duo { grid-template-columns: 1fr; } }

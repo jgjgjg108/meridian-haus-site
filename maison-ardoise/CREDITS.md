@@ -14,9 +14,6 @@ Photos from Unsplash (Unsplash License), Pexels (Pexels License) and Kaboompics 
 | p2-cover.jpg | Kaboompics | 37355 |
 | p2-2.jpg | Kaboompics | 37098 |
 | p2-3.jpg | Kaboompics | 40725 |
-| p3-cover.jpg | Taylor Friehl | x2zmUkfh54c |
-| p3-2.jpg | Aleksandra Dementeva | E0mFQOK1poA |
-| p3-3.jpg | Ash Willson | 93yVh4g2-io |
 | journal-1.jpg | Alexander Kaufmann | IaBGc8xtCr8 |
 | journal-2.jpg | Jacinta Christos | BDJy8J3R4GY |
 | journal-3.jpg | Anton Sukhinov | 4GvsTa3Y-5I |
