@@ -21,6 +21,6 @@ Photos from Unsplash (Unsplash License), Pexels (Pexels License) and Kaboompics 
 | journal-2.jpg | Jacinta Christos | BDJy8J3R4GY |
 | journal-3.jpg | Anton Sukhinov | 4GvsTa3Y-5I |
 | founder.jpg | Kaboompics | 40645 |
-| studio.jpg | Mary Skrynnikova | eIWt0lCrhuU |
+| studio.jpg | Kaboompics | 40656 |
 
 Shop the Look mood board (`images/shop-the-look.jpg`): Julianna Gimelli.
