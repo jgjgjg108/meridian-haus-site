@@ -34,4 +34,4 @@ All photos from Unsplash (Unsplash License, free for commercial use).
 | founder.jpg | Caroline Badran | Z8jN__f-uOo |
 | studio.jpg | Mary Skrynnikova | eIWt0lCrhuU |
 
-Shop the Look mood board: Julianna Gimelli (pending — drop in as `images/shop-the-look.jpg`, 1600×1600).
+Shop the Look mood board (`images/shop-the-look.jpg`): Julianna Gimelli.
