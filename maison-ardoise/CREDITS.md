@@ -20,7 +20,7 @@ Photos from Unsplash (Unsplash License), Pexels (Pexels License) and Kaboompics 
 | journal-1.jpg | Alexander Kaufmann | IaBGc8xtCr8 |
 | journal-2.jpg | Jacinta Christos | BDJy8J3R4GY |
 | journal-3.jpg | Anton Sukhinov | 4GvsTa3Y-5I |
-| founder.jpg | Caroline Badran | Z8jN__f-uOo |
+| founder.jpg | Kaboompics | 40645 |
 | studio.jpg | Mary Skrynnikova | eIWt0lCrhuU |
 
 Shop the Look mood board (`images/shop-the-look.jpg`): Julianna Gimelli.
