@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inquire — Maison Ardoise</title>
+<meta name="description" content="Begin an interior design project with Maison Ardoise.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23F3EFE8'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='34' fill='%23171614'%3EA%3C/text%3E%3Cline x1='14' y1='52' x2='50' y2='52' stroke='%23171614' stroke-width='1.2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo"><svg viewBox="38 8 224 84" role="img" aria-label="Maison Ardoise" fill="currentColor"><text x="150" y="36" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-size="30" font-weight="300">Maison</text><line x1="40" y1="50" x2="260" y2="50" stroke="currentColor" stroke-width=".9"/><text x="155" y="84" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="32" font-weight="400" letter-spacing="10">ARDOISE</text></svg></a>
+    <nav class="nav" aria-label="Main"><a href="projects.html">Projects</a><a href="index.html#services">Services</a><a href="about.html">About</a><a href="journal.html">Journal</a><a href="contact.html" class="nav-cta" aria-current="page">Inquire</a></nav>
+    <button class="menu-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+<main>
+
+<section class="page-head">
+  <div class="wrap"><span class="eyebrow">Inquire</span><h1>Tell us about <em>your home.</em></h1><p class="lede">Share a little about the project and we will arrange an introductory call. We currently accept new projects for spring 2027.</p></div>
+</section>
+<section style="padding-bottom:clamp(70px,9vw,120px)">
+  <div class="wrap inquiry">
+    <div class="inquiry-intro">
+      <dl style="margin-top:0">
+        <div><dt class="eyebrow">Studio</dt><dd>418 Warren Street<br>Hudson, NY 12534</dd></div>
+        <div><dt class="eyebrow">Paris</dt><dd>By appointment</dd></div>
+        <div><dt class="eyebrow">Email</dt><dd>studio@maisonardoise.example</dd></div>
+        <div><dt class="eyebrow">Telephone</dt><dd>+1 (518) 555-0142</dd></div>
+      </dl>
+    </div>
+    <div>
+      <form class="form" data-demo novalidate>
+          <div class="field"><label class="eyebrow" for="f-name">Name</label><input id="f-name" name="name" required autocomplete="name"></div>
+          <div class="field"><label class="eyebrow" for="f-email">Email</label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
+          <div class="field"><label class="eyebrow" for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+          <div class="field"><label class="eyebrow" for="f-loc">Project location</label><input id="f-loc" name="location" placeholder="City, state"></div>
+          <fieldset class="field full" style="border:0">
+            <legend class="eyebrow" style="margin-bottom:10px">Service</legend>
+            <div class="choices">
+              <label><input type="radio" name="service" value="full" checked><span>Full-service design</span></label>
+              <label><input type="radio" name="service" value="virtual"><span>Virtual design</span></label>
+              <label><input type="radio" name="service" value="consult"><span>Consultation</span></label>
+            </div>
+          </fieldset>
+          <div class="field"><label class="eyebrow" for="f-type">Property</label>
+            <select id="f-type" name="property"><option>Primary residence</option><option>Second home</option><option>Short-term rental</option><option>Renovation / new build</option></select></div>
+          <div class="field"><label class="eyebrow" for="f-budget">Investment</label>
+            <select id="f-budget" name="budget"><option>Under $75k</option><option selected>$75k – $250k</option><option>$250k – $500k</option><option>$500k +</option></select></div>
+          <div class="field full"><label class="eyebrow" for="f-msg">Tell us about the home</label><textarea id="f-msg" name="message" rows="4" placeholder="Rooms, timeline, how you want it to feel"></textarea></div>
+          <div class="full" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap"><button type="submit" class="btn">Send inquiry</button><span class="form-note">We reply within two working days.</span></div>
+        </form>
+        <div class="form-success" tabindex="-1" role="status">
+          <h3>Thank you, <span data-name>friend</span>.</h3>
+          <p>Your note has reached the studio. Céline or a member of the team will be in touch within two working days to arrange an introductory call.</p>
+          <p class="form-note" style="margin-top:14px">Concept site — no message was sent.</p>
+        </div>
+    </div>
+  </div>
+</section>
+<section class="section band-stone">
+  <div class="wrap">
+    <div class="section-head"><div><span class="eyebrow">What to expect</span><h2 style="margin-top:14px">How a project unfolds</h2></div></div>
+    <div class="steps">
+      <div><span class="n">01</span><h3>Introduction</h3><p>A short call to understand the home, your timeline and how you live.</p></div>
+      <div><span class="n">02</span><h3>Site visit</h3><p>Céline walks the house, measures the light and listens.</p></div>
+      <div><span class="n">03</span><h3>Concept</h3><p>Plans, palette and real material samples presented at the studio table.</p></div>
+      <div><span class="n">04</span><h3>Realisation</h3><p>Procurement, trades and a single installation day. Then you move in.</p></div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="logo"><svg viewBox="38 8 224 84" role="img" aria-label="Maison Ardoise" fill="currentColor"><text x="150" y="36" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-size="30" font-weight="300">Maison</text><line x1="40" y1="50" x2="260" y2="50" stroke="currentColor" stroke-width=".9"/><text x="155" y="84" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="32" font-weight="400" letter-spacing="10">ARDOISE</text></svg></a>
+        <p>A founder-led interior design studio making calm, enduring homes in Hudson, New York and Paris.</p>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul><li><a href="projects.html">Projects</a></li><li><a href="about.html">About</a></li><li><a href="journal.html">Journal</a></li><li><a href="contact.html">Inquire</a></li></ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul><li>418 Warren Street</li><li>Hudson, NY 12534</li><li>By appointment</li><li><a href="mailto:studio@maisonardoise.example">studio@maisonardoise.example</a></li></ul>
+      </div>
+      <div>
+        <h4>Letters from the studio</h4>
+        <form class="newsletter" novalidate><input type="email" required placeholder="Email address" aria-label="Email address"><button type="submit">Join</button></form>
+        <ul style="margin-top:22px"><li><a href="#" aria-label="Instagram">Instagram</a></li><li><a href="#" aria-label="Pinterest">Pinterest</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 Maison Ardoise</span><span>A Meridian Haus concept site</span></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
