@@ -410,3 +410,25 @@ form.sent + .form-success { display: block; }
 }
 
 .board:not(.has-image) .hotspot { display: none; }
+
+/* ---------- Three-photo project pages ---------- */
+.feature-trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 44px); }
+.p-split { display: grid; grid-template-columns: 5fr 6fr; min-height: calc(100vh - 82px); }
+.p-split-text {
+  display: flex; flex-direction: column; justify-content: center; gap: 22px;
+  padding: clamp(48px, 6vw, 96px) clamp(28px, 5vw, 80px) clamp(48px, 6vw, 96px);
+  padding-left: calc(max(0px, (100vw - var(--max)) / 2) + var(--gutter));
+}
+.p-split-text h1 { font-size: clamp(2.6rem, 5vw, 4.6rem); }
+.p-split-text p { color: var(--ink-soft); max-width: 32em; }
+.p-split-text .specs { border-top: 1px solid var(--line); padding-top: 22px; margin: 8px 0 0; }
+.p-split-media { position: relative; overflow: hidden; }
+.p-split-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.project-row { grid-template-columns: 1fr 1fr; }
+.project-row:nth-child(even) { grid-template-columns: 1fr 1fr; }
+@media (max-width: 860px) {
+  .feature-trio { grid-template-columns: 1fr; gap: 48px; }
+  .p-split { grid-template-columns: 1fr; min-height: 0; }
+  .p-split-media { order: -1; height: 78vh; min-height: 420px; }
+  .p-split-text { padding: 40px var(--gutter) 20px; }
+}
