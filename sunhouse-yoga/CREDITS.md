@@ -5,12 +5,14 @@ Layout inspired by The Oasis, Encinitas (oasisencinitas.com); all copy and image
 
 ## Logo
 
-By Julianna Gimelli (Adobe). Until the files arrive the site shows a typeset fallback (Fraunces italic).
+Carved-wood sun mark by Julianna Gimelli (Adobe Firefly + Canva). Shown with a typeset wordmark (Fraunces italic / DM Sans).
 
 | File | Use |
 |---|---|
-| images/logo-horizontal.svg | Header (wordmark-only or horizontal lockup) |
-| images/logo-light.svg | Footer, on walnut |
+| images/mark.png | Homepage hero (trimmed from her 3840 × 2160 export) |
+| images/mark-180.png | Header, apple-touch icon |
+| images/mark-light-180.png | Footer: cream version of the mark for the walnut background |
+| images/favicon.png | Browser tab icon |
 
 ## Collages and event graphics
 

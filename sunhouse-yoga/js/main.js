@@ -40,10 +40,6 @@
     var img = ph.querySelector('img');
     if (img) whenLoaded(img, function () { ph.classList.add('has-image'); }, function () { img.remove(); });
   });
-  document.querySelectorAll('.logo').forEach(function (logo) {
-    var img = logo.querySelector('img');
-    if (img) whenLoaded(img, function () { logo.classList.add('has-logo'); }, function () { img.remove(); });
-  });
   var collage = document.querySelector('.hero-collage');
   if (collage) {
     var cImg = collage.querySelector('img');
