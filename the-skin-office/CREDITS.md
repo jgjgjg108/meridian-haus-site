@@ -35,6 +35,10 @@ Chosen by Julianna Gimelli.
 
 `hero-collage.jpg` ("At Home with Noor"): collage by Julianna Gimelli, built in Canva from Kaboompics photos (seated studio portrait of woman in black top and jeans, 39654; overhead bathroom sink scene with skincare products, 35236) and product cutouts she sourced.
 
-## Still to come (placeholders on the site)
+## Journal covers (Kaboompics, chosen by Julianna)
 
-Journal collages by Julianna Gimelli: `journal-barrier.jpg`, `journal-first-facial.jpg`, `journal-spf.jpg` (1600 × 1600 each).
+| File | Kaboompics photo |
+|---|---|
+| journal-barrier.jpg | Macro view of white facial cream applied to cheek and jaw (32029) |
+| journal-first-facial.jpg | Natural sea sponges on green textured towel and white pedestal (33125) |
+| journal-spf.jpg | Striped beach towel with seashells and sunscreen (36271) |
