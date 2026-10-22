@@ -61,6 +61,13 @@
     }
   }
 
+  // Service links arrive with their service preselected (contact.html?service=virtual)
+  var wanted = new URLSearchParams(window.location.search).get('service');
+  if (wanted) {
+    var radio = document.querySelector('input[name="service"][value="' + wanted + '"]');
+    if (radio) radio.checked = true;
+  }
+
   // Concept site: forms confirm in place, nothing is sent
   document.querySelectorAll('form[data-demo]').forEach(function (form) {
     form.addEventListener('submit', function (e) {
