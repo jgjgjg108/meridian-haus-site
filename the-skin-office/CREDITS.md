@@ -35,6 +35,10 @@ Chosen by Julianna Gimelli.
 
 `hero-collage.jpg` ("At Home with Noor"): collage by Julianna Gimelli, built in Canva from Kaboompics photos (seated studio portrait of woman in black top and jeans, 39654; overhead bathroom sink scene with skincare products, 35236) and product cutouts she sourced.
 
+## At Home with Noor (product photos)
+
+Brand product shots supplied by Julianna, used editorially on `at-home-with-noor.html` (images/noor/): Chanel N°5 Eau de Parfum, Aesop Resurrection Aromatique Hand Wash, Summer Fridays Lip Butter Balm (Brown Sugar), Jenny Bird Sees Ring. Each card links to the brand's site.
+
 ## Journal covers (Kaboompics, chosen by Julianna)
 
 | File | Kaboompics photo |
