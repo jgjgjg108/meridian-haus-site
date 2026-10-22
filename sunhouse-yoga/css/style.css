@@ -125,12 +125,12 @@ a.pill:hover, button.pill:hover { background: var(--cream); border-color: var(--
 .scrolled .site-header { border-bottom-color: var(--line); }
 .header-main {
   max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); height: var(--header-h);
-  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 20px;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 20px;
 }
 .header-main .left { display: flex; align-items: center; gap: 14px; }
-.nav { display: flex; justify-content: flex-end; gap: clamp(18px, 2vw, 30px); }
+.nav { display: flex; justify-content: flex-end; gap: clamp(16px, 1.6vw, 26px); white-space: nowrap; }
 .nav a {
-  font-size: 0.64rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+  font-size: 0.62rem; font-weight: 500; letter-spacing: 0.17em; text-transform: uppercase;
   padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color .25s;
 }
 .nav a:hover, .nav a[aria-current="page"] { border-bottom-color: var(--cocoa); }
@@ -366,7 +366,7 @@ details .answer a { border-bottom: 1px solid currentColor; }
 .values h3 { margin: 14px 0 10px; }
 .values p { color: var(--muted); font-size: 0.95rem; }
 .teachers { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(16px, 2vw, 28px); }
-.teacher .initial { aspect-ratio: 1; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-style: italic; font-size: 2.6rem; color: var(--cream); }
+
 .teacher h3 { margin-top: 18px; font-size: 1.35rem; }
 .teacher .eyebrow { display: block; margin-top: 6px; line-height: 1.6; }
 .teacher p { font-size: 0.9rem; color: var(--muted); margin-top: 10px; }
@@ -436,7 +436,7 @@ details .answer a { border-bottom: 1px solid currentColor; }
 }
 
 /* ================================================================ Responsive */
-@media (max-width: 1120px) {
+@media (max-width: 1240px) {
   .menu-toggle { display: block; }
   .header-main { grid-template-columns: 1fr auto 1fr; }
   .header-main .right { display: flex; justify-content: flex-end; }
@@ -459,7 +459,7 @@ details .answer a { border-bottom: 1px solid currentColor; }
   .prices > div:nth-child(3) { padding-left: 0; border-left: 0; }
   .prices > div:nth-child(n+3) { border-top: 1px solid var(--line); }
 }
-@media (min-width: 1121px) { .header-main .right { display: none; } }
+@media (min-width: 1241px) { .header-main .right { display: none; } }
 
 @media (max-width: 900px) {
   .format { grid-template-columns: 1fr 1fr; }
@@ -517,4 +517,29 @@ details .answer a { border-bottom: 1px solid currentColor; }
   .session .name a { font-size: 1.25rem; }
   .facts { grid-template-columns: 1fr 1fr; }
   .unfold .steps li { grid-template-columns: 48px 1fr; }
+}
+
+/* ---------- Instructors: one warm duotone so portraits from different shoots match ---------- */
+.ph.duo > img { filter: grayscale(1) contrast(1.06) brightness(1.04); }
+.ph.duo.has-image::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, #E8B87A 0%, #A8743F 100%); mix-blend-mode: color; opacity: .62; }
+.teacher .ph { border-radius: 140px 140px 0 0; }
+.teacher h3 a:hover { color: var(--terracotta); }
+.inst-row { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(32px, 6vw, 96px); align-items: center; padding: clamp(48px, 6vw, 88px) 0; border-top: 1px solid var(--line); scroll-margin-top: calc(var(--header-h) + 20px); }
+.inst-row:first-child { border-top: 0; padding-top: 0; }
+.inst-row.flip > :first-child { order: 2; }
+.inst-row .ph { border-radius: 240px 240px 0 0; max-width: 480px; }
+.inst-row h2 { margin: 12px 0 8px; }
+.inst-row .sub { font-family: var(--serif); font-style: italic; font-size: 1.2rem; color: var(--muted); margin-bottom: 18px; }
+.inst-row p { max-width: 34em; }
+.inst-row h4 { margin: 28px 0 6px; color: var(--muted); }
+.teaches { list-style: none; max-width: 34em; }
+.teaches li { display: grid; grid-template-columns: 18px 1fr auto; align-items: center; gap: 8px; padding: 11px 0; border-bottom: 1px solid var(--line); }
+.teaches a { font-family: var(--serif); font-style: italic; font-size: 1.15rem; }
+.teaches a:hover { color: var(--terracotta); }
+.teaches .muted { font-size: 0.82rem; }
+@media (max-width: 900px) {
+  .inst-row { grid-template-columns: 1fr; }
+  .inst-row.flip > :first-child { order: 0; }
+  .inst-row .ph { max-width: 420px; }
 }

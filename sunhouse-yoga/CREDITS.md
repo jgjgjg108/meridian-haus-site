@@ -30,6 +30,11 @@ By Julianna Gimelli. Source images: add credits here where the original creator 
 Waiting on approval or Julianna's own picks. Slots (shown as labelled placeholders until the file exists):
 sunrise, deep-flow, root, throat, ajna, crown, full-reset, mudra, studio, studio-2, studio-3, founder (.jpg, portrait 4:5).
 
+## Instructor portraits
+
+Five portraits, 1600 × 2000 (4:5): images/instructor-leila.jpg, instructor-maren.jpg, instructor-ines.jpg, instructor-theo.jpg, instructor-dev.jpg.
+The site gives them all the same warm duotone, so photos from different shoots match. Must be licensed (not watermarked comps).
+
 ## Drawn artwork
 
 The lotus-sun class illustrations (petal counts follow each chakra's traditional lotus) and the line sun on the homepage are drawn in SVG for this site.
