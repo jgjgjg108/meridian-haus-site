@@ -34,8 +34,6 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 /* One warm, muted grade across all photography */
 .grade { filter: sepia(0.1) saturate(0.86) contrast(0.97) brightness(1.01); }
-/* Journal photos get a stronger warm wash so the three read as one set */
-.grade-journal { filter: sepia(0.3) saturate(0.78) contrast(0.93) brightness(1.03) hue-rotate(-4deg); }
 .img-frame { display: block; }
 
 h1, h2, h3, h4 { font-family: var(--serif); font-weight: 300; line-height: 1.08; letter-spacing: -0.005em; }

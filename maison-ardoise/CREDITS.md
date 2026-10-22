@@ -1,11 +1,11 @@
 # Maison Ardoise — photo credits
 
 Concept site for the Meridian Haus portfolio. Maison Ardoise and its founder are fictional.
-Photos from Unsplash (Unsplash License), Pexels (Pexels License) and Kaboompics (Kaboompics License), all free for commercial use.
+Photos from Pexels (Pexels License) and Kaboompics (Kaboompics License), sourced by Julianna. Both are free for commercial use.
 
 | File | Photographer | Source ID |
 |---|---|---|
-| philosophy.jpg | Alona Gross | -1ZOkqWiI98 |
+| philosophy.jpg | Kaboompics | 38577 |
 | service-full.jpg | Kaboompics | 42642 |
 | service-virtual.jpg | Kaboompics | 28384 |
 | service-consult.jpg | Kaboompics | 40705 |
@@ -13,9 +13,9 @@ Photos from Unsplash (Unsplash License), Pexels (Pexels License) and Kaboompics 
 | p2-cover.jpg | Kaboompics | 37355 |
 | p2-2.jpg | Kaboompics | 37098 |
 | p2-3.jpg | Kaboompics | 40725 |
-| journal-1.jpg | Alexander Kaufmann | IaBGc8xtCr8 |
-| journal-2.jpg | Jacinta Christos | BDJy8J3R4GY |
-| journal-3.jpg | Anton Sukhinov | 4GvsTa3Y-5I |
+| journal-1.jpg | Kaboompics | 33582 |
+| journal-2.jpg | Kaboompics | 36987 |
+| journal-3.jpg | Kaboompics | 40895 |
 | founder.jpg | Kaboompics | 40645 |
 | studio.jpg | Kaboompics | 40656 |
 
