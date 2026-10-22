@@ -24,6 +24,7 @@ Chosen by Julianna Gimelli.
 | texture-layered.jpg | Layered cream texture close-up (34097) |
 | texture-striped.jpg | Striped cream texture pattern close-up (34095) |
 | texture-green.jpg | Green and beige cream texture close-up (34109) |
+| founder.jpg | Side profile of woman wearing silver geometric earring (39638) |
 
 ## Unsplash (Unsplash License, free for commercial use)
 
@@ -36,4 +37,3 @@ Chosen by Julianna Gimelli.
 ## Still to come (placeholders on the site)
 
 Collages by Julianna Gimelli: `hero-collage.jpg` (2400 × 1000, hero slide 1; optional phone version `hero-collage-mobile.jpg`, 1200 × 1500), `journal-barrier.jpg`, `journal-first-facial.jpg`, `journal-spf.jpg` (1600 × 1600 each).
-Founder portrait: `founder.jpg` (1200 × 1500).
