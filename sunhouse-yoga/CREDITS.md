@@ -37,6 +37,10 @@ sunrise, deep-flow, root, throat, ajna, crown, full-reset, mudra, studio, studio
 Five portraits, 1600 × 2000 (4:5): images/instructor-leila.jpg, instructor-maren.jpg, instructor-ines.jpg, instructor-theo.jpg, instructor-dev.jpg.
 The site gives them all the same warm duotone, so photos from different shoots match. Must be licensed (not watermarked comps).
 
+## Chakra artwork
+
+images/chakra-{root,sacral,solar-plexus,throat,ajna,crown}.jpg: series by Julianna Gimelli in Adobe Firefly (1024 × 1024). Used on the class cards and class pages. A Heart version exists but there is no Heart class.
+
 ## Drawn artwork
 
-The lotus-sun class illustrations (petal counts follow each chakra's traditional lotus) and the line sun on the homepage are drawn in SVG for this site.
+The lotus-sun illustrations for Sunrise Salutations, Deep Flow and Full Reset (until their images arrive) and the line sun on the homepage are drawn in SVG for this site.
