@@ -73,13 +73,46 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
+      if (form.hasAttribute('data-visit') && !checkVisitDate(form)) return;
       var name = form.querySelector('[name="name"]');
       var slot = form.nextElementSibling && form.nextElementSibling.querySelector('[data-name]');
       if (name && slot) slot.textContent = name.value.trim().split(' ')[0];
+      var success = form.nextElementSibling;
+      if (success) {
+        success.querySelectorAll('[data-field]').forEach(function (el) {
+          var key = el.getAttribute('data-field');
+          var input = form.querySelector('[name="' + key + '"]:checked') || form.querySelector('[name="' + key + '"]');
+          var val = input ? input.value : '';
+          if (input && input.type === 'date' && val) val = formatDate(val);
+          el.textContent = key === 'type' ? val.toLowerCase() : val;
+        });
+      }
       form.classList.add('sent');
       if (form.nextElementSibling) form.nextElementSibling.focus();
     });
   });
+
+  // Studio visits: dates must be in the future and fall Tuesday to Saturday
+  document.querySelectorAll('form[data-visit] input[type="date"]').forEach(function (input) {
+    var d = new Date(); d.setDate(d.getDate() + 1);
+    input.min = d.toISOString().slice(0, 10);
+  });
+  function checkVisitDate(form) {
+    var error = form.querySelector('.form-error');
+    var input = form.querySelector('[name="date"]');
+    var day = new Date(input.value + 'T12:00:00').getDay();
+    if (day === 0 || day === 1) {
+      error.textContent = 'The studio is open Tuesday to Saturday. Please choose another date.';
+      error.hidden = false;
+      input.focus();
+      return false;
+    }
+    error.hidden = true;
+    return true;
+  }
+  function formatDate(value) {
+    return new Date(value + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+  }
 
   var news = document.querySelector('.newsletter');
   if (news) {

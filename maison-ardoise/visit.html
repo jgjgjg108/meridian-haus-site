@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Studio Visit — Maison Ardoise</title>
+<meta name="description" content="Book an appointment at the Maison Ardoise studio in Hudson, New York.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23F3EFE8'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='34' fill='%23171614'%3EA%3C/text%3E%3Cline x1='14' y1='52' x2='50' y2='52' stroke='%23171614' stroke-width='1.2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo"><svg viewBox="38 8 224 84" role="img" aria-label="Maison Ardoise" fill="currentColor"><text x="150" y="36" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-size="30" font-weight="300">Maison</text><line x1="40" y1="50" x2="260" y2="50" stroke="currentColor" stroke-width=".9"/><text x="155" y="84" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="32" font-weight="400" letter-spacing="10">ARDOISE</text></svg></a>
+    <nav class="nav" aria-label="Main"><a href="projects.html">Projects</a><a href="index.html#services">Services</a><a href="about.html" aria-current="page">About</a><a href="journal.html">Journal</a><a href="contact.html" class="nav-cta">Inquire</a></nav>
+    <button class="menu-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+<main>
+
+<section class="page-head">
+  <div class="wrap"><span class="eyebrow">Studio visits</span><h1>Book a visit to <em>Warren Street.</em></h1><p class="lede">An hour at the long oak table with Céline: we look at your plans and photos, handle real samples, and talk through how you want the home to feel. Visits are complimentary for new clients.</p></div>
+</section>
+<section id="visit" style="padding-bottom:clamp(70px,9vw,120px)">
+  <div class="wrap inquiry">
+    <div class="inquiry-intro">
+      <dl style="margin-top:0">
+        <div><dt class="eyebrow">Where</dt><dd>418 Warren Street<br>Hudson, NY 12534</dd></div>
+        <div><dt class="eyebrow">Hours</dt><dd>Tuesday – Saturday<br>10 am – 5 pm</dd></div>
+        <div><dt class="eyebrow">Length</dt><dd>About one hour</dd></div>
+        <div><dt class="eyebrow">Bring</dt><dd>Floor plans, photos, anything you love</dd></div>
+      </dl>
+    </div>
+    <div>
+      <form class="form" data-demo data-visit novalidate>
+        <fieldset class="field full" style="border:0">
+          <legend class="eyebrow" style="margin-bottom:10px">Visit type</legend>
+          <div class="choices">
+            <label><input type="radio" name="type" value="In person at the studio" checked><span>In person at the studio</span></label>
+            <label><input type="radio" name="type" value="Video call"><span>Video call</span></label>
+          </div>
+        </fieldset>
+        <div class="field"><label class="eyebrow" for="v-date">Preferred date</label><input id="v-date" name="date" type="date" required></div>
+        <div class="field"><label class="eyebrow" for="v-alt">Alternate date</label><input id="v-alt" name="alt" type="date"></div>
+        <fieldset class="field full" style="border:0">
+          <legend class="eyebrow" style="margin-bottom:10px">Time</legend>
+          <div class="choices"><label><input type="radio" name="time" value="10:00 am" required><span>10:00 am</span></label><label><input type="radio" name="time" value="11:30 am"><span>11:30 am</span></label><label><input type="radio" name="time" value="1:30 pm"><span>1:30 pm</span></label><label><input type="radio" name="time" value="3:00 pm"><span>3:00 pm</span></label><label><input type="radio" name="time" value="4:30 pm"><span>4:30 pm</span></label></div>
+        </fieldset>
+        <div class="field"><label class="eyebrow" for="v-name">Name</label><input id="v-name" name="name" required autocomplete="name"></div>
+        <div class="field"><label class="eyebrow" for="v-email">Email</label><input id="v-email" name="email" type="email" required autocomplete="email"></div>
+        <div class="field"><label class="eyebrow" for="v-phone">Phone</label><input id="v-phone" name="phone" type="tel" autocomplete="tel"></div>
+        <div class="field"><label class="eyebrow" for="v-guests">Guests</label>
+          <select id="v-guests" name="guests"><option>Just me</option><option>Two of us</option><option>Three or more</option></select></div>
+        <div class="field full"><label class="eyebrow" for="v-notes">Anything we should prepare?</label><textarea id="v-notes" name="notes" rows="3" placeholder="Rooms, materials you are drawn to, questions"></textarea></div>
+        <p class="form-error full" role="alert" hidden></p>
+        <div class="full" style="display:flex;gap:24px;align-items:center;flex-wrap:wrap"><button type="submit" class="btn">Request visit</button><span class="form-note">We confirm every visit by email within one working day.</span></div>
+      </form>
+      <div class="form-success" tabindex="-1" role="status">
+        <h3>Thank you, <span data-name>friend</span>.</h3>
+        <p>Your visit is requested for <strong data-field="date"></strong> at <strong data-field="time"></strong>, <span data-field="type"></span>. We will email to confirm.</p>
+        <p class="form-note" style="margin-top:14px">Concept site — no request was sent.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="logo"><svg viewBox="38 8 224 84" role="img" aria-label="Maison Ardoise" fill="currentColor"><text x="150" y="36" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-size="30" font-weight="300">Maison</text><line x1="40" y1="50" x2="260" y2="50" stroke="currentColor" stroke-width=".9"/><text x="155" y="84" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="32" font-weight="400" letter-spacing="10">ARDOISE</text></svg></a>
+        <p>A founder-led interior design studio making calm, enduring homes in Hudson, New York and Paris.</p>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul><li><a href="projects.html">Projects</a></li><li><a href="about.html">About</a></li><li><a href="journal.html">Journal</a></li><li><a href="contact.html">Inquire</a></li></ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul><li>418 Warren Street</li><li>Hudson, NY 12534</li><li>By appointment</li><li><a href="mailto:studio@maisonardoise.example">studio@maisonardoise.example</a></li></ul>
+      </div>
+      <div>
+        <h4>Letters from the studio</h4>
+        <form class="newsletter" novalidate><input type="email" required placeholder="Email address" aria-label="Email address"><button type="submit">Join</button></form>
+        <ul style="margin-top:22px"><li><a href="#" aria-label="Instagram">Instagram</a></li><li><a href="#" aria-label="Pinterest">Pinterest</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 Maison Ardoise</span><span>A Meridian Haus concept site</span></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
