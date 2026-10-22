@@ -6,9 +6,9 @@ Photos from Unsplash (Unsplash License), Pexels (Pexels License) and Kaboompics 
 | File | Photographer | Source ID |
 |---|---|---|
 | philosophy.jpg | Alona Gross | -1ZOkqWiI98 |
-| service-full.jpg | Brandon Cormier | YiHRQ8mKrKk |
-| service-virtual.jpg | Brooke Balentine | iUOhGsDQru8 |
-| service-consult.jpg | Olena Bohovyk | 0gRdImnQ7LQ |
+| service-full.jpg | Kaboompics | 42642 |
+| service-virtual.jpg | Kaboompics | 28384 |
+| service-consult.jpg | Kaboompics | 40705 |
 | p1-cover.jpg, p1-2.jpg, p1-3.jpg | Pexels: essentia media; liuuu_61 | pexels 33685860, 33685863, 34549311 |
 | p2-cover.jpg | Kaboompics | 37355 |
 | p2-2.jpg | Kaboompics | 37098 |
