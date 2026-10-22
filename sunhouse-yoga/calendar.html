@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendar — Sunhouse Yoga</title>
+<meta name="description" content="The Sunhouse Yoga calendar, October to March: every class and monthly event.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23E3A33B'/%3E%3Ccircle cx='32' cy='32' r='12' fill='%2343291B'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="announce">The Chakra Series runs October to March &nbsp;&middot;&nbsp; <a href="classes.html#chakra-series">Meet the six classes</a></div>
+<header class="site-header">
+  <div class="header-main">
+    <div class="left"><button class="menu-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button><a href="calendar.html" class="btn small">Book a class</a></div>
+    <a href="index.html" class="logo"><img src="images/logo-horizontal.svg" alt="Sunhouse Yoga"><span class="logo-text"><b>Sunhouse</b><small>YOGA STUDIO</small></span></a>
+    <nav class="nav" aria-label="Main"><a href="classes.html">Classes</a><a href="calendar.html" aria-current="page">Calendar</a><a href="events.html">Events</a><a href="faq.html">FAQ</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="calendar.html" class="nav-book">Book a class</a></nav>
+    <div class="right"><a href="calendar.html" class="btn small ghost">Book</a></div>
+  </div>
+</header>
+<main>
+
+<section class="page-head">
+  <span class="eyebrow">Calendar</span>
+  <h1>October to March</h1>
+  <p class="lede">The whole season on one page. Tap a colour to show or hide a class; tap a class to read about it.</p>
+</section>
+<section class="section" style="padding-top:clamp(24px,3vw,40px)">
+  <div class="wrap" id="calendar">
+    <div class="cal-tools">
+      <div class="cal-months" aria-label="Months"><button type="button" class="pill">Oct</button><button type="button" class="pill">Nov</button><button type="button" class="pill">Dec</button><button type="button" class="pill">Jan</button><button type="button" class="pill">Feb</button><button type="button" class="pill">Mar</button></div>
+      <div class="cal-step"><button type="button" class="cal-prev" aria-label="Previous month">&larr;</button><h2 class="cal-title" aria-live="polite">October</h2><button type="button" class="cal-next" aria-label="Next month">&rarr;</button></div>
+    </div>
+    <div class="legend" aria-label="Filter by class"><button type="button" data-filter="sunrise-salutations" aria-pressed="true"><span class="dot dot-sunrise-salutations"></span>Sunrise Salutations</button><button type="button" data-filter="deep-flow" aria-pressed="true"><span class="dot dot-deep-flow"></span>Deep Flow</button><button type="button" data-filter="root" aria-pressed="true"><span class="dot dot-root"></span>Root</button><button type="button" data-filter="sacral" aria-pressed="true"><span class="dot dot-sacral"></span>Sacral</button><button type="button" data-filter="solar-plexus" aria-pressed="true"><span class="dot dot-solar-plexus"></span>Solar Plexus</button><button type="button" data-filter="throat" aria-pressed="true"><span class="dot dot-throat"></span>Throat</button><button type="button" data-filter="ajna" aria-pressed="true"><span class="dot dot-ajna"></span>Ajna</button><button type="button" data-filter="crown" aria-pressed="true"><span class="dot dot-crown"></span>Crown</button><button type="button" data-filter="full-reset" aria-pressed="true"><span class="dot dot-full-reset"></span>Full Reset</button><button type="button" data-filter="event" aria-pressed="true"><span class="dot dot-event"></span>Events</button><button type="button" class="reset">Show all</button></div>
+    <div class="cal-grid"></div>
+    <div class="cal-day" aria-live="polite"></div>
+    <p class="cal-foot">Times are Pacific. Classes are 18 mats; we keep two for walk-ins. Closed Thanksgiving, Christmas Day and New Year&rsquo;s Day.</p>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="logo"><img src="images/logo-light.svg" alt="Sunhouse Yoga"><span class="logo-text"><b>Sunhouse</b><small>YOGA STUDIO</small></span></a>
+        <p>A small, sunlit yoga studio in Ojai. Every class opens with a mantra and moves through breath, asana and meditation.</p>
+      </div>
+      <div>
+        <h4>Practice</h4>
+        <ul><li><a href="classes.html">Classes</a></li><li><a href="calendar.html">Calendar</a></li><li><a href="events.html">Events</a></li><li><a href="faq.html">FAQ</a></li></ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul><li>27 Signal Street</li><li>Ojai, CA 93023</li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4>Sun notes</h4>
+        <form class="newsletter" novalidate><input type="email" required placeholder="Email address" aria-label="Email address"><button type="submit">Join</button></form>
+        <ul style="margin-top:22px"><li><a href="#">Instagram</a></li><li><a href="#">Spotify playlists</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 Sunhouse Yoga</span><span>A Meridian Haus concept site</span></div>
+  </div>
+</footer>
+<script src="js/schedule.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
