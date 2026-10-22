@@ -1,4 +1,4 @@
-// The Skin Office — nav, reveals, cart, testimonials, booking demo, demo forms
+// The Skin Office — nav, reveals, hero slides, testimonials, booking demo, demo forms
 (function () {
   var body = document.body;
 
@@ -67,103 +67,6 @@
     cImg.addEventListener('load', function () { if (collage.hidden) startSlides(); });
     cImg.addEventListener('error', onError);
   }
-
-  // ---------- Cart (kept in this browser only; no checkout) ----------
-  var PRODUCTS = window.TSO_PRODUCTS || {};
-  var KEY = 'tso-cart';
-  var cart = [];
-  try { cart = JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { cart = []; }
-  cart = cart.filter(function (l) { return PRODUCTS[l.id] && l.qty > 0; });
-
-  function save() { try { localStorage.setItem(KEY, JSON.stringify(cart)); } catch (e) {} }
-  function count() { return cart.reduce(function (n, l) { return n + l.qty; }, 0); }
-  function money(n) { return '$' + n.toFixed(0); }
-
-  var countEls = document.querySelectorAll('[data-cart-count]');
-  var itemsEl = document.querySelector('.drawer-items');
-  var subtotalEl = document.querySelector('[data-subtotal]');
-
-  function render(bump) {
-    var n = count();
-    countEls.forEach(function (el) {
-      el.textContent = n;
-      if (bump) { el.classList.add('bump'); setTimeout(function () { el.classList.remove('bump'); }, 250); }
-    });
-    if (!itemsEl) return;
-    if (!cart.length) {
-      itemsEl.innerHTML = '<p class="drawer-empty">Your bag is empty.</p>';
-    } else {
-      itemsEl.innerHTML = cart.map(function (l) {
-        var p = PRODUCTS[l.id];
-        return '<div class="line-item" data-id="' + l.id + '">' +
-          '<div class="thumb" style="background-image:url(' + p.bg + ')">' + p.svg + '</div>' +
-          '<div><h3>' + p.name + '</h3><div class="size">' + p.size + '</div>' +
-          '<div class="qty"><button type="button" data-dec aria-label="Decrease quantity">&minus;</button><span>' + l.qty + '</span><button type="button" data-inc aria-label="Increase quantity">+</button></div></div>' +
-          '<div><div class="price">' + money(p.price * l.qty) + '</div><button type="button" class="remove" data-remove>Remove</button></div></div>';
-      }).join('');
-    }
-    var sub = cart.reduce(function (s, l) { return s + PRODUCTS[l.id].price * l.qty; }, 0);
-    if (subtotalEl) subtotalEl.textContent = money(sub);
-  }
-
-  function add(id) {
-    var line = cart.find(function (l) { return l.id === id; });
-    if (line) line.qty++; else cart.push({ id: id, qty: 1 });
-    save(); render(true);
-    toast(PRODUCTS[id].name + ' added to your bag');
-  }
-
-  document.querySelectorAll('[data-add]').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      add(btn.dataset.add);
-      btn.classList.add('added');
-      var label = btn.textContent;
-      btn.textContent = 'Added';
-      setTimeout(function () { btn.classList.remove('added'); btn.textContent = label; }, 1400);
-    });
-  });
-
-  if (itemsEl) {
-    itemsEl.addEventListener('click', function (e) {
-      var row = e.target.closest('.line-item');
-      if (!row) return;
-      var line = cart.find(function (l) { return l.id === row.dataset.id; });
-      if (e.target.closest('[data-inc]')) line.qty++;
-      else if (e.target.closest('[data-dec]')) line.qty--;
-      else if (e.target.closest('[data-remove]')) line.qty = 0;
-      else return;
-      cart = cart.filter(function (l) { return l.qty > 0; });
-      save(); render(false);
-    });
-  }
-
-  function openCart() { body.classList.add('cart-open'); var d = document.querySelector('.drawer'); if (d) d.focus(); }
-  function closeCart() { body.classList.remove('cart-open'); }
-  document.querySelectorAll('[data-open-cart]').forEach(function (b) { b.addEventListener('click', openCart); });
-  document.querySelectorAll('[data-close-cart]').forEach(function (b) { b.addEventListener('click', closeCart); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeCart(); });
-
-  var toastEl;
-  function toast(msg) {
-    if (!toastEl) { toastEl = document.createElement('div'); toastEl.className = 'toast'; toastEl.setAttribute('role', 'status'); body.appendChild(toastEl); }
-    toastEl.textContent = msg;
-    toastEl.classList.add('show');
-    clearTimeout(toastEl._t);
-    toastEl._t = setTimeout(function () { toastEl.classList.remove('show'); }, 2200);
-  }
-  render(false);
-
-  // ---------- Shop filters ----------
-  var filterBtns = document.querySelectorAll('.filters button');
-  filterBtns.forEach(function (b) {
-    b.addEventListener('click', function () {
-      filterBtns.forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
-      var f = b.dataset.filter;
-      document.querySelectorAll('.product[data-cat]').forEach(function (p) {
-        p.hidden = f !== 'all' && p.dataset.cat !== f;
-      });
-    });
-  });
 
   // ---------- Testimonials ----------
   var quotes = document.querySelectorAll('.quote');

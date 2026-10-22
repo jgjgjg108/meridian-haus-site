@@ -1,7 +1,6 @@
 # The Skin Office — photo credits
 
-Concept site for the Meridian Haus portfolio. The Skin Office, its founder, products and reviews are fictional.
-Product packaging is drawn in SVG (no product photography).
+Concept site for the Meridian Haus portfolio. The Skin Office, its founder and reviews are fictional.
 
 ## Kaboompics (Kaboompics License, free for commercial use)
 
@@ -11,7 +10,6 @@ Chosen by Julianna Gimelli.
 |---|---|
 | facial-massage.jpg | Facial massage treatment in aesthetic clinic (39538) |
 | clay-mask.jpg | Front-facing beauty portrait in a green clay face mask (32049) |
-| cream-hand.jpg | Pouring skincare serum onto hand (39636) |
 | eye-patch.jpg | Close-up eye patch beneath a blue eye (32004) |
 | serum-dropper.jpg | Close-up of facial serum applied with a dropper to the cheek (32027) |
 | texture-foam.jpg | Neutral beige skincare foam macro (34075) |
@@ -22,7 +20,6 @@ Chosen by Julianna Gimelli.
 | facial-device.jpg | Aesthetic facial treatment with handheld skin device (39563) |
 | texture-bubbles.jpg | Off-white skincare cream texture with fine bubbles (34076) |
 | texture-layered.jpg | Layered cream texture close-up (34097) |
-| texture-striped.jpg | Striped cream texture pattern close-up (34095) |
 | texture-green.jpg | Green and beige cream texture close-up (34109) |
 | founder.jpg | Side profile of woman wearing silver geometric earring (39638) |
 
