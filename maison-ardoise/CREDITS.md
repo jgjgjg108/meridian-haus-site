@@ -5,7 +5,6 @@ Photos from Unsplash (Unsplash License), Pexels (Pexels License) and Kaboompics 
 
 | File | Photographer | Source ID |
 |---|---|---|
-| hero.jpg | Pawel Czerwinski | x8tljPpi5oY |
 | philosophy.jpg | Alona Gross | -1ZOkqWiI98 |
 | service-full.jpg | Brandon Cormier | YiHRQ8mKrKk |
 | service-virtual.jpg | Brooke Balentine | iUOhGsDQru8 |
