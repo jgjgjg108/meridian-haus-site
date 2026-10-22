@@ -41,6 +41,8 @@ The site gives them all the same warm duotone, so photos from different shoots m
 
 images/chakra-{root,sacral,solar-plexus,throat,ajna,crown}.jpg: series by Julianna Gimelli in Adobe Firefly (1024 × 1024). Used on the class cards and class pages. A Heart version exists but there is no Heart class.
 
+images/full-reset.jpg: full-body seven-chakra image by Julianna Gimelli in Adobe Firefly (source 384 × 688, enlarged 2×; a larger export would be sharper).
+
 ## Drawn artwork
 
 The lotus-sun illustrations for Sunrise Salutations, Deep Flow and Full Reset (until their images arrive) and the line sun on the homepage are drawn in SVG for this site.
