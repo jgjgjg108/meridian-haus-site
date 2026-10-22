@@ -33,7 +33,7 @@ Chosen by Julianna Gimelli.
 
 ## Hero collage
 
-`hero-collage.jpg` ("At Home with Noor"): collage by Julianna Gimelli, built in Canva from Kaboompics photos (seated studio portrait of woman in black top and jeans, 39654; overhead bathroom sink scene with skincare products, 35236) and product cutouts she sourced.
+`hero-collage.jpg` ("At Home with Noor", 2400 × 1000): collage by Julianna Gimelli, built in Canva from Kaboompics photos (seated studio portrait of woman in black top and jeans, 39654; overhead bathroom sink scene with skincare products, 35236) and the product shots listed above.
 
 ## At Home with Noor (product photos)
 
