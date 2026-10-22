@@ -10,7 +10,7 @@ Chosen by Julianna Gimelli.
 | File | Kaboompics photo |
 |---|---|
 | facial-massage.jpg | Facial massage treatment in aesthetic clinic (39538) |
-| facial-ultrasonic.jpg | Handheld skincare device used on woman's face (39620) |
+| clay-mask.jpg | Front-facing beauty portrait in a green clay face mask (32049) |
 | cream-hand.jpg | Pouring skincare serum onto hand (39636) |
 | eye-patch.jpg | Close-up eye patch beneath a blue eye (32004) |
 | serum-dropper.jpg | Close-up of facial serum applied with a dropper to the cheek (32027) |
