@@ -35,5 +35,5 @@ Chosen by Julianna Gimelli.
 
 ## Still to come (placeholders on the site)
 
-Collages by Julianna Gimelli: `collage-home.jpg` (2000 × 1100), `journal-barrier.jpg`, `journal-first-facial.jpg`, `journal-spf.jpg` (1600 × 1600 each).
+Collages by Julianna Gimelli: `hero-collage.jpg` (2400 × 1000, hero slide 1; optional phone version `hero-collage-mobile.jpg`, 1200 × 1500), `journal-barrier.jpg`, `journal-first-facial.jpg`, `journal-spf.jpg` (1600 × 1600 each).
 Founder portrait: `founder.jpg` (1200 × 1500).

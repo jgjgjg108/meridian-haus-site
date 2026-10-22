@@ -151,13 +151,22 @@ h3 { font-size: clamp(1.2rem, 1.6vw, 1.4rem); font-weight: 400; letter-spacing: 
 
 /* ---------- Home hero ---------- */
 .hero { position: relative; height: calc(100svh - 150px); min-height: 520px; max-height: 900px; overflow: hidden; background: var(--bone); }
-.hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity .9s ease, visibility 0s .9s; }
+.slide.active { opacity: 1; visibility: visible; transition: opacity .9s ease; }
+.slide-photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.slide-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,.42) 100%); }
+.slide-collage img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.slide-hit { position: absolute; inset: 0; display: block; }
+/* With the collage, the hero takes the collage's 2.4:1 shape so nothing is cropped */
+.hero.has-collage { height: calc(100vw * 875 / 2100); min-height: 0; max-height: 820px; }
+.hero-dots { position: absolute; right: var(--gutter); bottom: 24px; z-index: 3; display: flex; gap: 10px; }
+.hero-dots button { width: 10px; height: 10px; border-radius: 50%; border: 1px solid var(--white); background: transparent; padding: 0; }
+.hero-dots button.active { background: var(--white); }
 .hero-text {
   position: relative; z-index: 1; height: 100%;
   max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter) clamp(40px, 6vw, 80px);
   display: flex; flex-direction: column; justify-content: flex-end; gap: 20px; color: var(--white);
 }
-.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,.42) 100%); }
 .hero-text .eyebrow { color: rgba(255,255,255,.85); }
 .hero-text h1 { max-width: 9em; }
 .hero-text p { max-width: 30em; color: rgba(255,255,255,.88); font-size: 1.02rem; }
@@ -469,8 +478,14 @@ form.sent + .sent-msg { display: block; }
 }
 @media (max-width: 560px) {
   .u-extra { display: none; }
-  .hero > img { object-position: 50% 0%; }
-  .hero::after { background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.62) 78%); }
+  /* Phones: collage banner stacked above the photo hero, no rotation */
+  .hero.has-collage { height: auto; max-height: none; }
+  .has-collage .slide { position: relative; opacity: 1; visibility: visible; transition: none; }
+  .has-collage .slide-collage { aspect-ratio: 2100 / 875; }
+  .has-collage .slide-photo { height: 78svh; min-height: 480px; }
+  .has-collage .hero-dots { display: none; }
+  .slide-photo > img { object-position: 50% 0%; }
+  .slide-photo::after { background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.62) 78%); }
   .hero-text h1 { font-size: 2.7rem; }
   .hero-text p { font-size: .95rem; }
   .hero-actions .btn { padding: 14px 22px; }

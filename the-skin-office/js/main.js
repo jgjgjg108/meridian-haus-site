@@ -40,6 +40,34 @@
     else { img.addEventListener('load', show); img.addEventListener('error', hide); }
   });
 
+  // ---------- Hero slides: the collage joins as slide 1 once its file exists ----------
+  var collage = document.querySelector('.slide-collage');
+  if (collage) {
+    var cImg = collage.querySelector('img');
+    var startSlides = function () {
+      var slides = document.querySelectorAll('.hero .slide');
+      var hdots = document.querySelectorAll('.hero-dots button');
+      var si = 0, stimer;
+      collage.hidden = false;
+      document.querySelector('.hero').classList.add('has-collage');
+      document.querySelector('.hero-dots').hidden = false;
+      if (window.matchMedia('(max-width: 560px)').matches) return; // stacked on phones
+      var show = function (i) {
+        si = i;
+        slides.forEach(function (s, j) { s.classList.toggle('active', j === i); s.setAttribute('aria-hidden', j !== i); });
+        hdots.forEach(function (d, j) { d.classList.toggle('active', j === i); d.setAttribute('aria-current', j === i); });
+      };
+      var run = function () { stimer = setInterval(function () { show((si + 1) % slides.length); }, 7000); };
+      hdots.forEach(function (d, j) { d.addEventListener('click', function () { clearInterval(stimer); show(j); run(); }); });
+      show(0);
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) run();
+    };
+    var onError = function () { collage.remove(); };
+    if (cImg.complete) { cImg.naturalWidth ? startSlides() : onError(); }
+    cImg.addEventListener('load', function () { if (collage.hidden) startSlides(); });
+    cImg.addEventListener('error', onError);
+  }
+
   // ---------- Cart (kept in this browser only; no checkout) ----------
   var PRODUCTS = window.TSO_PRODUCTS || {};
   var KEY = 'tso-cart';
