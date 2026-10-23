@@ -43,7 +43,7 @@ images/chakra-{root,sacral,solar-plexus,throat,ajna,crown}.jpg: series by Julian
 
 images/sunrise.jpg: Sunrise Salutations image by Julianna Gimelli in Adobe Firefly (source 464 × 576, enlarged 2×).
 
-images/full-reset.jpg: full-body seven-chakra image by Julianna Gimelli in Adobe Firefly (source 384 × 688, enlarged 2×; a larger export would be sharper).
+images/full-reset.jpg: full-body seven-chakra image by Julianna Gimelli in Adobe Firefly (4:5, source 464 × 576, enlarged 2×).
 
 ## Drawn artwork
 
