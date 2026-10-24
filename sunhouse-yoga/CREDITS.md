@@ -34,7 +34,7 @@ sunrise, deep-flow, root, throat, ajna, crown, full-reset, mudra, studio, studio
 
 ## Instructor portraits (Pexels License, free for commercial use)
 
-Chosen by Julianna. Cropped to 4:5 and given a vintage film grade (faded warm tones, grain, light vignette; extra walnut toning on Leila, Ines and Theo).
+Chosen by Julianna. Cropped to 4:5 and given a vintage film grade (faded warm tones, grain, light vignette; walnut toning on all five).
 
 | File | Teacher | Pexels photo |
 |---|---|---|
@@ -42,7 +42,7 @@ Chosen by Julianna. Cropped to 4:5 and given a vintage film grade (faded warm to
 | instructor-maren.jpg | Maren | 6453881 |
 | instructor-ines.jpg | Ines | 6739061 |
 | instructor-theo.jpg | Theo | 5770797 |
-| instructor-dev.jpg | Dev | waiting |
+| instructor-dev.jpg | Dev | 14254107 |
 
 ## Mudra photo
 
