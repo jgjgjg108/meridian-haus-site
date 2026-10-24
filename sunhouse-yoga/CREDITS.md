@@ -22,10 +22,10 @@ By Julianna Gimelli. Source images: add credits here where the original creator 
 |---|---|---|
 | images/hero-collage.jpg | 2400 × 1350 | waiting (hidden until added) |
 | images/hero-collage-mobile.jpg | 1200 × 1600 | optional |
-| images/event-inversions.jpg | 1600 × 2000 | waiting |
-| images/event-body-reset.jpg | 1600 × 2000 | waiting |
-| images/event-myofascial.jpg | 1600 × 2000 | waiting |
-| images/event-foundations.jpg | 1600 × 2000 | waiting |
+| images/event-inversions.jpg | 1600 × 2000 | done (Canva) |
+| images/event-body-reset.jpg | 1600 × 2000 | done (Canva) |
+| images/event-myofascial.jpg | 1600 × 2000 | done (Canva) |
+| images/event-foundations.jpg | 1600 × 2000 | done (Canva) |
 
 ## Photos
 
