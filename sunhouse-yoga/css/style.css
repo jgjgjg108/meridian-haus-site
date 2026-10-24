@@ -637,3 +637,5 @@ details .answer a { border-bottom: 1px solid currentColor; }
   .mag-stack { max-width: 340px; margin-right: 36px; }
 }
 @media (prefers-reduced-motion: reduce) { .mag-cover { transition: none; } .mag-panel.active { animation: none; } }
+.ph > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+@media (prefers-reduced-motion: reduce) { .ph > video { display: none; } .ph:has(> video) { background: url(../images/studio.jpg) center/cover; } }
