@@ -46,7 +46,7 @@ Chosen by Julianna. Leila and Maren are from Unsplash (Unsplash License); the ot
 
 ## Studio entrance
 
-images/studio.jpg (homepage) and images/studio-3.jpg (contact, cropped 3:4): the Sunhouse doorway with Julianna's carved logo, made by her in Canva (1080 × 1350).
+images/studio.jpg (homepage and contact page): the Sunhouse doorway with Julianna's carved logo, made by her in Canva (1080 × 1350).
 
 ## Mudra photo
 
