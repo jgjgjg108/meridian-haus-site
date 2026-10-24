@@ -597,3 +597,14 @@ details .answer a { border-bottom: 1px solid currentColor; }
   .co-summary { grid-template-columns: 96px 1fr; padding: 18px; gap: 16px; }
 }
 .prices .btn { margin-top: 18px; }
+
+/* Contact: details and the door frame side by side */
+@media (min-width: 901px) {
+  .contact-grid.flip { grid-template-columns: 6fr 6fr; }
+  .contact-grid.flip .contact-info { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+  .contact-grid.flip .contact-info .ph { margin-top: 0; max-width: none; }
+}
+@media (min-width: 521px) and (max-width: 900px) {
+  .contact-grid.flip .contact-info { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  .contact-grid.flip .contact-info .ph { margin-top: 0; }
+}
