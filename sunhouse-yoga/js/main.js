@@ -366,6 +366,57 @@
     });
   }
 
+
+  // ---------- Events: flipping magazine stack ----------
+  var mag = document.querySelector('[data-mag]');
+  if (mag) {
+    var covers = [].slice.call(mag.querySelectorAll('.mag-cover'));
+    var panels = [].slice.call(mag.querySelectorAll('.mag-panel'));
+    var countEl = mag.querySelector('.mag-count b');
+    var n = covers.length, cur = 0, busy = false, auto;
+    var nextDate = function (slug) {
+      var ev = S && S.events.filter(function (e) { return e.slug === slug; })[0];
+      if (!ev) return null;
+      var up = ev.dates.filter(function (d) { var p = d.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]) >= new Date(new Date().toDateString()); })[0];
+      return up || ev.dates[ev.dates.length - 1];
+    };
+    panels.forEach(function (p) {
+      var d = nextDate(p.dataset.slug), r = p.querySelector('[data-reserve]');
+      if (d && r) r.href = 'book.html?e=' + p.dataset.slug + '&d=' + d;
+    });
+    var layout = function () {
+      covers.forEach(function (c, i) { c.dataset.pos = String((i - cur + n) % n); });
+      panels.forEach(function (p, i) { p.classList.toggle('active', i === cur); });
+      countEl.textContent = (cur < 9 ? '0' : '') + (cur + 1);
+    };
+    var go = function (dir) {
+      if (busy) return; busy = true;
+      if (dir > 0) { // the top cover flips away like a page, then slides to the back
+        var top = covers[cur];
+        top.dataset.pos = 'out';
+        setTimeout(function () {
+          top.classList.add('no-anim'); cur = (cur + 1) % n; layout();
+          busy = false; setTimeout(function () { top.classList.remove('no-anim'); }, 40);
+        }, 650);
+      } else {
+        cur = (cur - 1 + n) % n; var back = covers[cur];
+        back.classList.add('no-anim'); back.dataset.pos = 'out';
+        back.offsetWidth; // apply the 'out' position before animating back in
+        setTimeout(function () { back.classList.remove('no-anim'); layout(); setTimeout(function () { busy = false; }, 650); }, 40);
+      }
+    };
+    var restart = function () {
+      clearInterval(auto);
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) auto = setInterval(function () { go(1); }, 4500);
+    };
+    mag.querySelector('.mag-next').addEventListener('click', function () { go(1); restart(); });
+    mag.querySelector('.mag-prev').addEventListener('click', function () { go(-1); restart(); });
+    mag.querySelector('.mag-stack').addEventListener('click', function (e) { e.preventDefault(); go(1); restart(); });
+    mag.addEventListener('mouseenter', function () { clearInterval(auto); });
+    mag.addEventListener('mouseleave', restart);
+    layout(); restart();
+  }
+
   // ---------- Event dates: fade the ones already gone ----------
   document.querySelectorAll('.dates li[data-date]').forEach(function (li) {
     if (parse(li.dataset.date) < now) li.classList.add('past');
