@@ -543,3 +543,5 @@ details .answer a { border-bottom: 1px solid currentColor; }
 /* Chakra artwork (square, Julianna's Firefly series) */
 .chakra-img { width: 100%; height: auto; display: block; aspect-ratio: 1; object-fit: cover; transition: transform .8s ease; }
 .class-card:hover .art .chakra-img { transform: scale(1.03); }
+
+.ph.portrait > img { filter: none; }   /* film grade is baked into instructor files */

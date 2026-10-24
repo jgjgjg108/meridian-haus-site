@@ -32,10 +32,21 @@ By Julianna Gimelli. Source images: add credits here where the original creator 
 Waiting on approval or Julianna's own picks. Slots (shown as labelled placeholders until the file exists):
 sunrise, deep-flow, root, throat, ajna, crown, full-reset, mudra, studio, studio-2, studio-3, founder (.jpg, portrait 4:5).
 
-## Instructor portraits
+## Instructor portraits (Pexels License, free for commercial use)
 
-Five portraits, 1600 × 2000 (4:5): images/instructor-leila.jpg, instructor-maren.jpg, instructor-ines.jpg, instructor-theo.jpg, instructor-dev.jpg.
-The site gives them all the same warm duotone, so photos from different shoots match. Must be licensed (not watermarked comps).
+Chosen by Julianna. Cropped to 4:5 and given a vintage film grade (faded warm tones, grain, light vignette; extra walnut toning on Leila, Ines and Theo).
+
+| File | Teacher | Pexels photo |
+|---|---|---|
+| instructor-leila.jpg | Leila (also the About page founder photo) | 11448066 |
+| instructor-maren.jpg | Maren | 6453881 |
+| instructor-ines.jpg | Ines | 6739061 |
+| instructor-theo.jpg | Theo | 5770797 |
+| instructor-dev.jpg | Dev | waiting |
+
+## Mudra photo
+
+images/mudra.jpg: placeholder chosen by Julianna (source unknown, Pinterest save); she plans to replace it with her own Firefly image.
 
 ## Chakra artwork
 
