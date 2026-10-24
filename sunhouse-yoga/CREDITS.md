@@ -30,7 +30,7 @@ By Julianna Gimelli. Source images: add credits here where the original creator 
 ## Photos
 
 Waiting on approval or Julianna's own picks. Slots (shown as labelled placeholders until the file exists):
-images/deep-flow.jpg: Deep Flow artwork by Julianna Gimelli (Canva, 2160 × 2700, saved at 1600 × 2000). images/studio-2.jpg (About, the room) is the practice-room interior Julianna made in Canva.
+images/sunrise.jpg: Sunrise Salutations artwork by Julianna Gimelli (Canva, 2160 × 2700, saved at 1600 × 2000). images/studio-2.jpg (About, the room) is the practice-room interior Julianna made in Canva.
 
 ## Instructor portraits (Pexels License, free for commercial use)
 
@@ -56,7 +56,7 @@ images/mudra.jpg: placeholder chosen by Julianna (source unknown, Pinterest save
 
 images/chakra-{root,sacral,solar-plexus,throat,ajna,crown}.jpg: series by Julianna Gimelli in Adobe Firefly (1024 × 1024). Used on the class cards and class pages. A Heart version exists but there is no Heart class.
 
-images/sunrise.jpg: Sunrise Salutations image by Julianna Gimelli in Adobe Firefly (4K export, resized to 1600 wide).
+images/deep-flow.jpg: Deep Flow image by Julianna Gimelli in Adobe Firefly (4K export, resized to 1600 wide).
 
 images/full-reset.jpg: full-body seven-chakra image by Julianna Gimelli in Adobe Firefly (4:5, 4K export, resized to 1600 wide).
 
