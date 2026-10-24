@@ -30,7 +30,7 @@ By Julianna Gimelli. Source images: add credits here where the original creator 
 ## Photos
 
 Waiting on approval or Julianna's own picks. Slots (shown as labelled placeholders until the file exists):
-Still waiting: deep-flow (Deep Flow class). images/studio-2.jpg (About, the room) is the practice-room interior Julianna made in Canva.
+images/deep-flow.jpg: Deep Flow artwork by Julianna Gimelli (Canva, 2160 × 2700, saved at 1600 × 2000). images/studio-2.jpg (About, the room) is the practice-room interior Julianna made in Canva.
 
 ## Instructor portraits (Pexels License, free for commercial use)
 
