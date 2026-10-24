@@ -30,7 +30,7 @@ By Julianna Gimelli. Source images: add credits here where the original creator 
 ## Photos
 
 Waiting on approval or Julianna's own picks. Slots (shown as labelled placeholders until the file exists):
-sunrise, deep-flow, root, throat, ajna, crown, full-reset, mudra, studio, studio-2, studio-3, founder (.jpg, portrait 4:5).
+Still waiting: deep-flow (Deep Flow class) and studio-2 (About page, interior).
 
 ## Instructor portraits (Pexels License, free for commercial use)
 
@@ -43,6 +43,10 @@ Chosen by Julianna. Cropped to 4:5 and given a vintage film grade (faded warm to
 | instructor-ines.jpg | Ines | 6739061 |
 | instructor-theo.jpg | Theo | 5770797 |
 | instructor-dev.jpg | Dev | 14254107 |
+
+## Studio entrance
+
+images/studio.jpg (homepage) and images/studio-3.jpg (contact, cropped 3:4): the Sunhouse doorway with Julianna's carved logo, made by her in Canva (1080 × 1350).
 
 ## Mudra photo
 
