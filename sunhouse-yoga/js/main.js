@@ -267,7 +267,7 @@
       options = passes;
       name = 'Passes & memberships';
       document.getElementById('co-kind').textContent = 'Pass';
-      document.getElementById('co-img').src = 'images/studio.jpg';
+      document.getElementById('co-img').src = 'images/mudra.jpg';
       document.getElementById('co-change').href = 'about.html#pricing';
       document.getElementById('co-change').textContent = 'Compare prices';
       document.querySelector('#co-date').previousElementSibling.textContent = 'Starts';
