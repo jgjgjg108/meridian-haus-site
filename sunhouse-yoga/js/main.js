@@ -106,6 +106,10 @@
     var c = S.classes[it.slug];
     return { name: it.note || c.name, url: c.url, dot: 'dot-' + it.slug, len: c.len };
   };
+  var bookUrl = function (it, key) {
+    if (it.event) return 'book.html?e=' + it.slug + '&d=' + key;
+    return 'book.html?c=' + it.slug + '&d=' + key + '&t=' + it.t + '&w=' + encodeURIComponent(it.who) + (it.note ? '&n=' + encodeURIComponent(it.note) : '');
+  };
   var endTime = function (t, len) {
     var m = +t.slice(0, 2) * 60 + +t.slice(3) + len;
     return pad(Math.floor(m / 60)) + ':' + pad(m % 60);
@@ -127,7 +131,7 @@
         var end = it.event ? f.end : endTime(it.t, f.len);
         html += '<div class="session' + (it.event ? ' is-event' : '') + '"><span class="time">' + fmt(it.t) + ' &ndash; ' + fmt(end) + '</span>'
           + '<div><div class="name"><span class="dot ' + f.dot + '"></span><a href="' + f.url + '">' + esc(f.name) + '</a></div><div class="with">with ' + esc(it.who) + '</div></div>'
-          + '<button type="button" class="btn small ghost" data-book="' + esc(f.name) + '">Book</button></div>';
+          + '<a class="btn small ghost" href="' + bookUrl(it, iso(d)) + '">Book</a></div>';
       });
     }
     week.innerHTML = html;
@@ -160,7 +164,7 @@
         var f = info(it);
         h += '<div class="session' + (it.event ? ' is-event' : '') + '"><span class="time">' + fmt(it.t) + '</span>'
           + '<div><div class="name"><span class="dot ' + f.dot + '"></span><a href="' + f.url + '">' + esc(f.name) + '</a></div><div class="with">with ' + esc(it.who) + '</div></div>'
-          + '<button type="button" class="btn small ghost" data-book="' + esc(f.name) + '">Book</button></div>';
+          + '<a class="btn small ghost" href="' + bookUrl(it, key) + '">Book</a></div>';
       });
       dayPanel.innerHTML = h;
     };
@@ -231,6 +235,135 @@
       syncLegend();
     }
     render();
+  }
+
+
+  // ---------- Checkout (demo: nothing is charged or sent) ----------
+  var co = document.getElementById('checkout');
+  if (co) {
+    var q = new URLSearchParams(location.search);
+    var ev = null, cls = null, key = q.get('d'), t = q.get('t'), who = q.get('w'), note = q.get('n');
+    if (q.get('e')) ev = S.events.filter(function (e) { return e.slug === q.get('e'); })[0];
+    if (q.get('c')) cls = S.classes[q.get('c')];
+    var passes = [
+      { id: 'intro', label: 'Intro offer', sub: 'New students: two weeks of unlimited classes', price: 49 },
+      { id: 'drop', label: 'Drop-in', sub: 'One class, any time', price: 28 },
+      { id: 'pack5', label: '5-class pack', sub: 'Valid six months', price: 130 },
+      { id: 'pack10', label: '10-class pack', sub: 'Valid six months', price: 240 },
+      { id: 'member', label: 'Membership', sub: 'Unlimited classes and 10% off events, billed monthly', price: 165, per: '/mo' }
+    ];
+    var passId = q.get('p');
+    if (!ev && !cls && !passId) { // no choice yet: offer the next class on the schedule
+      for (var k = 0; k < 14 && !cls; k++) {
+        var dd = new Date(today); dd.setDate(today.getDate() + k);
+        var first = dayItems(dd).items.filter(function (x) { return !x.event; })[0];
+        if (first) { cls = S.classes[first.slug]; key = iso(dd); t = first.t; who = first.who; q.set('c', first.slug); }
+      }
+    }
+    var day = key ? parse(key) : now;
+    var dateText = DAYS[day.getDay()] + ', ' + MONTHS[day.getMonth()] + ' ' + day.getDate();
+    var name, timeText, options;
+    if (passId) {
+      options = passes;
+      name = 'Passes & memberships';
+      document.getElementById('co-kind').textContent = 'Pass';
+      document.getElementById('co-img').src = 'images/studio.jpg';
+      document.getElementById('co-change').href = 'about.html#pricing';
+      document.getElementById('co-change').textContent = 'Compare prices';
+      document.querySelector('#co-date').previousElementSibling.textContent = 'Starts';
+      document.querySelector('#co-time').previousElementSibling.textContent = 'Use';
+      dateText = 'Today, ' + MONTHS[now.getMonth()] + ' ' + now.getDate();
+      timeText = 'Use it on any class on the calendar';
+      who = 'All Sunhouse teachers';
+      document.querySelector('.page-head h1').textContent = 'Buy a pass';
+      document.querySelector('.page-head .lede').textContent = 'Pick a pass or membership. Your credits are ready to use on the calendar straight away.';
+    } else if (ev) {
+      name = ev.name; t = ev.time; who = ev.who;
+      timeText = fmt(ev.time) + ' – ' + fmt(ev.end);
+      options = [
+        { id: 'ticket', label: 'Event ticket', sub: 'One place at this workshop', price: ev.price },
+        { id: 'member', label: 'Member ticket', sub: '10% off with a Sunhouse membership', price: Math.round(ev.price * 0.9 * 100) / 100 }
+      ];
+      document.getElementById('co-kind').textContent = 'Monthly event';
+      document.getElementById('co-img').src = 'images/event-' + ev.slug + '.jpg';
+      document.getElementById('co-change').href = 'events.html#' + ev.slug;
+    } else {
+      name = note || cls.name;
+      timeText = fmt(t) + ' – ' + fmt(endTime(t, cls.len)) + ' · ' + cls.len + ' min';
+      options = [
+        { id: 'drop', label: 'Drop-in', sub: 'Just this class', price: 28 },
+        { id: 'intro', label: 'Intro offer', sub: 'New students: two weeks of unlimited classes', price: 49 },
+        { id: 'pack', label: '10-class pack', sub: 'This class plus nine more, valid six months', price: 240 },
+        { id: 'member', label: 'Membership', sub: 'Unlimited classes, billed monthly', price: 165, per: '/mo' }
+      ];
+      document.getElementById('co-kind').textContent = cls.style;
+      document.getElementById('co-img').src = cls.img;
+      document.getElementById('co-change').href = 'calendar.html?class=' + q.get('c');
+    }
+    document.getElementById('co-img').alt = name;
+    document.getElementById('co-name').textContent = name;
+    document.getElementById('co-date').textContent = dateText;
+    document.getElementById('co-time').textContent = timeText;
+    document.getElementById('co-who').textContent = who || 'Sunhouse teachers';
+    document.title = (passId ? 'Buy a pass' : 'Book ' + name) + ' — Sunhouse Yoga';
+
+    var money = function (n) { return '$' + (n % 1 ? n.toFixed(2) : n); };
+    var box = document.getElementById('co-options');
+    box.innerHTML = options.map(function (o, i) {
+      var on = passId ? o.id === passId : i === 0;
+      return '<label class="co-option"><input type="radio" name="pass" value="' + o.id + '"' + (on ? ' checked' : '') + '>'
+        + '<span class="co-opt-text"><b>' + o.label + '</b><small>' + o.sub + '</small></span><span class="co-price">' + money(o.price) + (o.per || '') + '</span></label>';
+    }).join('');
+    var total = document.getElementById('co-total'), pay = document.getElementById('co-pay');
+    if (!box.querySelector('input:checked')) box.querySelector('input').checked = true;
+    var current = function () { var v = box.querySelector('input:checked').value; return options.filter(function (o) { return o.id === v; })[0]; };
+    var sync = function () {
+      var o = current(); total.textContent = money(o.price) + (o.per || '');
+      pay.textContent = 'Pay ' + money(o.price) + (passId ? '' : ' & book');
+      if (passId) { name = o.label; document.getElementById('co-name').textContent = o.label; }
+    };
+    box.addEventListener('change', sync); sync();
+    var first = document.getElementById('b-first');
+    first.addEventListener('change', function () { // nudge new students toward the intro offer
+      var intro = box.querySelector('input[value="intro"]');
+      if (first.checked && intro) { intro.checked = true; sync(); }
+    });
+
+    // light card formatting
+    var card = document.getElementById('b-card'), exp = document.getElementById('b-exp');
+    card.addEventListener('input', function () { card.value = card.value.replace(/\D/g, '').slice(0, 16).replace(/(\d{4})(?=\d)/g, '$1 '); });
+    exp.addEventListener('input', function () { var v = exp.value.replace(/\D/g, '').slice(0, 4); exp.value = v.length > 2 ? v.slice(0, 2) + ' / ' + v.slice(2) : v; });
+
+    var form = document.getElementById('co-form'), err = document.getElementById('co-error');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var checks = [
+        ['b-name', function (v) { return v.trim().length > 1; }, 'Please add your name.'],
+        ['b-email', function (v) { return /^\S+@\S+\.\S+$/.test(v); }, 'Please add a valid email.'],
+        ['b-card', function (v) { return v.replace(/\D/g, '').length === 16; }, 'The card number should be 16 digits.'],
+        ['b-exp', function (v) { return /^(0[1-9]|1[0-2]) \/ \d\d$/.test(v); }, 'Expiry should look like 08 / 28.'],
+        ['b-cvc', function (v) { return /^\d{3,4}$/.test(v); }, 'CVC should be 3 or 4 digits.'],
+        ['b-zip', function (v) { return v.trim().length >= 5; }, 'Please add your ZIP code.']
+      ];
+      for (var i = 0; i < checks.length; i++) {
+        var el = document.getElementById(checks[i][0]);
+        var ok = checks[i][1](el.value);
+        el.closest('.field').classList.toggle('error', !ok);
+        if (!ok) { err.textContent = checks[i][2]; el.focus(); return; }
+      }
+      err.textContent = '';
+      var o = current();
+      var nm = document.getElementById('b-name').value.trim().split(' ')[0];
+      co.querySelector('[data-name]').textContent = nm;
+      var mail = document.getElementById('b-email').value.trim();
+      document.getElementById('co-done-text').textContent = passId
+        ? o.label + ', ' + money(o.price) + (o.per || '') + '. Your credits are ready: book any class on the calendar. A receipt is on its way to ' + mail + '.'
+        : name + ', ' + dateText + ' at ' + fmt(t) + '. ' + o.label + ', ' + money(o.price) + (o.per || '') + '. A confirmation is on its way to ' + mail + '.';
+      if (passId) { co.querySelector('.co-done .eyebrow').textContent = 'Purchase complete'; co.querySelector('.co-done h2').firstChild.textContent = 'Welcome to Sunhouse, '; }
+      form.hidden = true;
+      var done = document.getElementById('co-done'); done.hidden = false; done.focus();
+      form.reset(); // clear the demo card details straight away
+    });
   }
 
   // ---------- Event dates: fade the ones already gone ----------

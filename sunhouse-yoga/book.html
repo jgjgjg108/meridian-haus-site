@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book — Sunhouse Yoga</title>
+<meta name="description" content="Book a class or event at Sunhouse Yoga.">
+<link rel="icon" href="images/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="images/mark-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="announce">The Chakra Series runs October to March &nbsp;&middot;&nbsp; <a href="classes.html#chakra-series">Meet the six classes</a></div>
+<header class="site-header">
+  <div class="header-main">
+    <div class="left"><button class="menu-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button><a href="calendar.html" class="btn small">Book a class</a></div>
+    <a href="index.html" class="logo" aria-label="Sunhouse Yoga, home"><img src="images/mark-180.png" alt="" width="180" height="180" class="logo-mark"><span class="logo-text"><b>Sunhouse</b><small>YOGA STUDIO</small></span></a>
+    <nav class="nav" aria-label="Main"><a href="classes.html">Classes</a><a href="calendar.html">Calendar</a><a href="events.html">Events</a><a href="instructors.html">Instructors</a><a href="faq.html">FAQ</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="calendar.html" class="nav-book">Book a class</a></nav>
+    <div class="right"><a href="calendar.html" class="btn small ghost">Book</a></div>
+  </div>
+</header>
+<main>
+
+<section class="page-head">
+  <span class="eyebrow">Checkout</span>
+  <h1>Hold your mat</h1>
+  <p class="lede">Choose how you&rsquo;d like to pay, add your details and you&rsquo;re in. Free cancellation up to 12 hours before.</p>
+</section>
+<section class="section" style="padding-top:clamp(36px,5vw,64px)">
+  <div class="wrap checkout" id="checkout">
+    <aside class="co-summary reveal">
+      <div class="co-art"><img id="co-img" src="" alt=""></div>
+      <div class="co-meta">
+        <span class="eyebrow" id="co-kind">Class</span>
+        <h2 id="co-name">Your class</h2>
+        <dl>
+          <div><dt class="eyebrow">Date</dt><dd id="co-date">&mdash;</dd></div>
+          <div><dt class="eyebrow">Time</dt><dd id="co-time">&mdash;</dd></div>
+          <div><dt class="eyebrow">With</dt><dd id="co-who">&mdash;</dd></div>
+        </dl>
+        <p class="muted co-small"><a id="co-change" href="calendar.html" class="link">Choose a different time</a></p>
+      </div>
+    </aside>
+    <div class="co-main reveal">
+      <form id="co-form" novalidate>
+        <fieldset>
+          <legend><span class="num">01</span> How would you like to pay?</legend>
+          <div class="co-options" id="co-options"></div>
+        </fieldset>
+        <fieldset>
+          <legend><span class="num">02</span> Your details</legend>
+          <div class="form-grid">
+            <div class="field"><label class="eyebrow" for="b-name">Name</label><input id="b-name" name="name" required autocomplete="name"></div>
+            <div class="field"><label class="eyebrow" for="b-email">Email</label><input id="b-email" name="email" type="email" required autocomplete="email"></div>
+            <div class="field full"><label class="eyebrow" for="b-phone">Phone (optional)</label><input id="b-phone" type="tel" autocomplete="tel"></div>
+            <label class="co-check full"><input type="checkbox" id="b-first"> This is my first time at Sunhouse</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend><span class="num">03</span> Payment <span class="demo-tag">Demo</span></legend>
+          <p class="muted co-small">Concept site: nothing is charged and nothing you type here leaves this page. Try 4242 4242 4242 4242.</p>
+          <div class="form-grid">
+            <div class="field full"><label class="eyebrow" for="b-card">Card number</label><input id="b-card" inputmode="numeric" autocomplete="off" placeholder="1234 1234 1234 1234" maxlength="19" required></div>
+            <div class="field"><label class="eyebrow" for="b-exp">Expiry</label><input id="b-exp" inputmode="numeric" autocomplete="off" placeholder="MM / YY" maxlength="7" required></div>
+            <div class="field"><label class="eyebrow" for="b-cvc">CVC</label><input id="b-cvc" inputmode="numeric" autocomplete="off" placeholder="123" maxlength="4" required></div>
+            <div class="field full"><label class="eyebrow" for="b-zip">ZIP code</label><input id="b-zip" inputmode="numeric" autocomplete="off" placeholder="93023" maxlength="10" required></div>
+          </div>
+        </fieldset>
+        <div class="co-total"><span>Total today</span><strong id="co-total">$0</strong></div>
+        <p class="co-error" id="co-error" role="alert"></p>
+        <button type="submit" class="btn block" id="co-pay">Pay &amp; book</button>
+      </form>
+      <div class="co-done" id="co-done" tabindex="-1" role="status" hidden>
+        <span class="eyebrow">You&rsquo;re booked</span>
+        <h2>See you on the mat, <span data-name>friend</span>.</h2>
+        <p class="lede" id="co-done-text"></p>
+        <p class="muted co-small">Arrive ten minutes early for your first class. Mats and props are provided.</p>
+        <p class="muted co-small">Concept site: no booking was made and no payment was taken.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px"><a href="calendar.html" class="btn">Book another</a><a href="index.html" class="btn ghost">Back home</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="logo" aria-label="Sunhouse Yoga, home"><img src="images/mark-light-180.png" alt="" width="180" height="180" class="logo-mark"><span class="logo-text"><b>Sunhouse</b><small>YOGA STUDIO</small></span></a>
+        <p>A small, sunlit yoga studio in Ojai. Every class opens with a mantra and moves through breath, asana and meditation, rooted in traditional practice and woven with healing intentions for mind, body and soul.</p>
+      </div>
+      <div>
+        <h4>Practice</h4>
+        <ul><li><a href="classes.html">Classes</a></li><li><a href="calendar.html">Calendar</a></li><li><a href="events.html">Events</a></li><li><a href="instructors.html">Instructors</a></li><li><a href="faq.html">FAQ</a></li></ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul><li>27 Signal Street</li><li>Ojai, CA 93023</li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4>Sun notes</h4>
+        <form class="newsletter" novalidate><input type="email" required placeholder="Email address" aria-label="Email address"><button type="submit">Join</button></form>
+        <ul style="margin-top:22px"><li><a href="#">Instagram</a></li><li><a href="#">Spotify playlists</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 Sunhouse Yoga</span><span>A Meridian Haus concept site</span></div>
+  </div>
+</footer>
+<script src="js/schedule.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

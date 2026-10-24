@@ -34,15 +34,15 @@ Still waiting: deep-flow (Deep Flow class) and studio-2 (About page, interior).
 
 ## Instructor portraits (Pexels License, free for commercial use)
 
-Chosen by Julianna. Cropped to 4:5 and given a vintage film grade (faded warm tones, grain, light vignette; walnut toning on all five).
+Chosen by Julianna. Leila and Maren are from Unsplash (Unsplash License); the others from Pexels. Cropped to 4:5 and given a vintage film grade (faded warm tones, grain, light vignette; walnut toning on all five).
 
-| File | Teacher | Pexels photo |
+| File | Teacher | Source |
 |---|---|---|
-| instructor-leila.jpg | Leila (also the About page founder photo) | 11448066 |
-| instructor-maren.jpg | Maren | 6453881 |
-| instructor-ines.jpg | Ines | 6739061 |
-| instructor-theo.jpg | Theo | 5770797 |
-| instructor-dev.jpg | Dev | 14254107 |
+| instructor-leila.jpg | Leila (also the About page founder photo) | Unsplash u0BmvZujmwg |
+| instructor-maren.jpg | Maren | Unsplash sb0JqXKnq_I |
+| instructor-ines.jpg | Ines | Pexels 6739061 |
+| instructor-theo.jpg | Theo | Pexels 5770797 |
+| instructor-dev.jpg | Dev | Pexels 14254107 |
 
 ## Studio entrance
 

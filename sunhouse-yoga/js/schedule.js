@@ -6,47 +6,65 @@ window.SUNHOUSE = {
   "sunrise-salutations": {
    "name": "Sunrise Salutations",
    "url": "class-sunrise-salutations.html",
-   "len": 60
+   "len": 60,
+   "style": "Vinyasa",
+   "img": "images/sunrise.jpg"
   },
   "deep-flow": {
    "name": "Deep Flow",
    "url": "class-deep-flow.html",
-   "len": 75
+   "len": 75,
+   "style": "Yin + vinyasa",
+   "img": "images/deep-flow.jpg"
   },
   "root": {
    "name": "Root",
    "url": "class-root.html",
-   "len": 75
+   "len": 75,
+   "style": "Hatha + breathwork",
+   "img": "images/chakra-root.jpg"
   },
   "sacral": {
    "name": "Sacral",
    "url": "class-sacral.html",
-   "len": 60
+   "len": 60,
+   "style": "Moody flow",
+   "img": "images/chakra-sacral.jpg"
   },
   "solar-plexus": {
    "name": "Solar Plexus",
    "url": "class-solar-plexus.html",
-   "len": 60
+   "len": 60,
+   "style": "Power flow",
+   "img": "images/chakra-solar-plexus.jpg"
   },
   "throat": {
    "name": "Throat",
    "url": "class-throat.html",
-   "len": 75
+   "len": 75,
+   "style": "Iyengar",
+   "img": "images/chakra-throat.jpg"
   },
   "ajna": {
    "name": "Ajna",
    "url": "class-ajna.html",
-   "len": 75
+   "len": 75,
+   "style": "Inversion-based",
+   "img": "images/chakra-ajna.jpg"
   },
   "crown": {
    "name": "Crown",
    "url": "class-crown.html",
-   "len": 90
+   "len": 90,
+   "style": "Kriya & Raja",
+   "img": "images/chakra-crown.jpg"
   },
   "full-reset": {
    "name": "Full Reset",
    "url": "class-full-reset.html",
-   "len": 90
+   "len": 90,
+   "style": "Kundalini",
+   "img": "images/full-reset.jpg"
   }
  },
  "weekly": [
@@ -172,6 +190,8 @@ window.SUNHOUSE = {
   {
    "slug": "inversions",
    "short": "Inversions Workshop",
+   "name": "Inversions Workshop",
+   "price": 55,
    "who": "Theo",
    "time": "13:00",
    "end": "15:30",
@@ -187,6 +207,8 @@ window.SUNHOUSE = {
   {
    "slug": "body-reset",
    "short": "Body Reset",
+   "name": "Body Reset",
+   "price": 45,
    "who": "Maren",
    "time": "13:00",
    "end": "15:00",
@@ -202,6 +224,8 @@ window.SUNHOUSE = {
   {
    "slug": "myofascial",
    "short": "Myofascial & Lymphatic",
+   "name": "Myofascial Release & Lymphatic Drainage Yoga",
+   "price": 45,
    "who": "Ines",
    "time": "13:00",
    "end": "15:00",
@@ -217,6 +241,8 @@ window.SUNHOUSE = {
   {
    "slug": "foundations",
    "short": "Yoga Foundations",
+   "name": "Yoga Foundations",
+   "price": 55,
    "who": "Leila & Dev",
    "time": "15:00",
    "end": "17:30",
