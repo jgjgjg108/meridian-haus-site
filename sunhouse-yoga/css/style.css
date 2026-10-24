@@ -548,7 +548,8 @@ details .answer a { border-bottom: 1px solid currentColor; }
 
 /* ---------- Layout tweaks (Oct 24) ---------- */
 @media (min-width: 901px) { .format-split { grid-template-columns: 4fr 7fr; } }
-.mudra-fig { max-width: 380px; }
+.mudra-fig { max-width: 440px; width: 100%; }
+.format-split figure .ph.arch { border-radius: 240px 240px 0 0; }
 .format-split figure .ph.soft { border-radius: 4px; }
 @media (min-width: 901px) { .split.house { grid-template-columns: 7fr 5fr; } }
 .split.house figure { max-width: 440px; justify-self: end; width: 100%; }
