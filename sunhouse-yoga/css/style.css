@@ -547,16 +547,16 @@ details .answer a { border-bottom: 1px solid currentColor; }
 .ph.portrait > img { filter: none; }   /* film grade is baked into instructor files */
 
 /* ---------- Layout tweaks (Oct 24) ---------- */
-@media (min-width: 901px) { .format-split { grid-template-columns: 4fr 7fr; } }
+@media (min-width: 641px) { .format-split { grid-template-columns: 5fr 7fr; align-items: center; } }
 .mudra-fig { max-width: 440px; width: 100%; }
 .format-split figure .ph.arch { border-radius: 240px 240px 0 0; }
 .format-split figure .ph.soft { border-radius: 4px; }
-@media (min-width: 901px) { .split.house { grid-template-columns: 7fr 5fr; } }
+@media (min-width: 641px) { .split.house { grid-template-columns: 7fr 5fr; align-items: center; } .split.house figure { justify-self: end; } }
 .split.house figure { max-width: 440px; justify-self: end; width: 100%; }
 @media (min-width: 901px) { .contact-grid.flip { grid-template-columns: 7fr 5fr; } }
 .contact-grid.flip > .contact-info { order: 2; }
 .contact-grid.flip .contact-info .ph { max-width: 340px; }
-@media (max-width: 900px) {
+@media (max-width: 640px) {
   .split.house figure { justify-self: start; max-width: 420px; }
   .contact-grid.flip { grid-template-columns: 1fr; }
 }
