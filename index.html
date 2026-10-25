@@ -1405,7 +1405,7 @@
           <p class="form-status" id="formStatus"></p>
         </form>
         <div class="contact-alt">
-          Prefer email? <a href="mailto:jgmeridianhaus@gmail.com?subject=New%20project%20enquiry">Email the studio →</a>
+          Prefer email? <a href="mailto:hello@meridianhaus.studio?subject=New%20project%20enquiry">hello@meridianhaus.studio</a>
         </div>
         <p class="contact-response-note">Typically a reply within 2 business days, followed by a short call to talk through scope.</p>
       </div>
@@ -1513,11 +1513,11 @@
           formStatus.textContent = "Thank you — your inquiry is in. I'll be in touch within 2 business days.";
           formStatus.classList.add('visible');
         } else {
-          formStatus.textContent = "Something went wrong sending that — please use the “Email the studio” link below.";
+          formStatus.textContent = "Something went wrong sending that — please email hello@meridianhaus.studio directly.";
           formStatus.classList.add('visible');
         }
       } catch (err) {
-        formStatus.textContent = "Something went wrong sending that — please use the “Email the studio” link below.";
+        formStatus.textContent = "Something went wrong sending that — please email hello@meridianhaus.studio directly.";
         formStatus.classList.add('visible');
       }
       submitBtn.textContent = 'Send Inquiry →';
