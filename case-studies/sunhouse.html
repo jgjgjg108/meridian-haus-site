@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunhouse Yoga — Case Study — Meridian Haus</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #E5DFD0;
+    --paper-dim: #DAD3C0;
+    --ink: #362820;
+    --ink-soft: #5C4C40;
+    --maroon: #6B1F28;
+    --line: rgba(54,40,32,0.16);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Jost', sans-serif; font-weight: 300; }
+  h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
+  a { color: inherit; }
+  .eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--maroon);
+  }
+
+  /* ---------- Sticky jump nav ---------- */
+  .case-topnav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(229,223,208,0.94);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 6vw;
+  }
+  .case-topnav .back {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 1px solid var(--maroon);
+    padding-bottom: 2px;
+    flex-shrink: 0;
+  }
+  .case-topnav .chapters {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    justify-content: flex-end;
+  }
+  .case-topnav .chapters a { text-decoration: none; color: var(--ink-soft); }
+  .case-topnav .chapters a:hover { color: var(--maroon); }
+  @media (max-width: 860px) {
+    .case-topnav { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .case-topnav .chapters { justify-content: flex-start; gap: 14px; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 70px 6vw 50px;
+    max-width: 1000px;
+  }
+  .hero .meta {
+    display: flex;
+    gap: 18px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--maroon);
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: clamp(2.4rem, 5.6vw, 4.2rem);
+    font-style: normal;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.05;
+    margin-bottom: 10px;
+  }
+  .hero .tagline {
+    font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+    color: var(--ink-soft);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+  }
+  .hero-image { width: 100%; }
+  .hero-image img { width: 100%; height: auto; display: block; }
+
+  /* ---------- Chapters ---------- */
+  .chapter {
+    padding: 110px 6vw;
+    max-width: 1000px;
+    margin: 0 auto;
+    scroll-margin-top: 70px;
+  }
+  .chapter .eyebrow {
+    margin-bottom: 18px;
+  }
+  .chapter h2 {
+    font-size: clamp(2rem, 4.2vw, 3.2rem);
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    max-width: 18ch;
+  }
+  .chapter p {
+    font-size: 1.02rem;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    max-width: 62ch;
+    margin-bottom: 24px;
+  }
+  .chapter-image {
+    margin-top: 50px;
+    width: 100%;
+  }
+  .chapter-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 20px 26px rgba(54,40,32,0.16));
+  }
+  .chapter-image.contained img { max-width: 620px; margin: 0 auto; }
+  .chapter-image.contained video { max-width: 800px; margin: 0 auto; }
+  .image-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 50px;
+  }
+  @media (max-width: 780px) { .image-row { grid-template-columns: 1fr; } }
+  .image-row img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 20px 26px rgba(54,40,32,0.16));
+  }
+
+  /* ---------- Hand-drawn illustration set ---------- */
+  .illo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    align-items: stretch;
+    margin-top: 56px;
+  }
+  .illo-grid img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    aspect-ratio: 4 / 5;
+    object-fit: contain;
+    box-sizing: border-box;
+    padding: 36px 28px;
+    background: #F4EFE4;
+    box-shadow: 0 1px 2px rgba(54,40,32,0.08), 0 18px 30px rgba(54,40,32,0.12);
+  }
+  .illo-grid img:nth-child(1) { transform: rotate(-1.5deg); }
+  .illo-grid img:nth-child(3) { transform: rotate(1.2deg); }
+  @media (max-width: 780px) {
+    .illo-grid { gap: 14px; }
+    .illo-grid img { padding: 16px 12px; }
+  }
+  .deliverable-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 34px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-top: 8px;
+    list-style: none;
+  }
+  .deliverable-list span::before {
+    content: '—';
+    color: var(--maroon);
+    margin-right: 8px;
+  }
+
+  /* ---------- Thank you ---------- */
+  .thank-you {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 120px 6vw;
+    text-align: center;
+  }
+  .thank-you .eyebrow { color: var(--maroon); }
+  .thank-you h2 { color: #fff; }
+  .thank-you p { color: rgba(229,223,208,0.8); max-width: 56ch; margin: 0 auto 24px; }
+  .thank-you a {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 1px solid var(--maroon);
+    padding-bottom: 3px;
+  }
+
+  /* ---------- Suggested projects ---------- */
+  .suggested {
+    padding: 100px 6vw 120px;
+    max-width: 1100px;
+    margin: 0 auto;
+    border-top: 1px solid var(--line);
+  }
+  .suggested h2 {
+    font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+    font-style: italic;
+    margin-bottom: 50px;
+  }
+  .suggested-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  @media (max-width: 780px) {
+    .suggested-grid { grid-template-columns: 1fr; }
+  }
+  .suggested-item {
+    text-decoration: none;
+    display: block;
+  }
+  .suggested-item .thumb {
+    background: var(--paper-dim);
+    border: 1px solid var(--line);
+    aspect-ratio: 1/1;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .suggested-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .suggested-item .eyebrow { margin-bottom: 6px; }
+  .suggested-item h3 {
+    font-size: 1.3rem;
+    font-style: italic;
+  }
+
+  /* ---------- Start-a-project CTA ---------- */
+  .cta-chapter { text-align: center; }
+  .cta-chapter h2, .cta-chapter p { margin-left: auto; margin-right: auto; }
+  .btn-lookbook {
+    display: inline-block;
+    margin-top: 34px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.76rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink);
+    background: transparent;
+    padding: 15px 32px;
+    border: 1px solid var(--ink);
+    transition: all 0.3s ease;
+  }
+  .btn-lookbook:hover { background: var(--ink); color: var(--paper); }
+  .btn-start {
+    display: inline-block;
+    margin-top: 6px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.76rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--paper);
+    background: var(--ink);
+    padding: 15px 32px;
+    border: 1px solid var(--ink);
+    transition: all 0.3s ease;
+  }
+  .btn-start:hover { background: transparent; color: var(--ink); }
+
+  /* ---------- Split chapters: text beside media ---------- */
+  .chapter .chapter-text > :last-child { margin-bottom: 0; }
+  .chapter.split .chapter-media .chapter-image { margin-top: 40px; }
+  @media (min-width: 900px) {
+    .chapter.split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 72px;
+      align-items: center;
+      max-width: 1120px;
+    }
+    .chapter.split.flip .chapter-text { order: 2; }
+    .chapter.split.flip .chapter-media { order: 1; }
+    .chapter.split .chapter-media { max-width: 470px; width: 100%; justify-self: center; }
+    .chapter.split .chapter-media .chapter-image { margin-top: 0; }
+    .chapter.split .chapter-media .chapter-image img,
+    .chapter.split .chapter-media .chapter-image video { max-width: 100% !important; width: 100%; }
+    .chapter.split .chapter-text p { max-width: 52ch; }
+  }
+  .hero-image img { width: auto; max-width: min(100%, 760px); max-height: 72vh; height: auto; display: block; margin: 0 auto; }
+  .chapter.outcome .deliverable-list { margin-bottom: 0; }
+  @media (min-width: 900px) { .chapter.split.outcome { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); max-width: 1280px; gap: 64px; } .chapter.split.outcome .chapter-media { max-width: 100%; } }
+
+  /* Sunhouse additions */
+  .hero-image video { width: 100%; max-width: 1100px; height: auto; display: block; margin: 0 auto; }
+  .hero-placeholder { max-width: 1100px; margin: 0 auto; aspect-ratio: 1800 / 1012; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; background: var(--paper-dim); border: 1px dashed var(--line); color: var(--ink-soft); font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.4rem; }
+  .hero-placeholder small { font-family: 'Jost', sans-serif; font-style: normal; font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; }
+  .outcome-arch { max-width: 300px; margin: 0 auto; border-radius: 150px 150px 0 0; overflow: hidden; box-shadow: 0 20px 30px rgba(54,40,32,.16); }
+  .outcome-arch video { width: 100% !important; height: auto; display: block; }
+  .logo-film { overflow: hidden; max-width: 1100px; margin: 0 auto; aspect-ratio: 1690 / 1080; }
+  .logo-film video { width: 113.6%; margin-left: -9.9%; height: auto; display: block; }
+  .sign-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin: 32px auto 0; max-width: 760px; }
+  .sign-pair figure { margin: 0; }
+  .sign-pair img, .sign-pair video { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; border-radius: 999px 999px 0 0; }
+  .sign-pair figcaption { margin-top: 10px; font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-soft); }
+  .mag { position: relative; aspect-ratio: 4 / 5; max-width: 380px; margin: 0 auto; perspective: 1600px; cursor: pointer; }
+  .mag img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform-origin: left center; box-shadow: 0 18px 36px rgba(54,40,32,.25); transition: transform .9s cubic-bezier(.6,.05,.3,1), opacity .9s; }
+  .mag img[data-pos="0"] { z-index: 4; }
+  .mag img[data-pos="1"] { z-index: 3; transform: translate(14px,10px) rotate(2.5deg); }
+  .mag img[data-pos="2"] { z-index: 2; transform: translate(26px,18px) rotate(5deg); }
+  .mag img[data-pos="3"] { z-index: 1; transform: translate(36px,24px) rotate(7deg); }
+  .mag img[data-pos="out"] { z-index: 5; transform: rotateY(-105deg); opacity: 0; }
+  .mag img.no-anim { transition: none; }
+  @media (max-width: 700px) { .sign-pair { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav class="case-topnav">
+  <a href="../index.html#work" class="back">← Meridian Haus</a>
+  <div class="chapters">
+    <a href="#brief">The Brief</a>
+    <a href="#logo">Logo</a>
+    <a href="#graphics">Posters</a>
+        <a href="#website">Website</a>
+    <a href="#outcome">Outcome</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="meta"><span>Wellness</span><span>Logo, Graphics, Signage &amp; Website</span></div>
+  <h1>Sunhouse Yoga</h1>
+  <p class="tagline">A House Built Around the Sun.</p>
+</header>
+
+<div class="hero-image">
+  <video src="assets/sunhouse/sunhouse-01-hero.mp4" poster="assets/sunhouse/sunhouse-01-hero-poster.jpg" autoplay loop muted playsinline aria-label="Sunhouse Yoga collage: the round practice room, chakra artwork, event posters and the logo being carved"></video>
+</div>
+
+<section class="chapter split flip" id="brief">
+  <div class="chapter-text">
+  <div class="eyebrow">The Brief</div>
+  <h2>Warm, Rooted, Unhurried</h2>
+  <p>Sunhouse is a small yoga studio in Ojai built around one idea: every class has the same shape. It opens with a mantra and moves through breath, asana and a meditation with mudras, from a 6:30 am sunrise flow to a candlelit night class.</p>
+  <p>The brand had to feel as warm and grounded as the room itself: traditional practice made approachable, sunlight made into an identity. Nothing clinical, nothing neon, nothing that looked like a gym.</p>
+  </div>
+  <div class="chapter-media">
+  <div class="chapter-image contained">
+    <img src="assets/sunhouse/sunhouse-brand-board.jpg" alt="Sunhouse brand board: carved sun mark, wordmark, warm palette, chakra colours and typefaces">
+  </div>
+  </div>
+</section>
+
+<section class="chapter" id="logo">
+  <div class="eyebrow">Logo Design</div>
+  <h2>From a Swirl of Sun to Carved Walnut</h2>
+  <p>The mark began as a loose, airbrushed sketch: a spiral sun with soft scalloped rays. It became a figure in boat pose curving around that sun, rendered as carved walnut so it feels handmade and warm in the hand. Set beside an italic serif wordmark and a quiet, widely spaced "Yoga Studio", it reads as calm rather than corporate.</p>
+  <div class="chapter-image">
+    <div class="logo-film"><video src="assets/sunhouse/sunhouse-logo-process.mp4" poster="assets/sunhouse/sunhouse-logo-process-poster.jpg" autoplay loop muted playsinline aria-label="The logo being made: a sun sketch, a boat-pose figure drawn around it, then carved in walnut"></video></div>
+  </div>
+</section>
+
+<section class="chapter split" id="graphics">
+  <div class="chapter-text">
+  <div class="eyebrow">Graphic System</div>
+  <h2>Four Gatherings, One Word Each</h2>
+  <p>Four monthly events, each with its own editorial poster: oversized type, one word, one feeling. Invert. Reset. Release. Roots. Built as a set, so they read as a series on the studio wall and online.</p>
+  <p class="mag-hint" style="font-size:.8rem;color:var(--ink-soft)">Tap the posters to flip through them.</p>
+  </div>
+  <div class="chapter-media">
+    <div class="mag" data-mag aria-label="Event posters">
+      <img src="assets/sunhouse/event-inversions.jpg" alt="Inversions Workshop poster">
+      <img src="assets/sunhouse/event-body-reset.jpg" alt="Body Reset poster">
+      <img src="assets/sunhouse/event-myofascial.jpg" alt="Myofascial Release and Lymphatic Drainage Yoga poster">
+      <img src="assets/sunhouse/event-foundations.jpg" alt="Yoga Foundations poster">
+    </div>
+  </div>
+</section>
+
+
+
+<section class="chapter split flip" id="website">
+  <div class="chapter-text">
+  <div class="eyebrow">Website Design</div>
+  <h2>Book a Mat. Follow the Sun.</h2>
+  <p>A full studio site: a this-week schedule, an October-to-March calendar coloured by chakra, a page for every class, flipping event posters, instructor profiles, and a checkout for classes, events and passes. Warm ivory, walnut and marigold throughout, with arch frames echoing the studio's doorways.</p>
+  <a href="../sunhouse-yoga/" target="_blank" rel="noopener" class="btn-lookbook">View the Site →</a>
+  </div>
+  <div class="chapter-media">
+  <div class="chapter-image">
+    <img src="assets/sunhouse/sunhouse-03-website.jpg" alt="Sunhouse Yoga website on desktop and mobile">
+  </div>
+  </div>
+</section>
+
+<section class="chapter split outcome" id="outcome">
+  <div class="chapter-text">
+    <div class="eyebrow">Outcome</div>
+    <h2>A Studio You Can Feel</h2>
+    <p>Logo, graphics, signage and website, built as one warm, sunlit world. Sunhouse now looks like what it is: a small room full of light, where every class has a shape.</p>
+    <div class="deliverable-list">
+      <span>Logo Design</span>
+      <span>Graphic Design</span>
+      <span>Sign Design</span>
+      <span>Website Design</span>
+    </div>
+  </div>
+  <div class="chapter-media">
+  <div class="chapter-image">
+    <!-- OUTCOME: add the interior video beside this when it's ready -->
+    <div class="outcome-arch"><video src="assets/sunhouse/sunhouse-06-exterior.mp4" poster="assets/sunhouse/sunhouse-door-poster.jpg" autoplay loop muted playsinline aria-label="The Sunhouse entrance, light moving across the carved sign"></video></div>
+  </div>
+  </div>
+</section>
+
+<section class="chapter cta-chapter" id="start-project">
+  <div class="eyebrow">Start a Project</div>
+  <h2>Let's Build Yours</h2>
+  <p>If this is the kind of thinking your brand needs, let's talk about what that looks like for you.</p>
+  <a href="../index.html#contact" class="btn-start">Start a Project →</a>
+</section>
+
+<section class="suggested">
+  <h2>Suggested Projects</h2>
+  <div class="suggested-grid">
+    <a href="evolve.html" class="suggested-item">
+      <div class="thumb"><video src="../assets/work/evolve.mp4" poster="../assets/work/evolve-poster.jpg" autoplay loop muted playsinline></video></div>
+      <div class="eyebrow">Stationery</div>
+      <h3>Evolve</h3>
+    </a>
+    <a href="obi.html" class="suggested-item">
+      <div class="thumb"><video src="../assets/work/obi.mp4" poster="../assets/work/obi-poster.jpg" autoplay loop muted playsinline></video></div>
+      <div class="eyebrow">Fragrance</div>
+      <h3>OBI Perfumeria</h3>
+    </a>
+    <a href="../cantilever/" target="_blank" class="suggested-item">
+      <div class="thumb"><video src="../assets/work/cantilever.mp4" poster="../assets/work/cantilever-poster.jpg" autoplay loop muted playsinline></video></div>
+      <div class="eyebrow">Concept — Architecture</div>
+      <h3>Cantilever</h3>
+    </a>
+  </div>
+</section>
+
+<script>
+// Event posters flip like magazine pages
+(function () {
+  var mag = document.querySelector('[data-mag]'); if (!mag) return;
+  var imgs = [].slice.call(mag.querySelectorAll('img')), n = imgs.length, cur = 0, busy = false, timer;
+  var layout = function () { imgs.forEach(function (im, i) { im.dataset.pos = String((i - cur + n) % n); }); };
+  var next = function () {
+    if (busy) return; busy = true; var top = imgs[cur]; top.dataset.pos = 'out';
+    setTimeout(function () { top.classList.add('no-anim'); cur = (cur + 1) % n; layout(); busy = false; setTimeout(function () { top.classList.remove('no-anim'); }, 40); }, 650);
+  };
+  var run = function () { clearInterval(timer); if (!matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setInterval(next, 4000); };
+  mag.addEventListener('click', function () { next(); run(); });
+  layout(); run();
+})();
+</script>
+</body>
+</html>
